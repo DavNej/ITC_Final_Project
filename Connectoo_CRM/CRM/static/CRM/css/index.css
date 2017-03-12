@@ -1,0 +1,41 @@
+body {
+                margin: 40px 10px;
+                padding: 0;
+                font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+                font-size: 14px;
+
+            }
+            
+            #calendar {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+#cn-pageContent{
+    min-height: 1000px !important;
+}
+
+.timeline-body-title {
+    color:green !important;
+}
+.cn-report{
+    color:#23527c;
+}
+.row.cn-dashboard{
+    margin-bottom: -56px!important;
+}
+.cn-btnOne{
+    background-color: #11823c !important;
+    color:#eeb31b !important;
+    border-color:#23527c !important;
+    margin-left:20px !important;
+
+}
+
+.btn.btn-outline.red:hover {
+    color: #11823c !important;
+    background-color: #eeb31b !important;
+    border-color: #23527c !important;
+}
+
+
+

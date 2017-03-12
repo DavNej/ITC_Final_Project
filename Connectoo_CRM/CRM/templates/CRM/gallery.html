@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Gallery {% endblock%}
+
+{% block css %}
+{% comment %}<link href="../../static/album/css/gallery.css" rel="stylesheet" type="text/css" />{% endcomment %}
+{% endblock%}
+
+{% block section %}
+Gallery
+{% endblock%}
+
+{% block page-title %}
+Photos of %name% <small>Relive your favorite photos anytime</small>
+{% endblock%}
+
+
+{% block content %}
+        <div class="portfolio-content portfolio-3">
+            <div class="clearfix">
+                <div id="js-filters-lightbox-gallery1" class="cbp-l-filters-dropdown cbp-l-filters-dropdown-floated">
+                    <div class="cbp-l-filters-dropdownWrap border-grey-salsa">
+                        <div class="cbp-l-filters-dropdownHeader uppercase">Sort by</div>
+                        <div class="cbp-l-filters-dropdownList">
+                            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item uppercase"> All (
+                                <div class="cbp-filter-counter"></div> items) </div>
+                            <div data-filter=".identity" class="cbp-filter-item uppercase"> Date (
+                                <div class="cbp-filter-counter"></div> items) </div>
+                            <div data-filter=".print" class="cbp-filter-item uppercase"> School Event (
+                                <div class="cbp-filter-counter"></div> items) </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--THE GALLERY BEGIN HERE -->
+            <div id="js-grid-lightbox-gallery" class="cbp">
+
+                {% for p in pictures %}
+
+                <div class="cbp-item web-design graphic print motion">
+                    <a href="#" class="cbp-caption cbp-singlePageInline" data-title="World Clock Widget<br>by Paul Flavius Nechita" rel="nofollow">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="../../../media/{{ p.image }}">
+                            <!--<span>test</span>-->
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">{{ p.event }}</div>
+                                    <div class="cbp-l-caption-desc">{{ p.date.date }}</div>
+                                    <button class="btn sbold green add card"> Add to card </button>
+                                    <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                                    
+                {% endfor %}
+            <!--THE GALLERY ENDS HERE -->
+        </div>
+{% endblock%}
+
+{%block javascript%}
+<script src="../../static/album/js/gallery.js" type="text/javascript"></script>
+{% endblock%}

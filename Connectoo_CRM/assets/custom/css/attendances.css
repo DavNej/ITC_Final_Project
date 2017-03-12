@@ -1,0 +1,76 @@
+
+/*Status color*/
+.label.label-sm.label-default.checkin{
+	background-color: #3598dc;
+}
+.label.label-sm.label-success/checkout{
+
+	background-color:#36c6d3;	
+}
+.label.label-sm.label-warning.late{
+	background-color: #f4d03f;
+}
+
+.label.label-sm.label-not-arrive.not{
+	background-color: #e7505a;
+}
+
+/*Dashboard stat colors*/
+.dashboard-stat.blue.checkin{
+	background-color: #3598dc;
+}
+.dashboard-stat.red.checkout{
+	background-color:#36c6d3;
+}
+.dashboard-stat.green.late{
+	background-color: #f4d03f;
+}
+.dashboard-stat.purple.doesnot{
+	background-color: #e7505a;
+}
+.table-checkable tr>td:first-child, .table-checkable tr>th:first-child{
+	max-width: 114px;
+}
+.edit.delete{
+	padding-top: 12px;
+}
+/*/*Button to edit the status*/
+.check-in {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    line-height:15px;
+    border: 1px solid black;
+    border-radius: 50px !important;
+    background: #3598dc;
+}
+.check-out {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    line-height:15px;
+    border: 1px solid black;
+    border-radius: 50px !important;
+    background: #36c6d3;
+}
+.latearrival {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    line-height:15px;
+    border: 1px solid black;
+    border-radius: 50px !important;
+    background: #f4d03f;
+}
+.notarrive {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    line-height:15px;
+    border: 1px solid black;
+    border-radius: 50px !important;
+    background: #e7505a;
+}
+.button:hover {
+    background: white;
+}
