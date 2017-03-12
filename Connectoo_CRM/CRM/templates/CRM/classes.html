@@ -11,7 +11,7 @@ Schools
 {% endblock%}
 
 {% block page-title %}
-Classes <!--<small>of school in your area</small>-->
+Classes of {% for s in school %}{{s.name}}{% endfor %}
 {% endblock%}
 
 
@@ -23,13 +23,16 @@ Classes <!--<small>of school in your area</small>-->
         <div class="row">
         {% endif %}
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                {% for s in school %}
+                <a href="{% url 'children_per_class' s.id c.id %}">
                 <div class="portlet light portlet-fit bordered">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class=" icon-layers font-green"></i>
-                            <span class="caption-subject font-green bold uppercase">{{c.k_garden_id}}</span>
-                            <div class="caption-desc font-grey-cascade">{{c.name}}</div>
+                            <span class="caption-subject font-green bold uppercase">{{c.name}}</span>
+                            <div class="caption-desc font-grey-cascade">{{s.name}}</div>
                         </div>
+                        {% endfor %}
                     </div>
                     <div class="portlet-body">
                         <div class="mt-element-overlay">
@@ -43,6 +46,7 @@ Classes <!--<small>of school in your area</small>-->
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         {% endfor %}
     </div>

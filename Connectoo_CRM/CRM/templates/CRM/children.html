@@ -1,11 +1,26 @@
-{% extends "base.html" %} {% block title %} Children {% endblock%} {% block css %}
+{% extends "base.html" %}
+
+{% block title %}
+Children
+{% endblock%}
+
+{% block css %}
 <style>
     .mt-card-item .mt-card-avatar.mt-overlay-1 img {
         height: 150px;
     }
 </style>
-<!--<link href="../css/gallery.css" rel="stylesheet" type="text/css" />-->
-{% endblock%} {% block section %} Children {% endblock%} {% block page-title %} Children <small>in {{class.name}} of {{school.name}}</small> {% endblock%} {% block content %}
+{% endblock%}
+
+{% block section %}
+Children
+{% endblock%}
+
+{% block page-title %}
+Children of {{ group }} in {{ school }}
+{% endblock%}
+
+{% block content %}
 <!-- BEGIN : USER CARDS -->
 
 <div class="row">
@@ -14,7 +29,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class=" icon-layers font-green"></i>
-                    <span class="caption-subject font-green bold uppercase">{{class.name}}</span>
+                    <span class="caption-subject font-green bold uppercase">{{group}}</span>
                 </div>
             </div>
             <!-- First Row -->
@@ -22,12 +37,11 @@
                 <div class="mt-element-card mt-element-overlay">
                     <div class="row">
 
-
                         {% for c in children %}
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="mt-card-item">
                                 <div class="mt-card-avatar mt-overlay-1">
-                                    <img src="../../../media/{{ c.image }}">
+                                    <img src="https://connectoo.co.il/uploads/profile_pics/{{c.id}}/square/data.jpg">
                                     <div class="mt-overlay">
                                         <ul class="mt-info">
                                             <li>
@@ -45,7 +59,7 @@
                                 </div>
                                 <div class="mt-card-content">
                                     <h3 class="mt-card-name">{{c.first_name}}</h3>
-                                    <p class="mt-card-desc font-grey-mint">{{c.class}}</p>
+                                    <p class="mt-card-desc font-grey-mint">{{c.bdate}}</p>
                                     <p class="mt-card-desc font-grey-mint">{{c.contact}}</p>
                                 </div>
                             </div>

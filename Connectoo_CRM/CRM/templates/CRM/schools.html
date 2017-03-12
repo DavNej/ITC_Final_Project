@@ -2,46 +2,75 @@
 
 {% block title %} Schools {% endblock%}
 
-{% block css %}
-    <link href="../css/gallery.css" rel="stylesheet" type="text/css" />
-{% endblock%}
-
 {% block section %}
 Schools
 {% endblock%}
 
 {% block page-title %}
-Schools <small>All schools in your area</small>
+Schools
 {% endblock%}
 
 
 {% block content %}
-
-                {% for s in schools %}
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="portlet light portlet-fit bordered">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <i class=" icon-layers font-green"></i>
-                                    <span class="caption-subject font-green bold uppercase">{{s.name}}</span>
-                                    <div class="caption-desc font-grey-cascade">{{s.city}}</div>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <div class="mt-element-overlay">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="mt-overlay-1">
-                                                <img src="../../../media/{{ s.image }}">
-                                            </div>
-                                        </div>
-                                    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <a href="{% url 'classes_per_school' example.id %}">
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class=" icon-layers font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">{{example.name}}</span>
+                        <div class="caption-desc font-grey-cascade">{{example.street}}</div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="mt-element-overlay">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-overlay-1">
+                                    <img src="../../../media/{{ example.id }}">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+                </div>
+            </div>
+            </a>
+        </div>
+        {% for s in schools %}
+        {% if forloop.counter|divisibleby:'4' %}
+        </div>
+        <div class="row">
+        {% endif %}
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <a href="{% url 'classes_per_school' s.id %}">
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class=" icon-layers font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">{{s.name}}</span>
+                        <div class="caption-desc font-grey-cascade">{{s.street}}</div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="mt-element-overlay">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-overlay-1">
+                                    <img src="../../../media/{{ s.city }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
                   
 {% endblock%}
 
