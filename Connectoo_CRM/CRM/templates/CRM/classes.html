@@ -16,33 +16,36 @@ Classes <!--<small>of school in your area</small>-->
 
 
 {% block content %}
-
-                {% for c in classes %}
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="portlet light portlet-fit bordered">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <i class=" icon-layers font-green"></i>
-                                    <span class="caption-subject font-green bold uppercase">{{c.school}}</span>
-                                    <div class="caption-desc font-grey-cascade">{{c.teacher}}</div>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <div class="mt-element-overlay">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="mt-overlay-1">
-                                                <img src="../../../media/?????">
-                                            </div>
-                                        </div>
+    <div class="row">
+        {% for c in classes %}
+        {% if forloop.counter0|divisibleby:'4' %}
+        </div>
+        <div class="row">
+        {% endif %}
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class=" icon-layers font-green"></i>
+                            <span class="caption-subject font-green bold uppercase">{{c.k_garden_id}}</span>
+                            <div class="caption-desc font-grey-cascade">{{c.name}}</div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="mt-element-overlay">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mt-overlay-1">
+                                        <img src="../../../media/?????">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
-                  
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock%}
 
 {%block javascript%}

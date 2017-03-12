@@ -15,11 +15,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+{% comment %}<html lang="en">{% endcomment %}
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 
+<html lang="en">
+
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8" />
     <title>Connectoo | {%block title%}{%endblock%}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -423,7 +426,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="page-sidebar-wrapper">
             <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
             <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-            <div class="page-sidebar navbar-collapse collapse">
+            <div style="position: fixed" class="page-sidebar navbar-collapse collapse">
                 <!-- BEGIN SIDEBAR MENU -->
                 <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
                 <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -509,7 +512,7 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END SIDEBAR -->
         <!-- BEGIN CONTENT -->
-        <div class="page-content-wrapper">
+        <div class="page-content-wrapper" style="overflow: scroll">
             <!-- BEGIN CONTENT BODY -->
             <div class="page-content" id="cn-pageContent">
 
@@ -539,7 +542,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     CONTENT OF THE BODY IS HERE
                     ***************************-->
 
-                {% block content %} {% endblock%}
+                {% block content %}
+                {% endblock%}
 
                 <!-- END CONTENT BODY -->
             </div>

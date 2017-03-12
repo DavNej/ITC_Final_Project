@@ -22,11 +22,13 @@ def schools(request):
     return render(request, 'CRM/schools.html')#, {'schools': schools})
 
 def classes(request):
-    # classes = Grade.objects.order_by('school')
-    return render(request, 'CRM/classes.html')#, {'classes': classes})
+
+    classes = Groups.objects.order_by('k_garden_id')
+    return render(request, 'CRM/classes.html', {'classes': classes})
 
 def children(request):
-    # children = Child.objects.order_by('first_name')
+
+    children = Child.objects.order_by('first_name')
     return render(request, 'CRM/children.html')#, {'children': children})
 
 def reports(request):
