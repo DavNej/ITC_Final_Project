@@ -2,11 +2,8 @@
 
 {% load staticfiles %}
 
-{% block title %} Attendance {% endblock%}
+{% block title %} Schools Views{% endblock%}
 
-{% block css %}
-    <link href="{% static '/custom/css/attendances.css'%}" rel="stylesheet" type="text/css" />
-{% endblock%}
 
 {% block section %}
 Schools
@@ -18,7 +15,6 @@ Schools <small> {{school.name}}</small>
 
 
 {% block content %}
-
 
 <!--<div class="row">
     <div class="col-md-6 col-sm-6">
@@ -43,81 +39,70 @@ Schools <small> {{school.name}}</small>
 </div>-->
 
 <div class="portlet-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th>School</th>
-                                                <th>Address</th>
-                                                <th>Telephone</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <!-- The Schema begin here -->
-                                            <!-- Person One  -->
-                                            <tr class="odd gradeX">
-                                                <td>%name%</td>
-                                                <td class="center">%street% </td>
-                                                <td>%phone%</td>
-                                            </tr>
-                                            <!-- Person Two -->
-                                            <tr class="odd gradeX">
-                                                <td>%name%</td>
-                                                <td class="center">%street% </td>
-                                                <td>%phone%</td>
-                                            </tr>
-
-                                            <!-- Person 3 -->
-                                            <tr class="odd gradeX">
-                                                <td>%name%</td>
-                                                <td class="center">%street% </td>
-                                                <td>%phone%</td>
-                                            </tr>
-                                            <!-- Person 4 -->
-                                            <tr class="odd gradeX">
-                                                <td>%name%</td>
-                                                <td class="center">%street% </td>
-                                                <td>%phone%</td>
-                                            </tr>
-                                            <!-- Person One  -->
-                                            <tr class="odd gradeX">
-                                                <td>%name%</td>
-                                                <td class="center">%street% </td>
-                                                <td>%phone%</td>
-                                            </tr>
-                                            <!-- Person Two -->
-                                            <tr class="odd gradeX">
-                                                <td>%name%</td>
-                                                <td class="center">%street% </td>
-                                                <td>%phone%</td>
-                                            </tr>
-                                            <!-- Person 3 -->
-                                            <tr class="odd gradeX">
-                                                <td>%name%</td>
-                                                <td class="center">%street% </td>
-                                                <td>%phone%</td>
-                                            </tr>
-                                            <!-- Person 4 -->
-
-                                            <!-- Person One  -->
-
-                                            <!-- Person Two -->
-
-                                            <!-- Person 3 -->
-
-
-                                            <!-- Person 4 -->
-
-                                        </tbody>
-                                    </table>
-                                    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>School</th>
+                <th>Address</th>
+                <th>Telephone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- The Schema begin here -->
+            <!-- Person One  -->
+            <tr>
+                <td>%name%</td>
+                <td>%street% </td>
+                <td>%phone%</td>
+            </tr>
+            <!-- Person Two -->
+            <tr>
+                <td>%name%</td>
+                <td>%street% </td>
+                <td>%phone%</td>
+            </tr>
+            <!-- Person 3 -->
+            <tr>
+                <td>%name%</td>
+                <td>%street% </td>
+                <td>%phone%</td>
+            </tr>
+            <!-- Person 4 -->
+            <tr>
+                <td>%name%</td>
+                <td>%street% </td>
+                <td>%phone%</td>
+            </tr>
+            <!-- Person One  -->
+            <tr>
+                <td>%name%</td>
+                <td>%street% </td>
+                <td>%phone%</td>
+            </tr>
+            <!-- Person Two -->
+            <tr>
+                <td>%name%</td>
+                <td>%street% </td>
+                <td>%phone%</td>
+            </tr>
+            <!-- Person 3 -->
+            <tr>
+                <td>%name%</td>
+                <td>%street% </td>
+                <td>%phone%</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
 {%endblock%}
 
 {%block javascript_attendances%}
+    <script src="{% static '/assets/global/scripts/app.min.js' %}" type="text/javascript"></script>
     <script src="{% static '/pages/scripts/table-datatables-managed.min.js' %}" type="text/javascript"></script>
 {%endblock%}
+
 
