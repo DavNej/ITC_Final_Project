@@ -69,6 +69,9 @@ def attendances(request):
     # staff = Staff.objects.order_by('first_name')
     return render(request, 'CRM/attendances.html')#, {'staff': staff})
 
-def contactPerson(request):
+def contacts(request):
     # staff = Staff.objects.order_by('first_name')
     return render(request, 'CRM/contactPerson.html')#, {'staff': staff})
+
+def childProfileTemplate(request):
+    return render(request,'CRM/childProfileTemplate.html')

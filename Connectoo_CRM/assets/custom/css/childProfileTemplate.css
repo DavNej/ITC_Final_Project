@@ -1,0 +1,46 @@
+
+.portlet.light.profile-sidebar-portlet.childrenProfile{
+	width:92%;
+}
+.profile-sidebar.childProfile{
+	margin-right: 0;
+	width:200px;
+}
+.btn.sbold.green.addInfo{
+	background-color: #11823c;
+    border-color: #eeb31b;
+
+}
+.caption-subject.font-blue-madison.bold.uppercase.childInfo{
+	color: black !important;
+    }
+
+.label.label-sm.label-default.checkin{
+	background-color: #3598dc;
+}
+
+.btn.btn-circle.green.btn-sm.classNumber{
+	 background-color: #11823c;
+    border-color: #eeb31b;
+}
+
+.btn.btn-circle.red.btn-sm.schoolName{
+	background-color: #eeb31b;
+    border-color: #11823c;
+}
+
+.btn-reports{
+	background-color: white;
+    border-color: #11823c;
+    color:#5a7391;
+}
+
+.profile-usermenu ul li.active a {
+    background-color: white;
+    border-color: #11823c;
+    color:#5a7391;
+}
+.profile-usermenu ul li a:hover {
+    background-color: #eeb31b;
+    color: white;
+}
