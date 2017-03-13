@@ -18,8 +18,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CRM/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="91" column="51" lean-forward="false" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
+            <state relative-caret-position="273">
+              <caret line="82" column="7" lean-forward="false" selection-start-line="76" selection-start-column="6" selection-end-line="82" selection-end-column="7" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -27,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CRM/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -39,11 +39,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contactPerson.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="attendances.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/attendances.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3594">
+              <caret line="103" column="3" lean-forward="true" selection-start-line="103" selection-start-column="3" selection-end-line="103" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schools_view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/schools_view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contactPerson.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/contactPerson.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="105" column="12" lean-forward="false" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
+            <state relative-caret-position="291">
+              <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -118,6 +138,8 @@
       <find>dataTa</find>
       <find>children p</find>
       <find>conta</find>
+      <find>k</find>
+      <find>k_garde</find>
       <find>portlet light profile-sidebar-portlet childrenProfile</find>
       <find>contax</find>
     </findStrings>
@@ -136,9 +158,10 @@
         <option value="$PROJECT_DIR$/assets/custom/css/childProfileTemplate.css" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/children.html" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/childProfileTemplate.html" />
-        <option value="$PROJECT_DIR$/CRM/templates/CRM/contactPerson.html" />
-        <option value="$PROJECT_DIR$/CRM/views.py" />
         <option value="$PROJECT_DIR$/CRM/urls.py" />
+        <option value="$PROJECT_DIR$/CRM/templates/CRM/schools_view.html" />
+        <option value="$PROJECT_DIR$/CRM/views.py" />
+        <option value="$PROJECT_DIR$/CRM/templates/CRM/contactPerson.html" />
       </list>
     </option>
   </component>
@@ -911,14 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/attendances.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="365" column="0" lean-forward="true" selection-start-line="358" selection-start-column="0" selection-end-line="365" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/schools.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -977,21 +992,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/contactPerson.html">
+    <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/attendances.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="105" column="12" lean-forward="false" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
+        <state relative-caret-position="-3594">
+          <caret line="103" column="3" lean-forward="true" selection-start-line="103" selection-start-column="3" selection-end-line="103" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CRM/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="91" column="51" lean-forward="false" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1002,6 +1007,32 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/schools_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CRM/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="82" column="7" lean-forward="false" selection-start-line="76" selection-start-column="6" selection-end-line="82" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/contactPerson.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
