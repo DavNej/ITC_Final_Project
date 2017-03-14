@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^reports/$', reports, name='reports'),
     url(r'^staff/$', staff, name='staff'),
     url(r'^attendances/$', attendances, name='attendances'),
-    url(r'^contactPerson/$', contactPerson, name='contactPerson'),
+    url(r'^contacts/$', contacts, name='contacts'),
+    url(r'^childProfileTemplate/$',childProfileTemplate, name='childProfileTemplate'),
+    url(r'^schools_view/$', schools_view, name='schools_view'),
 ]

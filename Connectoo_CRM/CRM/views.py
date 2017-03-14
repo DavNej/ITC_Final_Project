@@ -67,6 +67,27 @@ def attendances(request):
     # staff = Staff.objects.order_by('first_name')
     return render(request, 'CRM/attendances.html')#, {'staff': staff})
 
-def contactPerson(request):
+def contacts(request):
     # staff = Staff.objects.order_by('first_name')
+    # school = KGardens.objects.get(id=k_garden_id)
+    # group = Groups.objects.get(id=group_id)
+    # children = Kids.objects.filter(group_id=group_id)
+    # contacts = Contacts.objects.filter(kid_id=kid_id)
+   #group = Groups.objects.get(id=group_id)
+    #children = Kids.objects.filter(group_id=group_id)
+    #contacts = Contacts.objects.filter(kid_id=kid_id)
+    # context = {
+    #     'school': school.name,
+    #     'group': group.name,
+    #     'children': children,
+    #     'contacts': contacts,
+    #
+    # }
     return render(request, 'CRM/contactPerson.html')#, {'staff': staff})
+
+def childProfileTemplate(request):
+    return render(request,'CRM/childProfileTemplate.html')
+
+def schools_view(request):
+
+    return render(request, 'CRM/schools_view.html')

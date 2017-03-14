@@ -36,6 +36,7 @@ Attendances <small>of {{school.name}}</small>
 
 
 {% block content %}
+
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -85,7 +86,7 @@ Attendances <small>of {{school.name}}</small>
                             <i class="fa fa-globe"></i>
                         </div>
                         <div class="details">
-                            <div class="number"> 
+                            <div class="number">
                                 <span data-counter="counterup" data-value="12">%total_not_in%</span></div>
                             <div class="desc">Does not arrive</div>
                         </div>
@@ -356,12 +357,15 @@ Attendances <small>of {{school.name}}</small>
 <script src="{% static '/global/plugins/datatables/datatables.min.js'%}" type="text/javascript"></script>
 <script src="{% static '/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js'%}" type="text/javascript"></script>
 {%endblock%}
+
 {%block THEME_GLOBAL_SCRIPTS%}
 <script src="{% static '/global/scripts/app.min.js'%}" type="text/javascript"></script>
 {%endblock%}
+
 {%block PAGE_LEVEL_SCRIPTS%}
 <script src="{% static '/pages/scripts/table-datatables-managed.min.js'%}" type="text/javascript"></script>
 {%endblock%}
+
 {%block THEME_LAYOUT_SCRIPTS%}
 <script src="{% static '/layouts/layout/scripts/layout.min.js'%}" type="text/javascript"></script>
 <script src="{% static '/layouts/layout/scripts/demo.min.js'%}" type="text/javascript"></script>
