@@ -1,4 +1,3 @@
-console.log("here in js ?");
 var Dashboard = function() {
 
     return {
@@ -1346,8 +1345,5 @@ var Dashboard = function() {
 if (App.isAngularJsApp() === false) {
     jQuery(document).ready(function() {
         Dashboard.init();
-        console.log("in");// init metronic core componets
     });
 }
-
-console.log("in 3");

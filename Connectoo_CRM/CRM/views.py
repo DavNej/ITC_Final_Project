@@ -3,15 +3,15 @@ from django.template import loader
 from .models import *
 
 def index(request):
-    # school = School.objects.order_by('name')
-    # grade_list = Grade.objects.order_by('teacher')
-    # children = Child.objects.order_by('last_name')
-    # context = {
-    # 'grade_list': grade_list,
-    # 'children': children,
-    # 'school': school,
-    # }
-    return render(request, 'CRM/index.html')#, context)
+    school = KGardens.objects.order_by('name')
+    group = Groups.objects.order_by('name')
+    children = Kids.objects.order_by('last_name')
+    context = {
+    'group': group,
+    'children': children,
+    'school': school,
+    }
+    return render(request, 'CRM/index.html', context)
 
 def gallery(request):
     # pictures = Picture.objects.order_by('event')
@@ -89,5 +89,4 @@ def child_profile(request):
     return render(request,'CRM/child_profile.html')
 
 def schools_view(request):
-
     return render(request, 'CRM/schools_view.html')
