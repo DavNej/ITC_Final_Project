@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CRM',
+    'Accounts',
 ]
 
 MIDDLEWARE = [
@@ -84,13 +85,6 @@ DATABASES = {
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'OPTIONS': {
-            # 'sql_mode': 'TRADITIONAL',
-            'charset': 'utf8',
-            # 'init_command': 'SET '
-                # 'storage_engine=INNODB,'
-                # 'character_set_connection=utf8,'
-                # 'collation_connection=utf8_bin'
         } 
     }
 }
@@ -137,6 +131,8 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = '/login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
