@@ -83,11 +83,11 @@ def contacts(request):
     #     'contacts': contacts,
     #
     # }
-    return render(request, 'CRM/contactPerson.html')#, {'staff': staff})
+    return render(request, 'CRM/contacts.html')#, {'staff': staff})
 
 def child_profile(request):
     return render(request,'CRM/child_profile.html')
 
-def schools_view(request):
+def schools_table(request):
 
-    return render(request, 'CRM/schools_view.html')
+    return render(request, 'CRM/schools_table.html')
