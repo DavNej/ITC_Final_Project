@@ -13,6 +13,6 @@ urlpatterns = [
     url(r'^staff/$', staff, name='staff'),
     url(r'^attendances/$', attendances, name='attendances'),
     url(r'^contacts/$', contacts, name='contacts'),
-    url(r'^childProfileTemplate/$',childProfileTemplate, name='childProfileTemplate'),
+    url(r'^child_profile/$',child_profile, name='child_profile'),
     url(r'^schools_view/$', schools_view, name='schools_view'),
 ]

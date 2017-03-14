@@ -85,8 +85,8 @@ def contacts(request):
     # }
     return render(request, 'CRM/contactPerson.html')#, {'staff': staff})
 
-def childProfileTemplate(request):
-    return render(request,'CRM/childProfileTemplate.html')
+def child_profile(request):
+    return render(request,'CRM/child_profile.html')
 
 def schools_view(request):
 
