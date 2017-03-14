@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %}Child Profile{% endblock%}
+{% block title %}Child Profile Reports{% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 {%block PAGE_LEVEL_CSS_PLUGINS%}
@@ -29,7 +29,7 @@
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block section %}
-Child Profile
+Child Profile Reports
 {% endblock%}
 
 {% block page-title %}
@@ -102,37 +102,35 @@ Profile of {{kid.name}}
                             <div class="portlet-title tabbable-line">
                                 <div class="caption caption-md">
                                     <i class="icon-globe theme-font hide"></i>
-                                    <span class="caption-subject font-blue-madison bold uppercase childInfo">Details</span>
+                                    <span class="caption-subject font-blue-madison bold uppercase childInfo">Attendance</span>
                                 </div>
                             </div>
                         </div>
-                        
+
                        <div class="portlet-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th class="family">Name</th>
-                                            <th>First Name </th>
-                                            <th>gender</th>
-                                            <th>Age</th>
-                                            <th>Attendance</th>
-                                            <th>Class</th>
-                                            <th>School</th>
+                                            <th>Date</th>
+                                            <th>Arrived</th>
+                                            <th>Left</th>
+                                            <th>Notes</th>
+                                            <th>Status</th>
+                                            <th> Edit </th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr class="odd gradeX">
-                                            <td>%name.id%</td>
-                                            <td>%name%</td>
-                                            <td>%first_name%</td>
-                                            <td>%gender%</td>
-                                            <td>%age%</td>
-                                            <td>%class%</td>
-                                            <td>%school%</td>
-                                            <td><span class="label label-sm label-default checkin"> Check in </span></td>
+                                            <td>Date.id</td>
+                                            <td>%date%</td>
+                                            <td>%hour%</td>
+                                            <td>%hour%</td>
+                                            <td>Notes</td>
+                                            <td>Check in</td>
+                                            <td><a class="edit" href="javascript:;">Edit</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -142,7 +140,7 @@ Profile of {{kid.name}}
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Parent information</span>
+                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Missing Items</span>
                             </div>
                         </div>
 
@@ -153,39 +151,34 @@ Profile of {{kid.name}}
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Phone number</th>
-                                            <th>Mail</th>
-                                            <th>Adress</th>
-                                            <th>city</th>
+                                            <th>Date</th>
+                                            <th>Type</th>
+                                            <th>Quantity</th>
+                                            <th>Notes</th>
+                                            <th> Edit </th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="odd gradeX">
-                                            <td>name.id</td>
-                                            <td>%name%</td>
-                                            <td>%000-000-00-00%</td>
-                                            <td><a href="mailto:valentineg@gmail.com">%contact%</a></td>
-                                            <td class="center">%Adress% </td>
-                                            <td>%city%</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td>%name%</td>
-                                            <td>%000-000-00-00%</td>
-                                            <td> <a href="mailto:valentineg@gmail.com">%contact%</a></td>
-                                            <td class="center">%Adress% </td>
-                                            <td>%city%</td>
+                                             <td>Date.id</td>
+                                            <td>%date%</td>
+                                            <td>%Diapers%</td>
+                                            <td>%12 packs%</td>
+                                            <td>Hippoallergic</td>
+                                            <td><a class="edit" href="javascript:;">Edit</a></td>
+                                            <td><a class="edit" href="javascript:;">Delete</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-                        
+
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Other information</span>
+                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Food</span>
                             </div>
                         </div>
 
@@ -195,22 +188,103 @@ Profile of {{kid.name}}
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Sensivity</th>
-                                            <th>Medical treatment</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Main Dish</th>
+                                            <th>Side Dish</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="odd gradeX">
-                                            <td>sensivity.id</td>
-                                            <td>%sensivity</td>
-                                            <td class="center">%medical%</td>
+                                            <td>Date.id</td>
+                                            <td>%date%</td>
+                                            <td>%hour%</td>
+                                            <td>salads</td>
+                                            <td>fish</td>
+                                            <td><a class="edit" href="javascript:;">Edit</a></td>
+                                            <td><a class="edit" href="javascript:;">Delete</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                </div>
-                </div>
+
+
+                <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Diaper change</span>
+                            </div>
+                        </div>
+
+                       <div class="portlet-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Last Changed</th>
+                                            <th> Daily Changes</th>
+                                            <th>Comments </th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>Date.id</td>
+                                            <td>%date%</td>
+                                            <td>%hour%</td>
+                                            <td>3</td>
+                                            <td>Green Poop</td>
+                                            <td><a class="edit" href="javascript:;">Edit</a></td>
+                                            <td><a class="edit" href="javascript:;">Delete</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Daily naps</span>
+                            </div>
+                        </div>
+
+                       <div class="portlet-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Fell asleep </th>
+                                            <th> Woke up</th>
+                                            <th>Total </th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>Date.id</td>
+                                            <td>%date%</td>
+                                            <td>%hour%</td>
+                                             <td>%hour%</td>
+                                            <td>total hour</td>
+                                            <td><a class="edit" href="javascript:;">Edit</a></td>
+                                            <td><a class="edit" href="javascript:;">Delete</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
 
             </div>
         </div>
