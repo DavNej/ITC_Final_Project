@@ -28,8 +28,10 @@ class Agendas(models.Model):
     will_be_absent_until = models.DateField(blank=True, null=True)
 
     class Meta:
-
         db_table = 'agendas'
+    
+    def __str__(self):
+        return self.comment
 
 
 class Attachments(models.Model):
@@ -405,6 +407,8 @@ class Kids(models.Model):
     class Meta:
         db_table = 'kids'
 
+    def __str__(self):
+        return self.first_name
 
 class KindPoops(models.Model):
     kid_id = models.IntegerField(blank=True, null=True)

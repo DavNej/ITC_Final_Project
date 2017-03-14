@@ -11,7 +11,10 @@ def index(request):
     # 'children': children,
     # 'school': school,
     # }
-    return render(request, 'CRM/index.html')#, context)
+    # t = Agendas.objects.get(is_awake=1)
+
+    return render(request, 'CRM/index.html')
+    # {'t':t})
 
 def gallery(request):
     # pictures = Picture.objects.order_by('event')
@@ -26,7 +29,7 @@ def classes(request):
     return render(request, 'CRM/classes.html')#, {'classes': classes})
 
 def children(request):
-    # children = Child.objects.order_by('first_name')
+    children = Kids.objects.order_by('first_name')
     return render(request, 'CRM/children.html')#, {'children': children})
 
 def reports(request):
