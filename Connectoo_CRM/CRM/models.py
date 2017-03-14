@@ -405,7 +405,7 @@ class Groups(models.Model):
     k_garden = models.ForeignKey('KGardens', models.DO_NOTHING, blank=True, null=True)
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
-    group_type_id = models.IntegerField(blank=True, null=True)
+    group_type = models.ForeignKey(GroupTypes, models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -767,7 +767,7 @@ class Users(models.Model):
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
     k_garden_id = models.IntegerField(blank=True, null=True)
-    profile_id = models.IntegerField(blank=True, null=True)
+    profile = models.ForeignKey(Profiles, models.DO_NOTHING, blank=True, null=True)
     device_id = models.CharField(max_length=255, blank=True, null=True)
     is_android = models.IntegerField()
     confirmation_token = models.CharField(unique=True, max_length=255, blank=True, null=True)

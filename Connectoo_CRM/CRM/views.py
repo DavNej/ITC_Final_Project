@@ -13,6 +13,40 @@ def index(request):
     }
     return render(request, 'CRM/index.html', context)
 
+def schools_table(request):
+    schools = KGardens.objects.order_by('name')
+    context = {
+        'schools':schools
+    }
+    return render(request, 'CRM/schools_table.html', context)
+
+def classes_table(request):
+    classes = Groups.objects.order_by('k_garden')
+    context = {
+        'classes':classes
+    }
+    return render(request, 'CRM/classes_table.html', context)
+
+def classes_per_school(request, k_garden_id):
+    school = KGardens.objects.get(id = k_garden_id)
+    classes = Groups.objects.filter(k_garden_id = k_garden_id)
+    context = {
+        'classes': classes,
+        'school': school,
+    }
+    return render(request, 'CRM/classes.html', context)
+
+def children_per_class(request, group_id):
+    group = Groups.objects.get(id = group_id)
+    children = Kids.objects.filter(group_id = group_id)
+    context = {
+        'group': group,
+        'children': children,
+    }
+    return render(request, 'CRM/children.html', context)
+
+###################################################################
+
 def gallery(request):
     # pictures = Picture.objects.order_by('event')
     return render(request, 'CRM/gallery.html')#, {'pictures': pictures})
@@ -26,34 +60,12 @@ def schools(request):
     }
     return render(request, 'CRM/schools.html', context)
 
-def classes(request):
-    classes = Groups.objects.order_by('k_garden_id')
-    return render(request, 'CRM/classes.html', {'classes': classes})
 
-def classes_per_school(request, k_garden_id):
-    school = KGardens.objects.get(id = k_garden_id)
-    classes = Groups.objects.filter(k_garden_id = k_garden_id)
-    context = {
-        'classes': classes,
-        'school': school,
-    }
-    return render(request, 'CRM/classes.html', context)
 
 def children(request):
-
     children = Kids.objects.all()
     return render(request, 'CRM/children.html', {'children': children})
 
-def children_per_class(request, k_garden_id, group_id):
-    school = KGardens.objects.get(id = k_garden_id)
-    group = Groups.objects.get(id = group_id)
-    children = Kids.objects.filter(group_id = group_id)
-    context = {
-        'school': school.name,
-        'group': group.name,
-        'children': children,
-    }
-    return render(request, 'CRM/children.html', context)
 
 def reports(request):
     # children = Child.objects.order_by('last_name')
@@ -86,14 +98,9 @@ def contacts(request):
     }
     return render(request, 'CRM/contacts.html', context)
 
-def child_profile(request):
-    return render(request,'CRM/child_profile.html')
-
-def schools_view(request):
-    return render(request, 'CRM/schools_view.html')
-
-def schools_table(request):
-    return render(request, 'CRM/schools_table.html')
+def child_profile(request, kid_id):
+    kid = Kids.objects.get(id = kid_id)
+    return render(request,'CRM/child_profile.html', {'kid': kid})
 
 def staff_table(request):
     return render(request, 'CRM/staff_table.html')

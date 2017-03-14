@@ -28,7 +28,7 @@ Children
 {% endblock%}
 
 {% block page-title %}
-Children of {{ group }} in {{ school }}
+Children of {{ group.name }} in {{ group.k_garden.name }}
 {% endblock%}
 
 {% block content %}
@@ -39,7 +39,7 @@ Children of {{ group }} in {{ school }}
             <div class="portlet-title">
                 <div class="caption">
                     <i class=" icon-layers font-green"></i>
-                    <span class="caption-subject font-green bold uppercase">{{group}}</span>
+                    <span class="caption-subject font-green bold uppercase">{{group.name}}</span>
                 </div>
             </div>
             <!-- Display children -->
@@ -54,12 +54,12 @@ Children of {{ group }} in {{ school }}
                                     <div class="mt-overlay">
                                         <ul class="mt-info">
                                             <li>
-                                                <a class="btn default btn-outline" href="/childprofile" title="see Data">
-                                                    <i class="icon-bar-chart"></i>
+                                                <a class="btn default btn-outline" href="{% url 'child_profile' c.id %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="btn default btn-outline" href="javascript:;" title="go to photos">
+                                                <a class="btn default btn-outline" href="#" title="go to photos">
                                                     <i class="icon-camera"></i>
                                                 </a>
                                             </li>
