@@ -95,3 +95,15 @@ def schools_view(request):
 def schools_table(request):
     return render(request, 'CRM/schools_table.html')
 
+def staff_table(request):
+    return render(request, 'CRM/staff_table.html')
+
+def child_profile_contact(request):
+    return render(request, 'CRM/child_profile_contact.html')
+
+def child_profile_medical(request):
+    return render(request, 'CRM/child_profile_medical.html')
+
+def child_profile_reports(request):
+    return render(request, 'CRM/child_profile_reports.html')
+
