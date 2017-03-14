@@ -72,18 +72,19 @@ def contacts(request):
     # school = KGardens.objects.get(id=k_garden_id)
     # group = Groups.objects.get(id=group_id)
     # children = Kids.objects.filter(group_id=group_id)
-    # contacts = Contacts.objects.filter(kid_id=kid_id)
+    contacts = Contacts.objects.all()[:30]
+    
    #group = Groups.objects.get(id=group_id)
     #children = Kids.objects.filter(group_id=group_id)
     #contacts = Contacts.objects.filter(kid_id=kid_id)
-    # context = {
+    context = {
     #     'school': school.name,
-    #     'group': group.name,
+        'contacts': contacts,
+        
     #     'children': children,
-    #     'contacts': contacts,
     #
-    # }
-    return render(request, 'CRM/contacts.html')#, {'staff': staff})
+    }
+    return render(request, 'CRM/contacts.html', context)
 
 def child_profile(request):
     return render(request,'CRM/child_profile.html')

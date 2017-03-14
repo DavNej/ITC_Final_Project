@@ -35,33 +35,33 @@ Contacts <small> {{school.name}}</small>
 {% endblock%}
 
 {% block content %}
-
-
-
-<table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
-   <thead>
-   <tr>
-       <th>Child's Name</th>
-       <th>Class</th>
-       <th>Contact Name</th>
-       <th>Relativity</th>
-       <th>Telephone</th>
-       <th>Email</th>
-       <th>Address</th>
-   </tr>
-   </thead>
+<table style="white-space: nowrap; overflow: scroll;" class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+    <thead>
+         <tr>
+            <th>#</th>
+            <th>Child's Name</th>
+            <th>Class</th>
+            <th>Contact Name</th>
+            <th>Relativity</th>
+            <th>Telephone</th>
+            <th>Email</th>
+        </tr>
+    </thead>
     <tbody>
-    <tr>
-        <td>%kids.firstname%</td>
-        <td>%groups.name%</td>
-        <td>%contacts.firstname%</td>
-        <td>%contact_title%</td>
-        <td>%phone% </td>
-        <td>
-            <a href="mailto:%email%">%email%</a>
-        </td>
-        <td>%address%</td>
-    </tr>
+    
+        {% for c in contacts%}
+        <tr>
+            <td>{{c.kid.id}}</td>
+            <td>{{c.kid.first_name}}</td>
+            <td>{{c.kid.group.name}}</td>
+            <td>{{c.firstname}}</td>
+            <td>{{c.contact_title}}</td>
+            <td>{{c.phone}}</td>
+            <td>
+                <a href="mailto:{{c.email}}">{{c.email}}</a>
+            </td>
+        </tr>
+        {%endfor%}
     </tbody>
 </table>
 {%endblock%}
