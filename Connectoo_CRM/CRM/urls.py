@@ -15,4 +15,9 @@ urlpatterns = [
     url(r'^contacts/$', contacts, name='contacts'),
     url(r'^child_profile/$',child_profile, name='child_profile'),
     url(r'^schools_table/$', schools_table, name='schools_table'),
+    url(r'^staff_table/$', staff_table, name='staff_table'),
+    url(r'^child_profile_contact/$', child_profile_contact, name='child_profile_contact'),
+    url(r'^child_profile_medical/$', child_profile_medical, name='child_profile_medical'),
+    url(r'^child_profile_reports/$', child_profile_reports, name='child_profile_reports'),
+
 ]
