@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
 {% block title %}
 Children
 {% endblock%}
 
-{% block css %}
-<style>
-    .mt-card-item .mt-card-avatar.mt-overlay-1 img {
-        height: 150px;
-    }
-</style>
-{% endblock%}
+<!-- ********************** BEGIN CSS LINKS ********************** -->
+{%block THEME_GLOBAL_STYLES%}
+<link href="{% static '/global/css/components.min.css'%}" rel="stylesheet" id="style_components" type="text/css" />
+<link href="{% static '/global/css/plugins.min.css'%}" rel="stylesheet" type="text/css" />
+{%endblock%}
+
+{%block THEME_LAYOUT_STYLES%}
+<link href="{% static '/layouts/layout/css/layout.min.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static '/layouts/layout/css/themes/darkblue.min.css'%}" rel="stylesheet" type="text/css" id="style_color" />
+<link href="{% static '/layouts/layout/css/custom.min.css'%}" rel="stylesheet" type="text/css" />
+{%endblock%}
+
+{%block CUSTOM_CSS%}
+<link href="{% static 'custom/css/children.css'%}" rel="stylesheet" type="text/css" />
+{%endblock%}
+<!-- ********************** END CSS LINKS ********************** -->
 
 {% block section %}
 Children
@@ -22,7 +33,6 @@ Children of {{ group }} in {{ school }}
 
 {% block content %}
 <!-- BEGIN : USER CARDS -->
-
 <div class="row">
     <div class="col-md-12">
         <div class="portlet light portlet-fit bordered">
@@ -32,11 +42,10 @@ Children of {{ group }} in {{ school }}
                     <span class="caption-subject font-green bold uppercase">{{group}}</span>
                 </div>
             </div>
-            <!-- First Row -->
+            <!-- Display children -->
             <div class="portlet-body">
                 <div class="mt-element-card mt-element-overlay">
                     <div class="row">
-
                         {% for c in children %}
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="mt-card-item">
@@ -66,14 +75,24 @@ Children of {{ group }} in {{ school }}
                         </div>
                         {% endfor %}
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
-
 <!-- END : USER CARDS -->
 {%endblock%}
+
+
+
+<!-- ********************** BEGIN JS LINKS ********************** -->
+{%block THEME_GLOBAL_SCRIPTS%}
+<script src="{% static '/global/scripts/app.min.js' %}" type="text/javascript"></script>
+{%endblock%}
+
+{%block THEME_LAYOUT_SCRIPTS%}
+<script src="{% static '/layouts/layout/scripts/layout.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
+{%endblock%}
+<!-- ********************** END JS LINKS ********************** -->

@@ -2,12 +2,11 @@
 
 {% load staticfiles %}
 
-{% block title %} Classes {% endblock%}
+{% block title %} Schools {% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 {%block PAGE_LEVEL_CSS_PLUGINS%}
 <link href="{% static '/global/plugins/cubeportfolio/css/cubeportfolio.css' %}" rel="stylesheet" type="text/css" />
-
 {%endblock%}
 
 {%block THEME_GLOBAL_STYLES%}
@@ -26,49 +25,60 @@
 {%endblock%}
 <!-- ********************** END CSS LINKS ********************** -->
 
-
 {% block section %}
-Classes
+Schools
 {% endblock%}
 
 {% block page-title %}
-Classes of {{school.name}}
+Schools
 {% endblock%}
 
 {% block content %}
-    <div class="row">
-        {% for c in classes %}
-        {% if forloop.counter0|divisibleby:'4' %}
-        </div>
-        <div class="row">
-        {% endif %}
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="{% url 'children_per_class' school.id c.id %}">
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class=" icon-layers font-green"></i>
-                            <span class="caption-subject font-green bold uppercase">{{c.name}}</span>
-                            <div class="caption-desc font-grey-cascade">{{school.name}}</div>
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div class="mt-element-overlay">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mt-overlay-1">
-                                        <img src="../../../media/?????">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-{% endblock%}
+<table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+    <thead>
+        <tr>
+            <th>School</th>
+            <th>Adress</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Phone</th>
+            <th>Mail</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- The Schema begin here -->
+        <!-- School One  -->
+        <tr class="odd gradeX">
+            <td><a href="link">%school%</a></td>
+            <td>%Adress%</td>
+            <td class="center">%city% </td>
+            <td>%country%</td>
+            <th>%Phone%</th>
+            <th><a href="link">%Mail%</a></th>
+        </tr>
+     <!-- School Two  -->
+        <tr class="odd gradeX">
+            <td><a href="link">%school%</a></td>
+            <td>%Adress%</td>
+            <td class="center">%city% </td>
+            <td>%country%</td>
+            <th>%Phone%</th>
+            <th><a href="link">%Mail%</a></th>
+        </tr>
+    <!-- School 3  -->
+        <tr class="odd gradeX">
+            <td><a href="link">%school%</a></td>
+            <td>%Adress%</td>
+            <td class="center">%city% </td>
+            <td>%country%</td>
+            <th>%Phone%</th>
+            <th><a href="link">%Mail%</a></th>
+        </tr>
+
+    </tbody>
+</table>
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
 {%block PAGE_LEVEL_JS_PLUGINS%}
