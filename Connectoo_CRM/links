@@ -1,0 +1,16 @@
+<!-- ********************** BEGIN CSS LINKS ********************** -->
+{%block PAGE_LEVEL_CSS_PLUGINS%}{%endblock%}
+{%block THEME_GLOBAL_STYLES%}{%endblock%}
+{%block PAGE_LEVEL_STYLES%}{%endblock%}
+{%block THEME_LAYOUT_STYLES%}{%endblock%}
+{%block CUSTOM_CSS%}{%endblock%}
+<!-- ********************** END CSS LINKS ********************** -->
+
+
+<!-- ********************** BEGIN JS LINKS ********************** -->
+{%block PAGE_LEVEL_JS_PLUGINS%}{%endblock%}
+{%block THEME_GLOBAL_SCRIPTS%}{%endblock%}
+{%block PAGE_LEVEL_SCRIPTS%}{%endblock%}
+{%block THEME_LAYOUT_SCRIPTS%}{%endblock%}
+{%block CUSTOM_JAVASCRIPT%}{%endblock%}
+<!-- ********************** END JS LINKS ********************** -->

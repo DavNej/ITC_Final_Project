@@ -1,29 +1,16 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
-Version: 4.5.4
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-{% comment %}<html lang="en">{% endcomment %}
 <!--<![endif]-->
+
 <!-- BEGIN HEAD -->
-
 <html lang="en">
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <title>Connectoo | {%block title%}{%endblock%}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -40,28 +27,24 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <link href="{% static '/global/plugins/cubeportfolio/css/cubeportfolio.css'%}" rel="stylesheet" type="text/css" />
+    {%block PAGE_LEVEL_CSS_PLUGINS%}{%endblock%}
     <!-- END PAGE LEVEL PLUGINS -->
 
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="{% static '/global/css/components.min.css'%}" rel="stylesheet" id="style_components" type="text/css" />
-    <link href="{% static '/global/css/plugins.min.css'%}" rel="stylesheet" type="text/css" />
+    {%block THEME_GLOBAL_STYLES%}{%endblock%}
     <!-- END THEME GLOBAL STYLES -->
 
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="{% static '/pages/css/portfolio.min.css'%}" rel="stylesheet" type="text/css" />
+    {%block PAGE_LEVEL_STYLES%}{%endblock%}
     <!-- END PAGE LEVEL STYLES -->
 
     <!-- BEGIN THEME LAYOUT STYLES -->
-    <link href="{% static '/layouts/layout/css/layout.min.css'%}" rel="stylesheet" type="text/css" />
-    <link href="{% static '/layouts/layout/css/themes/darkblue.min.css'%}" rel="stylesheet" type="text/css" id="style_color" />
-    <link href="{% static '/layouts/layout/css/custom.min.css'%}" rel="stylesheet" type="text/css" />
-    
-    {%block css%}{%endblock%}
-    
+    {%block THEME_LAYOUT_STYLES%}{%endblock%}    
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" /> 
 
+    {%block CUSTOM_CSS%}{%endblock%}
+    
+    <link rel="shortcut icon" href="favicon.ico" /> 
 </head>
 <!-- END HEAD -->
 
@@ -529,7 +512,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="page-bar">
                     <ul class="page-breadcrumb header">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{%url 'index'%}">Home</a>
                             <i class="fa fa-circle"></i>
                         </li>
                         <li>
@@ -563,6 +546,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <![endif]-->
         </div>
     </div>
+
     <!-- BEGIN CORE PLUGINS -->
     <script src="{% static '/global/plugins/jquery.min.js'%}" type="text/javascript"></script>
     <script src="{% static '/global/plugins/bootstrap/js/bootstrap.min.js'%}" type="text/javascript"></script>
@@ -575,26 +559,24 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END CORE PLUGINS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="{% static '/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js'%}" type="text/javascript"></script>
+    {%block PAGE_LEVEL_JS_PLUGINS%}{%endblock%}
     <!-- END PAGE LEVEL PLUGINS -->
 
     <!-- BEGIN THEME GLOBAL SCRIPTS -->
-    <script src="{% static '/global/scripts/app.min.js'%}" type="text/javascript"></script>
+    {%block THEME_GLOBAL_SCRIPTS%}{%endblock%}
     <!-- END THEME GLOBAL SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    {%block javascript_attendances%}{%endblock%}
-    <script src="{% static '/pages/scripts/portfolio-3.min.js'%}" type="text/javascript"></script>
+    {%block PAGE_LEVEL_SCRIPTS%}{%endblock%}
     <!-- END PAGE LEVEL SCRIPTS -->
 
     <!-- BEGIN THEME LAYOUT SCRIPTS -->
-    <script src="{% static '/layouts/layout/scripts/layout.min.js'%}" type="text/javascript"></script>
-    <script src="{% static '/layouts/layout/scripts/demo.min.js'%}" type="text/javascript"></script>
-    <script src="{% static '/layouts/global/scripts/quick-sidebar.min.js'%}" type="text/javascript"></script>
-
+    {%block THEME_LAYOUT_SCRIPTS%}{%endblock%}
     <!-- END THEME LAYOUT SCRIPTS -->
-    <script type="text/javascript" src="{% static '/album/js/album.js'%}"></script>
-    {%block javascript%}{%endblock%}
+
+    <!-- BEGIN CUSTOM SCRIPTS -->
+    {%block CUSTOM_JAVASCRIPT%}{%endblock%}
+    <!-- END CUSTOM SCRIPTS -->
 </body>
 
 </html>

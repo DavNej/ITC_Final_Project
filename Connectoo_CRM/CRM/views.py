@@ -18,22 +18,20 @@ def gallery(request):
     return render(request, 'CRM/gallery.html')#, {'pictures': pictures})
 
 def schools(request):
-    schools = KGardens.objects.all()
+    schools = KGardens.objects.order_by('name')
     example = KGardens.objects.get(id=201)
     context = {
         'schools':schools,
         'example':example,
     }
-    # schools = School.objects.order_by('name')
     return render(request, 'CRM/schools.html', context)
 
 def classes(request):
-
     classes = Groups.objects.order_by('k_garden_id')
     return render(request, 'CRM/classes.html', {'classes': classes})
 
 def classes_per_school(request, k_garden_id):
-    school = KGardens.objects.filter(id = k_garden_id)
+    school = KGardens.objects.get(id = k_garden_id)
     classes = Groups.objects.filter(k_garden_id = k_garden_id)
     context = {
         'classes': classes,
