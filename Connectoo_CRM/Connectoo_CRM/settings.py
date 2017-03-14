@@ -81,11 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'connectoo_CRM',
         'USER': 'root',
-<<<<<<< HEAD
         'PASSWORD':'dannev',
-=======
-        'PASSWORD': 'caroline5526V',
->>>>>>> 9dfb7ef3da29355903a68d470a07400fc1046019
+        # 'PASSWORD': 'caroline5526V',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
