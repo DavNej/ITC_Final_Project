@@ -28,11 +28,25 @@
 
 
 {% block section %}
-Classes
+    <li>
+        <a href="{%url 'classes_per_school' school.id %}">School</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Classes</a>
+    </li>
+{% endblock%}
+
+{% block info %}
+<h1>{{school.name}}
+<a style="float: right" class="btn btn-primary" href="{% url 'gallery_schools' school.id %}" role="button"><i class="icon-camera"></i> School Gallery</a>
+</h1>
+<h5 style="padding-left: 20px; padding-top: 10px;"><i class="icon-home"></i> {{school.street}}</h5>
+<h5 style="padding-left: 20px"><i class="fa fa-phone"></i> {{school.phone}}</h5>
 {% endblock%}
 
 {% block page-title %}
-Classes of {{school.name}}
+Classes
 {% endblock%}
 
 {% block content %}
@@ -45,23 +59,10 @@ Classes of {{school.name}}
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <a href="{% url 'children_per_class' c.id %}">
                 <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-title">
-                        <div class="caption">
+                    <div style="margin: 0" class="portlet-title">
                             <i class=" icon-layers font-green"></i>
                             <span class="caption-subject font-green bold uppercase">{{c.name}}</span>
                             <div class="caption-desc font-grey-cascade">{{school.name}}</div>
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div class="mt-element-overlay">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mt-overlay-1">
-                                        <img src="../../../media/?????">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 </a>

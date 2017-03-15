@@ -50,7 +50,6 @@ def gallery(request):
     pictures = KidPhotos.objects.order_by('updated_at')
     return render(request, 'CRM/gallery.html', {'pictures': pictures})
 
-
 def gallery_kid(request, kid_id):
     kid_pics = KidPhotos.objects.filter(kid_id = kid_id)
     kid = Kids.objects.get(id = kid_id)
@@ -58,10 +57,13 @@ def gallery_kid(request, kid_id):
 
 
 def gallery_class(request, group_id):
-    kids = Kids.objects.filter(group_id=group_id)
-    # class_name = Groups.objects.get(id = 361)
-    # pics = KidPhotos.objects.all()
-    return render(request, 'CRM/gallery_class.html', {'kids': kids})#, {'class': class_name, 'pics': pics})
+    kids = Kids.objects.filter(group_id = group_id)
+    group = Groups.objects.get(id = group_id)
+    context = {
+        'kids': kids,
+        'group': group
+        }
+    return render(request, 'CRM/gallery_class.html', context)
 
 def gallery_schools(request, k_garden_id):
     groups = Groups.objects.filter(k_garden = k_garden_id)
@@ -114,9 +116,6 @@ def child_profile(request, kid_id):
     }
     return render(request,'CRM/child_profile.html', context)
 
-def staff_table(request):
-    return render(request, 'CRM/staff_table.html')
-
 def child_profile_health(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     context = {
@@ -124,12 +123,19 @@ def child_profile_health(request, kid_id):
     }
     return render(request, 'CRM/child_profile_health.html', context)
 
-
 def child_profile_reports(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
-    return render(request, 'CRM/child_profile_reports.html', {'kid': kid})
+    attendances = KidPresences.objects.filter(kid_id = kid_id).order_by('-updated_at')
+    context = {
+        'kid': kid,
+        'attendances': attendances,
+    }
+    return render(request, 'CRM/child_profile_reports.html', context)
 
 
 def add_to_album(request):
     return render(request, 'CRM/add_to_album.html')
 
+
+def staff_table(request):
+    return render(request, 'CRM/staff_table.html')
