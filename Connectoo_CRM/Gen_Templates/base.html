@@ -441,36 +441,7 @@
                         <!-- END RESPONSIVE QUICK SEARCH FORM -->
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:;" class="nav-link nav-toggle">
-                            <i class="fa fa-calendar" style="color:#eeb31b;"></i>
-                            <span class="title">Calendar</span>
-                            <span class="selected"></span>
-                            <span class="arrow open"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'reports' %}" class="nav-link nav-toggle">
-                            <i class="fa fa-flag" style="color:#eeb31b;"></i>
-                            <span class="title">Reports</span>
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'attendances' %}" class="nav-link nav-toggle">
-                            <i class="fa fa-list" style="color:#eeb31b;"></i>
-                            <span class="title">Attendances</span>
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'contacts' %}" class="nav-link nav-toggle">
-                            <i class="fa fa-user" style="color:#eeb31b;"></i>
-                            <span class="title">Contacts</span>
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'schools' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'schools_table' %}" class="nav-link nav-toggle">
                             {% comment %}<i class="fa fa-home" aria-hidden="true"></i>{% endcomment %}
                             <i class="fa fa-home" style="color:#eeb31b;"></i>
                             <span class="title">Schools</span>
@@ -478,7 +449,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'classes' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'classes_table' %}" class="nav-link nav-toggle">
                             <i class="fa fa-users" style="color:#eeb31b;"></i>
                             <span class="title">Classes</span>
                             <span class="arrow"></span>
@@ -491,10 +462,31 @@
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'contacts' %}" class="nav-link nav-toggle">
+                            <i class="fa fa-user" style="color:#eeb31b;"></i>
+                            <span class="title">Contacts</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'attendances' %}" class="nav-link nav-toggle">
+                            <i class="fa fa-list" style="color:#eeb31b;"></i>
+                            <span class="title">Attendances</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
                     <li class="nav-item  ">
                         <a href="{% url 'staff' %}" class="nav-link nav-toggle">
                             <i class="fa fa-graduation-cap" style="color:#eeb31b;"></i>
                             <span class="title">Staff</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'reports' %}" class="nav-link nav-toggle">
+                            <i class="fa fa-flag" style="color:#eeb31b;"></i>
+                            <span class="title">Reports</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
@@ -505,6 +497,15 @@
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="fa fa-calendar" style="color:#eeb31b;"></i>
+                            <span class="title">Calendar</span>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        </a>
+                    </li>
+
                 <!-- END SIDEBAR MENU -->
             </div>
         </div>
