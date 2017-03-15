@@ -51,17 +51,17 @@ def gallery(request):
     return render(request, 'CRM/gallery.html', {'pictures': pictures})
 
 
-def gallery_per_kid(request):
+def gallery_kid(request):
     kid_pics = KidPhotos.objects.filter(kid_id = 685)
     kid = Kids.objects.get(id = 685)
-    return render(request, 'CRM/kid_gallery.html', {'kid_pics': kid_pics, 'kid':kid})
+    return render(request, 'CRM/gallery_kid.html', {'kid_pics': kid_pics, 'kid':kid})
 
 
-def gallery_per_class(request):
+def gallery_class(request):
     kids = Kids.objects.filter(group_id=361)
     # class_name = Groups.objects.get(id = 361)
     # pics = KidPhotos.objects.all()
-    return render(request, 'CRM/class_gallery.html', {'kids': kids})#, {'class': class_name, 'pics': pics})
+    return render(request, 'CRM/gallery_class.html', {'kids': kids})#, {'class': class_name, 'pics': pics})
 
 def children_per_class(request, group_id):
     group = Groups.objects.get(id = group_id)
@@ -72,14 +72,14 @@ def children_per_class(request, group_id):
     }
     return render(request, 'CRM/children.html', context)
 
-def schools(request):
+def gallery_schools(request):
     schools = KGardens.objects.order_by('name')
     example = KGardens.objects.get(id=201)
     context = {
         'schools':schools,
         'example':example,
     }
-    return render(request, 'CRM/schools.html', context)
+    return render(request, 'CRM/gallery_schools.html', context)
 
 def reports(request):
     # children = Child.objects.order_by('last_name')
