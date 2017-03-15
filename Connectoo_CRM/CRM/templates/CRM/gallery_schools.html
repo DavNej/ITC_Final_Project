@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %} Schools {% endblock%}
+{% block title %} Gallery {% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 {%block PAGE_LEVEL_CSS_PLUGINS%}
@@ -23,79 +23,57 @@
 <link href="{% static '/layouts/layout/css/themes/darkblue.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
 <link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
 {%endblock%}
+
+{%block CUSTOM_CSS%}
+{% comment %}<link href="{% static 'CRM/css/gallery.css %}" rel="stylesheet" type="text/css" />{% endcomment %}
+{%endblock%}
+
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block section %}
-Schools
+School Gallery
 {% endblock%}
 
 {% block page-title %}
-Schools
+Photos of {{school.name}}
 {% endblock%}
 
 {% block content %}
-    <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <a href="{% url 'classes_per_school' example.id %}">
-            <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class=" icon-layers font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">{{example.name}}</span>
-                        <div class="caption-desc font-grey-cascade">{{example.street}}</div>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="mt-element-overlay">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-overlay-1">
-                                    <img src="../../../media/{{ example.id }}">
+            <!--THE GALLERY BEGIN HERE -->
+            <div id="js-grid-lightbox-gallery" class="cbp">
+
+                {% for group in groups %}
+                {% for kid in group.kids_set.all %}
+                {% for p in kid.kidphotos_set.all %}
+
+                <div class="cbp-item web-design graphic print motion">
+                    <a href="#" class="cbp-caption cbp-singlePageInline" data-title="World Clock Widget<br>by Paul Flavius Nechita" rel="nofollow">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="https://connectoo.co.il/uploads/kid_photos/{{p.id}}/original/data.jpg">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">{{ p.event }}</div>
+                                    <div class="cbp-l-caption-desc">{{ p.created_at }}</div>
+                                    <button class="btn sbold green add card"> Add to card </button>
+                                    <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
-            </a>
+                                    
+                {% endfor %}
+                {% endfor %}
+                {% endfor %}
+            <!--THE GALLERY ENDS HERE -->
         </div>
-        {% for s in schools %}
-        {% if forloop.counter|divisibleby:'4' %}
-        </div>
-        <div class="row">
-        {% endif %}
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <a href="{% url 'classes_per_school' s.id %}">
-            <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class=" icon-layers font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">{{s.name}}</span>
-                        <div class="caption-desc font-grey-cascade">{{s.street}}</div>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="mt-element-overlay">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-overlay-1">
-                                    <img src="https://connectoo.co.il/uploads/garden/{{s.id}}/square/data.jpg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        {% endfor %}
-    </div>                  
 {% endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
 {%block PAGE_LEVEL_JS_PLUGINS%}
-<script src="{% static '/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}" type="text/javascript"></script>
-<script src="{% static '/global/plugins/select2/js/select2.full.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js' %}" type="text/javascript"></script>
 {%endblock%}
 
 {%block THEME_GLOBAL_SCRIPTS%}
@@ -103,7 +81,7 @@ Schools
 {%endblock%}
 
 {%block PAGE_LEVEL_SCRIPTS%}
-<script src="{% static '/apps/scripts/todo-2.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/pages/scripts/portfolio-3.min.js' %}" type="text/javascript"></script>
 {%endblock%}
 
 {%block THEME_LAYOUT_SCRIPTS%}
@@ -111,4 +89,9 @@ Schools
 <script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
 <script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
 {%endblock%}
+
+{% comment %}{%block CUSTOM_JAVASCRIPT%}
+<script src="../JS/gallery.js" type="text/javascript"></script>
+{%endblock%}{% endcomment %}
+
 <!-- ********************** END JS LINKS ********************** -->
