@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 
-@login_required
+# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Manager').exists())
 def index(request):
     school = KGardens.objects.order_by('name')
@@ -138,4 +138,8 @@ def child_profile_medical(request):
 
 def child_profile_reports(request):
     return render(request, 'CRM/child_profile_reports.html')
+
+
+def add_to_album(request):
+    return render(request, 'CRM/add_to_album.html')
 

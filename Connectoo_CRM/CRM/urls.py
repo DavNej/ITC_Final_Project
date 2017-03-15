@@ -20,4 +20,7 @@ urlpatterns = [
     url(r'^child_profile_contact/$', child_profile_contact, name='child_profile_contact'),
     url(r'^child_profile_medical/$', child_profile_medical, name='child_profile_medical'),
     url(r'^child_profile_reports/$', child_profile_reports, name='child_profile_reports'),
+    url(r'^add_to_album/$', add_to_album, name='add_to_album'),
+
+
 ]
