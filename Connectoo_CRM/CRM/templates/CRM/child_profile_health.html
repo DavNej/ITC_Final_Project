@@ -1,0 +1,31 @@
+{% extends "child_profile_template.html" %}
+
+{% block table %}
+<div class="portlet-title tabbable-line">
+    <div class="caption caption-md">
+        <i class="icon-globe theme-font hide"></i>
+        <span class="caption-subject font-blue-madison bold uppercase childInfo">Medical information</span>
+    </div>
+</div>
+
+<div class="portlet-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Sensivity</th>
+                    <th>Medical treatment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd gradeX">
+                    <td>sensivity.id</td>
+                    <td>%sensivity</td>
+                    <td class="center">%medical%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}

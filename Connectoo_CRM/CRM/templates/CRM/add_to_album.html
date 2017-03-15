@@ -2,12 +2,11 @@
 
 {% load staticfiles %}
 
-{% block title %} Classes {% endblock%}
+{% block title %} Kid Gallery {% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 {%block PAGE_LEVEL_CSS_PLUGINS%}
 <link href="{% static '/global/plugins/cubeportfolio/css/cubeportfolio.css' %}" rel="stylesheet" type="text/css" />
-
 {%endblock%}
 
 {%block THEME_GLOBAL_STYLES%}
@@ -24,56 +23,54 @@
 <link href="{% static '/layouts/layout/css/themes/darkblue.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
 <link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
 {%endblock%}
+
+{% comment %}{%block CUSTOM_CSS%}
+<link href="../../static/album/css/gallery.css" rel="stylesheet" type="text/css" />
+{%endblock%}{% endcomment %}
+
 <!-- ********************** END CSS LINKS ********************** -->
 
-
 {% block section %}
-Classes
+Kid Gallery
 {% endblock%}
 
 {% block page-title %}
-Classes of {{school.name}}
+    Saved photos.
 {% endblock%}
 
 {% block content %}
-    <div class="row">
-        {% for c in classes %}
-        {% if forloop.counter0|divisibleby:'4' %}
-        </div>
-        <div class="row">
-        {% endif %}
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="{% url 'children_per_class' c.id %}">
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class=" icon-layers font-green"></i>
-                            <span class="caption-subject font-green bold uppercase">{{c.name}}</span>
-                            <div class="caption-desc font-grey-cascade">{{school.name}}</div>
+
+            <!--BEGIN KID GALLERY LEVEL -->
+            <div id="js-grid-lightbox-gallery" class="cbp">
+
+{#                {% for p in kid_pics %}#}
+
+
+                <div class="cbp-item web-design graphic print motion">
+                    <a href="#" class="cbp-caption cbp-singlePageInline" data-title="World Clock Widget<br>by Paul Flavius Nechita" rel="nofollow">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="">
+                            <!--<span>test</span>-->
                         </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div class="mt-element-overlay">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mt-overlay-1">
-                                        <img src="../../../media/?????">
-                                    </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">{{ p.event }}</div>
+                                    <div class="cbp-l-caption-desc">{{ p.date.date }}</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
+
+{#                {% endfor %}#}
+            <!--KID GALLERY ENDS HERE -->
+        </div>
 {% endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
 {%block PAGE_LEVEL_JS_PLUGINS%}
-<script src="{% static '/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}" type="text/javascript"></script>
-<script src="{% static '/global/plugins/select2/js/select2.full.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js' %}" type="text/javascript"></script>
 {%endblock%}
 
 {%block THEME_GLOBAL_SCRIPTS%}
@@ -81,7 +78,7 @@ Classes of {{school.name}}
 {%endblock%}
 
 {%block PAGE_LEVEL_SCRIPTS%}
-<script src="{% static '/apps/scripts/todo-2.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/pages/scripts/portfolio-3.min.js' %}" type="text/javascript"></script>
 {%endblock%}
 
 {%block THEME_LAYOUT_SCRIPTS%}
@@ -89,4 +86,7 @@ Classes of {{school.name}}
 <script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
 <script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
 {%endblock%}
-<!-- ********************** END JS LINKS ********************** -->
+
+{%block CUSTOM_JAVASCRIPT%}
+<script src="{% static '/custom/js/add_to_album.js' %}" type="text/javascript"></script>
+{%endblock%}
