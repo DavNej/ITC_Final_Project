@@ -15,11 +15,9 @@ urlpatterns = [
     url(r'^staff_table/$', staff_table, name='staff_table'),
     url(r'^attendances/$', attendances, name='attendances'),
     url(r'^contacts/$', contacts, name='contacts'),
-    url(r'^child_profile/$',child_profile, name='child_profile'),
-    url(r'^kid_gallery/$', gallery_per_kid, name='kid_gallery'),
+    url(r'^gallery_per_kid/$', gallery_per_kid, name='gallery_per_kid'),
     url(r'^child_profile/(?P<kid_id>[0-9]+)$',child_profile, name='child_profile'),
     url(r'^child_profile_contact/$', child_profile_contact, name='child_profile_contact'),
     url(r'^child_profile_medical/$', child_profile_medical, name='child_profile_medical'),
     url(r'^child_profile_reports/$', child_profile_reports, name='child_profile_reports'),
-
 ]
