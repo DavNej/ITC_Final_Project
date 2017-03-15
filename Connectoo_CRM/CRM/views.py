@@ -4,8 +4,7 @@ from .models import *
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-
-@login_required
+# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Manager').exists())
 def index(request):
     school = KGardens.objects.order_by('name')
@@ -82,9 +81,6 @@ def schools(request):
     }
     return render(request, 'CRM/schools.html', context)
 
-
-
-
 def reports(request):
     # children = Child.objects.order_by('last_name')
     return render(request, 'CRM/reports.html')#, {'children': children})
@@ -101,42 +97,33 @@ def attendances(request):
 
 
 def contacts(request):
-    # staff = Staff.objects.order_by('first_name')
-    # school = KGardens.objects.get(id=k_garden_id)
-    # group = Groups.objects.get(id=group_id)
-    # children = Kids.objects.filter(group_id=group_id)
     contacts = Contacts.objects.all()[:30]
-    
-   #group = Groups.objects.get(id=group_id)
-    #children = Kids.objects.filter(group_id=group_id)
-    #contacts = Contacts.objects.filter(kid_id=kid_id)
     context = {
-    #     'school': school.name,
         'contacts': contacts,
-        
-    #     'children': children,
-    #
     }
     return render(request, 'CRM/contacts.html', context)
 
-
 def child_profile(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
-    return render(request,'CRM/child_profile.html', {'kid': kid})
-
+    contacts = Contacts.objects.filter(kid=kid_id)
+    context = {
+        'kid': kid,
+        'contacts': contacts,
+    }
+    return render(request,'CRM/child_profile.html', context)
 
 def staff_table(request):
     return render(request, 'CRM/staff_table.html')
 
+def child_profile_health(request, kid_id):
+    kid = Kids.objects.get(id = kid_id)
+    context = {
+        'kid': kid
+    }
+    return render(request, 'CRM/child_profile_health.html', context)
 
-def child_profile_contact(request):
-    return render(request, 'CRM/child_profile_contact.html')
 
-
-def child_profile_medical(request):
-    return render(request, 'CRM/child_profile_medical.html')
-
-
-def child_profile_reports(request):
-    return render(request, 'CRM/child_profile_reports.html')
+def child_profile_reports(request, kid_id):
+    kid = Kids.objects.get(id = kid_id)
+    return render(request, 'CRM/child_profile_reports.html', {'kid': kid})
 

@@ -18,7 +18,6 @@ urlpatterns = [
     url(r'^gallery_per_kid/$', gallery_per_kid, name='gallery_per_kid'),
     url(r'^gallery_per_class/$', gallery_per_class, name='gallery_per_class'),
     url(r'^child_profile/(?P<kid_id>[0-9]+)$',child_profile, name='child_profile'),
-    url(r'^child_profile_contact/$', child_profile_contact, name='child_profile_contact'),
-    url(r'^child_profile_medical/$', child_profile_medical, name='child_profile_medical'),
-    url(r'^child_profile_reports/$', child_profile_reports, name='child_profile_reports'),
+    url(r'^child_profile_health/(?P<kid_id>[0-9]+)$', child_profile_health, name='child_profile_health'),
+    url(r'^child_profile_reports/(?P<kid_id>[0-9]+)$', child_profile_reports, name='child_profile_reports'),
 ]
