@@ -6,17 +6,17 @@ myAlbum.cardArr= [];
 myAlbum.toCard = function() {
 	// console.log(myAlbum.cardArr);
 	// myAlbum.a = $(this);
-	myAlbum.image = $(this).closest('a').find('img').attr('src');
+		// myAlbum.image = $(this).closest('a').find('img').attr('src');
 	// console.log("sel image", myAlbum.image);
 
 		console.log('test')
-	myAlbum.cardArr.push(myAlbum.image);
-	myAlbum.cardArr.push("test");
+		// myAlbum.cardArr.push(myAlbum.image);
+		// myAlbum.cardArr.push("test");
 	// console.log("cart", myAlbum.cardArr);
 
 	// localStorage.setItem("imgData", JSON.stringify(myAlbum.cardArr));
 	// console.log(myAlbum.cardArr);
-	$(".btn.sbold.green.add.card").unbind("click").bind( "click", myAlbum.toCard);
+	// $(".btn.sbold.green.add.card").unbind("click").bind( "click", myAlbum.toCard);
 };
 
 

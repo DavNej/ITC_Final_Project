@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %} Kid Gallery {% endblock%}
+{% block title %} Gallery {% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 {%block PAGE_LEVEL_CSS_PLUGINS%}
@@ -24,39 +24,37 @@
 <link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
 {%endblock%}
 
-{% comment %}{%block CUSTOM_CSS%}
-<link href="../../static/album/css/gallery.css" rel="stylesheet" type="text/css" />
-{%endblock%}{% endcomment %}
+{%block CUSTOM_CSS%}
+{% comment %}<link href="{% static 'CRM/css/gallery.css %}" rel="stylesheet" type="text/css" />{% endcomment %}
+{%endblock%}
 
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block section %}
-Kid Gallery
+Gallery
 {% endblock%}
 
 {% block page-title %}
-
-Photos of: {{kid.first_name}}
+Photos of %name% <small>Relive your favorite photos anytime</small>
 {% endblock%}
 
 {% block content %}
-
-            <!--BEGIN KID GALLERY LEVEL -->
+            <!--THE GALLERY BEGIN HERE -->
             <div id="js-grid-lightbox-gallery" class="cbp">
 
-                {% for p in kid_pics %}
+                {% for k in kids %}
+                    {% for p in k.kidphotos_set.all %}
 
                 <div class="cbp-item web-design graphic print motion">
                     <a href="#" class="cbp-caption cbp-singlePageInline" data-title="World Clock Widget<br>by Paul Flavius Nechita" rel="nofollow">
                         <div class="cbp-caption-defaultWrap">
                             <img src="https://connectoo.co.il/uploads/kid_photos/{{p.id}}/original/data.jpg">
-                            <!--<span>test</span>-->
                         </div>
                         <div class="cbp-caption-activeWrap">
                             <div class="cbp-l-caption-alignLeft">
                                 <div class="cbp-l-caption-body">
                                     <div class="cbp-l-caption-title">{{ p.event }}</div>
-                                    <div class="cbp-l-caption-desc">{{ p.date.date }}</div>
+                                    <div class="cbp-l-caption-desc">{{ p.created_at }}</div>
                                     <button class="btn sbold green add card"> Add to card </button>
                                     <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
                                 </div>
@@ -64,9 +62,10 @@ Photos of: {{kid.first_name}}
                         </div>
                     </a>
                 </div>
-
+                                    
                 {% endfor %}
-            <!--KID GALLERY ENDS HERE -->
+                {% endfor %}
+            <!--THE GALLERY ENDS HERE -->
         </div>
 {% endblock%}
 
