@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from .models import *
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-@login_required
-# @user_passes_test(lambda u: u.groups.filter(name='Manager').exists())
+# @login_required
+# @user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/CRM/children/')
 def index(request):
     school = KGardens.objects.order_by('name')
     group = Groups.objects.order_by('name')
@@ -44,7 +44,10 @@ def classes_per_school(request, k_garden_id):
     return render(request, 'CRM/classes.html', context)
 
 def children(request):
+    # next = request.GET.get('next')
     children = Kids.objects.all()
+    # if next:
+        # return redirect(next)
     return render(request, 'CRM/children.html', {'children': children})
 
 def children_per_class(request, k_garden_id, group_id):
