@@ -87,11 +87,7 @@ DATABASES = {
         'PORT': '3306',
         } 
     }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> dfb0ce3cc43093c90b9ed616be140924a362d19c
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
