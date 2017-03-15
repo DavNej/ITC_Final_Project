@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 
-@login_required
+# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Manager').exists())
 def index(request):
     school = KGardens.objects.order_by('name')
@@ -52,7 +52,7 @@ def gallery(request):
     return render(request, 'CRM/gallery.html', {'pictures': pictures})
 
 
-def gallery_per_kid(request):
+def gallery_kid(request):
     kid_pics = KidPhotos.objects.filter(kid_id = 685)
     kid = Kids.objects.get(id = 685)
     return render(request, 'CRM/kid_gallery.html', {'kid_pics': kid_pics, 'kid':kid})

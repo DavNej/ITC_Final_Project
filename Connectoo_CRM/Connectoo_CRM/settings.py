@@ -87,10 +87,7 @@ DATABASES = {
         'PORT': '3306',
         } 
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> c621931a53eab0717e49c76b941282e470507be0
 
 
 # Password validation
