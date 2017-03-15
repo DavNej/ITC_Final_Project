@@ -82,16 +82,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'connectoo_CRM',
         'USER': 'root',
-        'PASSWORD': 'caroline5526V',
+        'PASSWORD': 'dannev',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         } 
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> c621931a53eab0717e49c76b941282e470507be0
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

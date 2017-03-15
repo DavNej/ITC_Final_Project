@@ -52,7 +52,7 @@ Schools
             {% for s in schools %}
             <tr class="odd gradeX">
                 <td>{{forloop.counter}}</td>
-                <td><a href="{% url 'classes_per_school' s.id %}">{{s.name}}</a></td>
+                <td><a href="{% url 'CRM:classes_per_school' s.id %}">{{s.name}}</a></td>
                 <td>{{s.street}}</td>
                 <td class="center">{{s.city}}</td>
                 <td>{{s.country_code}}</td>

@@ -50,8 +50,8 @@ Classes
             {% for c in classes %}
             <tr class="odd gradeX">
                 <td>{{forloop.counter}}</td>
-                <td><a href="{% url 'classes_per_school' c.k_garden.id %}">{{c.k_garden.name}}</a></td>
-                <td><a href="{% url 'children_per_class' c.id %}">{{c.name}}</a></td>
+                <td><a href="{% url 'CRM:classes_per_school' c.k_garden.id %}">{{c.k_garden.name}}</a></td>
+                <td><a href="{% url 'CRM:children_per_class' c.id %}">{{c.name}}</a></td>
                 <td>Staff name</td>
                 <td class="center">num of kids</td>
             </tr>
