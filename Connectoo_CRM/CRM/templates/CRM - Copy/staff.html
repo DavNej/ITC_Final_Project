@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %} Schools {% endblock%}
+{% block title %} Staff {% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 {%block PAGE_LEVEL_CSS_PLUGINS%}
@@ -26,71 +26,64 @@
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block section %}
-Schools
+Staff
 {% endblock%}
 
 {% block page-title %}
-Schools
+Staff <small>in {{school.name}}</small>
 {% endblock%}
 
+
 {% block content %}
-    <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <a href="{% url 'classes_per_school' example.id %}">
-            <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class=" icon-layers font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">{{example.name}}</span>
-                        <div class="caption-desc font-grey-cascade">{{example.street}}</div>
-                    </div>
+<!-- BEGIN : USER CARDS -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-layers font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">{{s.name}}</span>
                 </div>
-                <div class="portlet-body">
-                    <div class="mt-element-overlay">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-overlay-1">
-                                    <img src="../../../media/{{ example.id }}">
+            </div>
+            <!-- First Row -->
+            <div class="portlet-body">
+                <div class="mt-element-card mt-element-overlay">
+                    <div class="row">
+                       {% for s in staff %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="../../../media/{{ c.image }}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="javascript:;"title="see Data">
+                                                    <i class="icon-bar-chart"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="javascript:;" title="go to photos">
+                                                    <i class="icon-camera"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">{{s.first_name}}</h3>
+                                    <h3 class="mt-card-name">{{s.grade}}</h3>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
-            </div>
-            </a>
+             </div>
         </div>
-        {% for s in schools %}
-        {% if forloop.counter|divisibleby:'4' %}
-        </div>
-        <div class="row">
-        {% endif %}
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <a href="{% url 'classes_per_school' s.id %}">
-            <div class="portlet light portlet-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class=" icon-layers font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">{{s.name}}</span>
-                        <div class="caption-desc font-grey-cascade">{{s.street}}</div>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="mt-element-overlay">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-overlay-1">
-                                    <img src="https://connectoo.co.il/uploads/garden/{{s.id}}/square/data.jpg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        {% endfor %}
-    </div>                  
-{% endblock%}
+    </div>
+</div>
+<!-- END : USER CARDS -->
+{%endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
 {%block PAGE_LEVEL_JS_PLUGINS%}
