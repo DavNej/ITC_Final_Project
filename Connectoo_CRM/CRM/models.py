@@ -1,8 +1,3 @@
-from __future__ import unicode_literals
-from django.db import models
-from django.utils import timezone
-
-#################################################################
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
@@ -10,6 +5,10 @@ from django.utils import timezone
 #   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from __future__ import unicode_literals
+
+from django.db import models
+
 
 class Agendas(models.Model):
     is_awake = models.IntegerField(blank=True, null=True)
@@ -28,8 +27,10 @@ class Agendas(models.Model):
     will_be_absent_until = models.DateField(blank=True, null=True)
 
     class Meta:
-
         db_table = 'agendas'
+    
+    def __str__(self):
+        return self.comment
 
 
 class Attachments(models.Model):
@@ -41,7 +42,74 @@ class Attachments(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'attachments'
+
+
+class AuthGroup(models.Model):
+    name = models.CharField(unique=True, max_length=80)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group'
+
+
+class AuthGroupPermissions(models.Model):
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group_permissions'
+        unique_together = (('group', 'permission'),)
+
+
+class AuthPermission(models.Model):
+    name = models.CharField(max_length=255)
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
+    codename = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_permission'
+        unique_together = (('content_type', 'codename'),)
+
+
+class AuthUser(models.Model):
+    password = models.CharField(max_length=128)
+    last_login = models.DateTimeField(blank=True, null=True)
+    is_superuser = models.IntegerField()
+    username = models.CharField(unique=True, max_length=150)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.CharField(max_length=254)
+    is_staff = models.IntegerField()
+    is_active = models.IntegerField()
+    date_joined = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user'
+
+
+class AuthUserGroups(models.Model):
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_groups'
+        unique_together = (('user', 'group'),)
+
+
+class AuthUserUserPermissions(models.Model):
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_user_permissions'
+        unique_together = (('user', 'permission'),)
 
 
 class BulletinGhosts(models.Model):
@@ -51,6 +119,7 @@ class BulletinGhosts(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'bulletin_ghosts'
 
 
@@ -61,6 +130,7 @@ class BulletinGroups(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'bulletin_groups'
 
 
@@ -77,6 +147,7 @@ class BulletinLinks(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'bulletin_links'
 
 
@@ -90,6 +161,7 @@ class BulletinPhotos(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'bulletin_photos'
 
 
@@ -105,6 +177,7 @@ class Bulletins(models.Model):
     deleter_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'bulletins'
 
 
@@ -125,12 +198,13 @@ class Contacts(models.Model):
     user_id = models.IntegerField(blank=True, null=True)
     contact_title = models.CharField(max_length=255, blank=True, null=True)
     relative_id = models.IntegerField(blank=True, null=True)
-    kid_id = models.IntegerField(blank=True, null=True)
+    kid = models.ForeignKey('Kids', models.DO_NOTHING, blank=True, null=True)
     registered_user = models.IntegerField(blank=True, null=True)
     creator_id = models.IntegerField(blank=True, null=True)
     visible = models.IntegerField()
 
     class Meta:
+        managed = False
         db_table = 'contacts'
 
 
@@ -142,7 +216,52 @@ class Conversions(models.Model):
     isnew = models.IntegerField(db_column='isNew', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
+        managed = False
         db_table = 'conversions'
+
+
+class DjangoAdminLog(models.Model):
+    action_time = models.DateTimeField()
+    object_id = models.TextField(blank=True, null=True)
+    object_repr = models.CharField(max_length=200)
+    action_flag = models.SmallIntegerField()
+    change_message = models.TextField()
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'django_admin_log'
+
+
+class DjangoContentType(models.Model):
+    app_label = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'django_content_type'
+        unique_together = (('app_label', 'model'),)
+
+
+class DjangoMigrations(models.Model):
+    app = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    applied = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_migrations'
+
+
+class DjangoSession(models.Model):
+    session_key = models.CharField(primary_key=True, max_length=40)
+    session_data = models.TextField()
+    expire_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_session'
 
 
 class EventReminders(models.Model):
@@ -160,6 +279,7 @@ class EventReminders(models.Model):
     data = models.TextField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'event_reminders'
 
 
@@ -169,6 +289,7 @@ class EventTypes(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'event_types'
 
 
@@ -187,6 +308,7 @@ class Events(models.Model):
     rule_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'events'
 
 
@@ -197,6 +319,7 @@ class EventsInGroups(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'events_in_groups'
 
 
@@ -210,6 +333,7 @@ class Faces(models.Model):
     detected_faces = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'faces'
 
 
@@ -225,6 +349,7 @@ class FoodActs(models.Model):
     rule_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'food_acts'
 
 
@@ -238,6 +363,7 @@ class FoodAtGardens(models.Model):
     icon_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'food_at_gardens'
 
 
@@ -249,6 +375,7 @@ class FoodTemplates(models.Model):
     icon_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'food_templates'
 
 
@@ -261,6 +388,7 @@ class Foods(models.Model):
     user_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'foods'
 
 
@@ -270,17 +398,19 @@ class GroupTypes(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'group_types'
 
 
 class Groups(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
-    k_garden_id = models.IntegerField(blank=True, null=True)
+    k_garden = models.ForeignKey('KGardens', models.DO_NOTHING, blank=True, null=True)
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
-    group_type_id = models.IntegerField(blank=True, null=True)
+    group_type = models.ForeignKey(GroupTypes, models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'groups'
 
 
@@ -323,6 +453,7 @@ class KGardens(models.Model):
     country_code = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'k_gardens'
 
 
@@ -335,6 +466,7 @@ class KidLacks(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'kid_lacks'
 
 
@@ -348,6 +480,7 @@ class KidPhotos(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'kid_photos'
 
 
@@ -361,6 +494,7 @@ class KidPoops(models.Model):
     user_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'kid_poops'
 
 
@@ -374,6 +508,7 @@ class KidPresences(models.Model):
     user_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'kid_presences'
 
 
@@ -397,14 +532,17 @@ class Kids(models.Model):
     event_id = models.CharField(max_length=255, blank=True, null=True)
     face_person_id = models.CharField(unique=True, max_length=255, blank=True, null=True)
     default_face_id = models.CharField(max_length=255, blank=True, null=True)
-    group_id = models.IntegerField(blank=True, null=True)
+    group = models.ForeignKey(Groups, models.DO_NOTHING, blank=True, null=True)
     will_be_absent_until = models.DateField(blank=True, null=True)
     status_changed_at = models.DateTimeField(blank=True, null=True)
     status = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'kids'
 
+    def __str__(self):
+        return self.first_name
 
 class KindPoops(models.Model):
     kid_id = models.IntegerField(blank=True, null=True)
@@ -415,6 +553,7 @@ class KindPoops(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'kind_poops'
 
 
@@ -427,6 +566,7 @@ class LackAtGardens(models.Model):
     icon_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'lack_at_gardens'
 
 
@@ -437,6 +577,7 @@ class LackTemplates(models.Model):
     icon_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'lack_templates'
 
 
@@ -447,6 +588,7 @@ class Lacks(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'lacks'
 
 
@@ -457,6 +599,7 @@ class Likes(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'likes'
 
 
@@ -467,6 +610,7 @@ class MessageTemplates(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'message_templates'
 
 
@@ -479,6 +623,7 @@ class Messages(models.Model):
     from_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'messages'
 
 
@@ -488,6 +633,7 @@ class NumberOfPics(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'number_of_pics'
 
 
@@ -496,6 +642,7 @@ class NumberOfPicsTags(models.Model):
     tag_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'number_of_pics_tags'
 
 
@@ -516,6 +663,7 @@ class Pictures(models.Model):
     detected_faces = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'pictures'
 
 
@@ -525,6 +673,7 @@ class Poops(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'poops'
 
 
@@ -534,6 +683,7 @@ class Profiles(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'profiles'
 
 
@@ -544,6 +694,7 @@ class Relatives(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'relatives'
 
 
@@ -551,6 +702,7 @@ class SchemaMigrations(models.Model):
     version = models.CharField(unique=True, max_length=255)
 
     class Meta:
+        managed = False
         db_table = 'schema_migrations'
 
 
@@ -564,6 +716,7 @@ class Sleeps(models.Model):
     user_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'sleeps'
 
 
@@ -580,6 +733,7 @@ class Tags(models.Model):
     status = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'tags'
 
 
@@ -591,6 +745,7 @@ class Timelines(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'timelines'
 
 
@@ -616,7 +771,7 @@ class Users(models.Model):
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
     k_garden_id = models.IntegerField(blank=True, null=True)
-    profile_id = models.IntegerField(blank=True, null=True)
+    profile = models.ForeignKey(Profiles, models.DO_NOTHING, blank=True, null=True)
     device_id = models.CharField(max_length=255, blank=True, null=True)
     is_android = models.IntegerField()
     confirmation_token = models.CharField(unique=True, max_length=255, blank=True, null=True)
@@ -641,6 +796,7 @@ class Users(models.Model):
     locked_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'users'
 
 
@@ -652,6 +808,7 @@ class UsersKids(models.Model):
     access = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'users_kids'
 
 
@@ -663,4 +820,5 @@ class Versions(models.Model):
     updated_at = models.DateTimeField()
 
     class Meta:
+        managed = False
         db_table = 'versions'

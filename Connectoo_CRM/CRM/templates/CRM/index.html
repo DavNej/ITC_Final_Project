@@ -5,33 +5,36 @@
 {% block title %} Home {% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
-{%block PAGE_LEVEL_CSS_PLUGINS%}{%endblock%}
-{%block THEME_GLOBAL_STYLES%}{%endblock%}
-{%block PAGE_LEVEL_STYLES%}{%endblock%}
-{%block THEME_LAYOUT_STYLES%}{%endblock%}
-{% comment %}{%block CUSTOM_CSS%}{%endblock%}{% endcomment %}
+
+{%block THEME_GLOBAL_STYLES%}
+        <link href="{% static '/global/css/components.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{% static '/global/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+
+{%block THEME_LAYOUT_STYLES%}
+        <link href="{% static '/layouts/layout/css/layout.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static '/layouts/layout/css/themes/darkblue.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+
 
 {% block CUSTOM_CSS %}
-<!--<link href="{% static '/global/plugins/fullcalendar/fullcalendar.css'%}" rel='stylesheet' />-->
-<!--<link href="{% static '/global/plugins/fullcalendar/fullcalendar.print.css'%}" rel='stylesheet' media='print' />-->
-<link href="{% static '/global/plugins/fullcalendar/fullcalendar.min.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static '/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static '/global/plugins/morris/morris.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static 'CRM/css/index.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'custom/css/index.css'%}" rel="stylesheet" type="text/css" />
 {% endblock%}
 
 
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block content %}
+
 <div class="row">
     <div class="col-md-2 col-sm-2 col-xs-6"style="color:#eeb31b;">
-        <a href="{% url 'reports' %}">
-        <div class="color-demo tooltips" data-original-title="Click to view demos for this color" data-toggle="modal" data-target="#demo_modal_green">
+        <a href="{% url 'contacts' %}">
+        <div class="color-demo tooltips" data-original-title="See contacts" data-toggle="modal" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
-                <i class="fa fa-flag" style="color:#eeb31b; font-size:250%;"></i>
+                <i class="fa fa-user" style="color:#eeb31b; font-size:250%;"></i>
             </div>
-            <div class="color-info bg-white c-font-14 sbold"> Reports </div>
+            <div class="color-info bg-white c-font-14 sbold"> Contacts </div>
         </div>
         <div class="modal fade" id="demo_modal_green">
             <div class="modal-dialog modal-lg"></div>
@@ -40,8 +43,8 @@
     </div>
     
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
-        <a href="{% url 'reports' %}">
-        <div class="color-demo tooltips" data-original-title="Click to view demos for this color" data-toggle="modal" data-target="#demo_modal_green">
+        <a href="{% url 'attendances' %}">
+        <div class="color-demo tooltips" data-original-title="See attendance" data-toggle="modal" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                 <i class="fa fa-list" style="color:#eeb31b; font-size:250%;"></i>
             </div>
@@ -53,10 +56,9 @@
         </a>
     </div>
 
-
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
-        <a href="{% url 'classes' %}">
-        <div class="color-demo tooltips" data-original-title="Click to view demos for this color" data-toggle="modal" data-target="#demo_modal_green">
+        <a href="{% url 'classes_table' %}">
+        <div class="color-demo tooltips" data-original-title="See classes" data-toggle="modal" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                 <i class="fa fa-users" style="color:#eeb31b; font-size:250%;"></i>
             </div>
@@ -70,7 +72,7 @@
 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'children' %}">
-        <div class="color-demo tooltips" data-original-title="Click to view demos for this color" data-toggle="modal" data-target="#demo_modal_green">
+        <div class="color-demo tooltips" data-original-title="See children" data-toggle="modal" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                 <i class="fa fa-child" style="color:#eeb31b; font-size:250%;"></i>
             </div>
@@ -84,7 +86,7 @@
 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'staff' %}">
-        <div class="color-demo tooltips" data-original-title="Click to view demos for this color" data-toggle="modal" data-target="#demo_modal_green">
+        <div class="color-demo tooltips" data-original-title="See staff" data-toggle="modal" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                 <i class="fa fa-graduation-cap" style="color:#eeb31b; font-size:250%;"></i>                     
             </div>
@@ -98,7 +100,7 @@
 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'gallery' %}">
-            <div class="color-demo tooltips" data-original-title="Click to view demos for this color" data-toggle="modal" data-target="#demo_modal_green">
+            <div class="color-demo tooltips" data-original-title="See gallery" data-toggle="modal" data-target="#demo_modal_green">
                 <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                     <i class="fa fa-picture-o" style="color:#eeb31b; font-size:250%;"></i>
                 </div>
@@ -111,61 +113,70 @@
     </div>
 </div>
 
-<div class="row cn-dashboard">
+<div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat2 ">
-            <div class="display">
-                <div class="number">
-                    <h3 class="dashboardNumbers">
-                        <span data-counter="counterup" data-value="7800">0</span>
-
-                    </h3>
-                    <small>Attendances</small>
-                </div>
-
+        <div class="dashboard-stat blue">
+            <div class="visual">
+                <i class="fa fa-comments"></i>
             </div>
+            <div class="details">
+                <div class="number">
+                    <span data-counter="counterup" data-value="1349">0</span>
+                </div>
+                <div class="desc">Attendances</div>
+            </div>
+            <a class="more" href="javascript:;"> View more
+                <i class="m-icon-swapright m-icon-white"></i>
+            </a>                                
         </div>
     </div>
+
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat2 ">
-            <div class="display">
-                <div class="number">
-                    <h3 class="dashboardNumbers">
-                        <span data-counter="counterup" data-value="1349">0</span>
-                    </h3>
-                    <small>Message sent</small>
-                </div>
-
+        <div class="dashboard-stat red">
+            <div class="visual">
+                <i class="fa fa-bar-chart-o"></i>
             </div>
-
+            <div class="details">
+                <div class="number">
+                    <span data-counter="counterup" data-value="125">0</span></div>
+                <div class="desc">Messages sent</div>
+            </div>
+            <a class="more" href="javascript:;"> View more
+                <i class="m-icon-swapright m-icon-white"></i>
+            </a>
         </div>
     </div>
+
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat2 ">
-            <div class="display">
-                <div class="number">
-                    <h3 class="dashboardNumbers">
-                        <span data-counter="counterup" data-value="567"></span>
-                    </h3>
-                    <small>Picture added</small>
-                </div>
-
+        <div class="dashboard-stat green">
+            <div class="visual">
+                <i class="fa fa-shopping-cart"></i>
             </div>
-
+            <div class="details">
+                <div class="number">
+                    <span data-counter="counterup" data-value="35">0</span>
+                </div>
+                <div class="desc">Pictures added</div>
+            </div>
+            <a class="more" href="javascript:;"> View more
+                <i class="m-icon-swapright m-icon-white"></i>
+            </a>                                
         </div>
     </div>
+
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat2 ">
-            <div class="display">
-                <div class="number">
-                    <h3 class="dashboardNumbers">
-                        <span data-counter="counterup" data-value="276"></span>
-                    </h3>
-                    <small>Number of Reports</small>
-                </div>
-
+        <div class="dashboard-stat purple">
+            <div class="visual">
+                <i class="fa fa-globe"></i>
             </div>
-
+            <div class="details">
+                <div class="number"> 
+                    <span data-counter="counterup" data-value="12">0</span></div>
+                <div class="desc">New reports</div>
+            </div>
+            <a class="more" href="javascript:;"> View more
+                <i class="m-icon-swapright m-icon-white"></i>
+            </a>                                
         </div>
     </div>
 </div>
@@ -237,23 +248,20 @@
 {% endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
-{%block PAGE_LEVEL_JS_PLUGINS%}{%endblock%}
-{%block THEME_GLOBAL_SCRIPTS%}{%endblock%}
-{%block PAGE_LEVEL_SCRIPTS%}{%endblock%}
-{%block THEME_LAYOUT_SCRIPTS%}{%endblock%}
-{% comment %}{%block CUSTOM_JAVASCRIPT%}{%endblock%}{% endcomment %}
+{%block PAGE_LEVEL_JS_PLUGINS%}
+<script src="{% static '/global/plugins/moment.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/counterup/jquery.waypoints.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/counterup/jquery.counterup.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/fullcalendar/fullcalendar.min.js' %}" type="text/javascript"></script>
+{%endblock%}
 
-{%block CUSTOM_JAVASCRIPT%}
-<script src="{% static '/global/plugins/moment.min.js'%}" type="text/javascript"></script>
-<script src="{% static '/global/plugins/fullcalendar/fullcalendar.min.js'%}" type="text/javascript"></script>
-<script src="{% static '/global/plugins/jquery-ui/jquery-ui.min.js'%}" type="text/javascript"></script>
-<script src="{% static '/global/plugins/counterup/jquery.waypoints.min.js'%}" type="text/javascript"></script>
-<script src="{% static '/global/plugins/counterup/jquery.counterup.min.js'%}" type="text/javascript"></script>
-<script src="{% static '/global/scripts/app.js'%}" type="text/javascript"></script>
+{%block THEME_GLOBAL_SCRIPTS%}
+<script src="{% static '/global/scripts/app.min.js' %}" type="text/javascript"></script>
+{%endblock%}
 
-<script src="{% static '/pages/scripts/dashboard.js'%}"type="text/javascript" ></script>
-<script src="{% static '/pages/scripts/timeline.js'%}" type="text/javascript"></script>
-<script src="{% static '/pages/scripts/timeline.min.js'%}" type="text/javascript"></script>
-{% endblock%}
-
+{%block THEME_LAYOUT_SCRIPTS%}
+<script src="{% static '/layouts/layout/scripts/layout.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
+{%endblock%}
 <!-- ********************** END JS LINKS ********************** -->

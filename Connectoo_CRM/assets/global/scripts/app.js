@@ -1,4 +1,3 @@
-console.log("app.js ?");
 /**Core script to handle the entire theme and core functions
 **/
 var App = function() {

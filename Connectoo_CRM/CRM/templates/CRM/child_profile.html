@@ -32,10 +32,6 @@
 Child Profile
 {% endblock%}
 
-{% block page-title %}
-Profile of {{kid.name}}
-{% endblock%}
-
 {% block content %}
  <div class="row">
     <div class="col-md-12">
@@ -45,23 +41,25 @@ Profile of {{kid.name}}
             <div class="portlet light profile-sidebar-portlet childrenProfile">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="../images/3.jpg" class="img-responsive" alt=""> </div>
+                    <img src="https://connectoo.co.il/uploads/profile_pics/{{kid.id}}/square/data.jpg" class="img-responsive" alt=""> </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
-                    <div class="profile-usertitle-name">%kid_name%</div>
-                    <div class="profile-usertitle-name">%kid_lastname%</div>
-                    <div class="profile-usertitle-job">%age%</div>
-                    <div class="profile-usertitle-job">%contact%</div>
+                    <div class="profile-usertitle-name">{{kid.first_name}}</div>
+                    <div class="profile-usertitle-job">{{kid.bdate}}</div>
                 </div>
 
                 <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-circle green btn-sm classNumber">%class%</button>
-                    <button type="button" class="btn btn-circle red btn-sm schoolName">%school%</button>
+                    <a href="{% url 'children_per_class' kid.group.id %}" title="Go to class" class="btn btn-circle green btn-sm classNumber">{{kid.group.name}}</a>
+                    <a href="{% url 'classes_per_school' kid.group.k_garden.id %}" title="Go to school" class="btn btn-circle red btn-sm schoolName">{{kid.group.k_garden.name}}</a>
                 </div>
 
                 <div class="profile-usermenu">
                     <ul class="nav">
+                         <li class="btn-reports">
+                            <a href="app_ticket.html">
+                                <i class="fa fa-child"></i>Child Profile</a>
+                        </li>
                         <li class="btn-reports">
                             <a href="app_ticket.html">
                                 <i class="fa fa-user"></i>Contact</a>
@@ -83,41 +81,26 @@ Profile of {{kid.name}}
             </div>
         </div>
 
+{%block table%}{%endblock%}
+
         <div class="app-ticket app-ticket-list">
             <div class="row">
                 <div class="col-md-12">
                     <div class="portlet light childrenProfileView">
+                        
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Children Profile</span>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="table-toolbar">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="btn-group">
-                                            <button id="sample_editable_1_new" class="btn sbold green addInfo"> Add info
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portlet-title tabbable-line">
-                                <div class="caption caption-md">
-                                    <i class="icon-globe theme-font hide"></i>
-                                    <span class="caption-subject font-blue-madison bold uppercase childInfo">Children information</span>
-                                </div>
+                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Details</span>
                             </div>
                         </div>
                         
-                       <div class="portlet-body">
+                        <div class="portlet-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th class="family">Name</th>
                                             <th>First Name </th>
                                             <th>gender</th>
@@ -127,8 +110,10 @@ Profile of {{kid.name}}
                                             <th>School</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                         <tr class="odd gradeX">
+                                            <td>%name.id%</td>
                                             <td>%name%</td>
                                             <td>%first_name%</td>
                                             <td>%gender%</td>
@@ -140,20 +125,22 @@ Profile of {{kid.name}}
                                     </tbody>
                                 </table>
                             </div>
-                       </div>
+                        </div>
 
                         <div class="portlet-title tabbable-line">
                             <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Parent information</span>
+                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Contact Info</span>
                             </div>
                         </div>
 
                         <div class="portlet-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+
+                                <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Name</th>
                                             <th>Phone number</th>
                                             <th>Mail</th>
@@ -163,6 +150,7 @@ Profile of {{kid.name}}
                                     </thead>
                                     <tbody>
                                         <tr class="odd gradeX">
+                                            <td>name.id</td>
                                             <td>%name%</td>
                                             <td>%000-000-00-00%</td>
                                             <td><a href="mailto:valentineg@gmail.com">%contact%</a></td>
@@ -178,38 +166,13 @@ Profile of {{kid.name}}
                                         </tr>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
 
                         
-                        <div class="portlet-title tabbable-line">
-                            <div class="caption caption-md">
-                                <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase childInfo">Other information</span>
-                            </div>
-                        </div>
-
-                       <div class="portlet-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Sensivity</th>
-                                            <th>Medical treatment</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>%sensivity</td>
-                                            <td class="center">%medical%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                 </div>
-                </div>
-
+            </div>
             </div>
         </div>
 
@@ -238,5 +201,7 @@ Profile of {{kid.name}}
 <script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
 <script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
 {%endblock%}
-<!-- ********************** END JS LINKS ********************** -->
 
+
+
+<!-- ********************** END JS LINKS ********************** -->
