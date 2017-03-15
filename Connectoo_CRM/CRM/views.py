@@ -7,6 +7,19 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Manager').exists())
 def index(request):
+<<<<<<< HEAD
+    # school = School.objects.order_by('name')
+    # grade_list = Grade.objects.order_by('teacher')
+    # children = Child.objects.order_by('last_name')
+    # context = {
+    # 'grade_list': grade_list,
+    # 'children': children,
+    # 'school': school,
+    # }
+    return render(request, 'CRM/index.html')#, context)
+
+
+=======
     school = KGardens.objects.order_by('name')
     group = Groups.objects.order_by('name')
     children = Kids.objects.order_by('last_name')
@@ -16,6 +29,7 @@ def index(request):
     'school': school,
     }
     return render(request, 'CRM/index.html', context)
+>>>>>>> 429b90a933ecef88849d7fcbe2a2f1125a9aca06
 
 def schools_table(request):
     schools = KGardens.objects.order_by('name')
@@ -40,7 +54,31 @@ def classes_per_school(request, k_garden_id):
     }
     return render(request, 'CRM/classes.html', context)
 
+<<<<<<< HEAD
+def children(request):
+    children = Kids.objects.all()
+    return render(request, 'CRM/children.html', {'children': children})
+
+
+def gallery(request):
+    pictures = KidPhotos.objects.order_by('updated_at')
+    return render(request, 'CRM/gallery.html', {'pictures': pictures})
+
+def gallery_per_kid(request):
+    kid_pics = KidPhotos.objects.filter(kid_id = 685)
+    kid = Kids.objects.get(id = 685)
+    return render(request, 'CRM/kid_gallery.html', {'kid_pics': kid_pics, 'kid':kid})
+
+def gallery_per_class(request):
+    class_name = Groups.objects.get(id = 361)
+    pics = KidPhotos.objects.all()
+    return render(request, 'CRM/class_gallery.html', {'class': class_name, 'pics': pics})
+
+def children_per_class(request, k_garden_id, group_id):
+    school = KGardens.objects.get(id = k_garden_id)
+=======
 def children_per_class(request, group_id):
+>>>>>>> 429b90a933ecef88849d7fcbe2a2f1125a9aca06
     group = Groups.objects.get(id = group_id)
     children = Kids.objects.filter(group_id = group_id)
     context = {
