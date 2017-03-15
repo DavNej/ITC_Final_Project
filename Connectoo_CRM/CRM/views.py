@@ -59,9 +59,10 @@ def gallery_per_kid(request):
 
 
 def gallery_per_class(request):
-    class_name = Groups.objects.get(id = 361)
-    pics = KidPhotos.objects.all()
-    return render(request, 'CRM/class_gallery.html', {'class': class_name, 'pics': pics})
+    kids = Kids.objects.filter(group_id=361)
+    # class_name = Groups.objects.get(id = 361)
+    # pics = KidPhotos.objects.all()
+    return render(request, 'CRM/class_gallery.html', {'kids': kids})#, {'class': class_name, 'pics': pics})
 
 def children_per_class(request, group_id):
     group = Groups.objects.get(id = group_id)
