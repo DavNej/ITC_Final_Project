@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^add_to_album/$', add_to_album, name='add_to_album'),
     url(r'^child_profile_health/(?P<kid_id>[0-9]+)$', child_profile_health, name='child_profile_health'),
     url(r'^child_profile_reports/(?P<kid_id>[0-9]+)$', child_profile_reports, name='child_profile_reports'),
+    url(r'^calendar/$', calendar, name='calendar'),
 ]

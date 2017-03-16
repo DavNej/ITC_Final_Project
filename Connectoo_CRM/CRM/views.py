@@ -65,6 +65,7 @@ def gallery_class(request, group_id):
         }
     return render(request, 'CRM/gallery_class.html', context)
 
+
 def gallery_schools(request, k_garden_id):
     groups = Groups.objects.filter(k_garden = k_garden_id)
     school = KGardens.objects.get(id = k_garden_id)
@@ -139,3 +140,6 @@ def add_to_album(request):
 
 def staff_table(request):
     return render(request, 'CRM/staff_table.html')
+
+def calendar(request):
+    return render(request, 'CRM/calendar.html')
