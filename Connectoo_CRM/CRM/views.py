@@ -57,19 +57,6 @@ def gallery_kid(request, kid_id):
 
 
 def gallery_class(request, group_id):
-<<<<<<< HEAD
-    school = KGardens.objects.filter(group_id = group_id)
-    groups = Groups.objects.filter(id = group_id)
-    kids = Kids.objects.filter(group_id=group_id)
-    context = {
-        'groups': groups,
-        'school': school,
-        'kids': kids,
-    }
-    # class_name = Groups.objects.get(id = 361)
-    # pics = KidPhotos.objects.all()
-    return render(request, 'CRM/gallery_class.html', context)#, {'class': class_name, 'pics': pics})
-=======
     kids = Kids.objects.filter(group_id = group_id)
     group = Groups.objects.get(id = group_id)
     context = {
@@ -77,7 +64,7 @@ def gallery_class(request, group_id):
         'group': group
         }
     return render(request, 'CRM/gallery_class.html', context)
->>>>>>> 9086ce8f4c901bff11794547a8b47a1638b90664
+
 
 def gallery_schools(request, k_garden_id):
     groups = Groups.objects.filter(k_garden = k_garden_id)

@@ -1,5 +1,4 @@
-
-{% extends "base.html" %}
+{% extends "gallery_template.html" %}
 
 {% load staticfiles %}
 
@@ -33,13 +32,13 @@
 
 {% block section %}
 Class Gallery
-{% endblock%}
+{%endblock%}
 
 {% block page-title %}
-Photos of class <small>Relive your favorite photos anytime</small>
-{% extends "gallery_template.html" %}
+Photos of class {{group.name}} <small></small>
+{%endblock%}
 
-{% block section %}
+{% block line %}
     <li>
         <a href="{%url 'classes_per_school' group.k_garden.id %}">School</a>
         <i class="fa fa-circle"></i>
@@ -51,10 +50,6 @@ Photos of class <small>Relive your favorite photos anytime</small>
     <li>
         <a href="#">Gallery</a>
     </li>
-{% endblock%}
-
-{% block page-title %}
-Photos of
 {% endblock%}
 
 {% block content %}
