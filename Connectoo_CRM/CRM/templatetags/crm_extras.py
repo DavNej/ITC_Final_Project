@@ -1,6 +1,6 @@
 from django import template
 from django.template import loader
-from models import Group
+from django.contrib.auth.models import Group
 from django.template import Library
 
 
