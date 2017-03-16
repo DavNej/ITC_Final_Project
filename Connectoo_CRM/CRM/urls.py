@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from .views import *
 
+app_name = 'CRM'
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^schools_table/$', schools_table, name='schools_table'),

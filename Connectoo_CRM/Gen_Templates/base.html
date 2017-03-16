@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load crm_extras %}
 
 <!DOCTYPE html>
 
@@ -55,7 +56,7 @@
         <div class="page-header-inner ">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <a href="{% url 'index' %}">
+                <a href="{% url 'CRM:index' %}">
                     <img src="{% static '/layouts/layout/img/logo.png'%}" alt="logo" class="logo-default" />
                 </a>
             </div>
@@ -360,7 +361,7 @@
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <img alt="" class="img-circle" src="{% static '/layouts/layout/img/avatar3_small.jpg'%}" />
-                            <span class="username username-hide-on-mobile"> Nick </span>
+                            <span class="username username-hide-on-mobile"> {{user.username}} </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
@@ -389,7 +390,7 @@
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-quick-sidebar-toggler">
-                        <a href="javascript:;" class="dropdown-toggle"><i class="icon-logout"></i></a>
+                        <a href="{% url 'accounts:logout' %}" class="dropdown-toggle"><i class="icon-logout"></i></a>
                     </li>
                     <!-- END QUICK SIDEBAR TOGGLER -->
                 </ul>
@@ -440,63 +441,83 @@
                         </form>
                         <!-- END RESPONSIVE QUICK SEARCH FORM -->
                     </li>
+                    {% if request.user|has_group:"Connectoo" %} 
                     <li class="nav-item">
-                        <a href="{% url 'schools_table' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:schools_table' %}" class="nav-link nav-toggle">
                             {% comment %}<i class="fa fa-home" aria-hidden="true"></i>{% endcomment %}
                             <i class="fa fa-home" style="color:#eeb31b;"></i>
                             <span class="title">Schools</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    {% endif %}
+                    
                     <li class="nav-item">
-                        <a href="{% url 'classes_table' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:classes_table' %}" class="nav-link nav-toggle">
                             <i class="fa fa-users" style="color:#eeb31b;"></i>
                             <span class="title">Classes</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+
+                    {% if request.user|has_group:"Manager" %} 
                     <li class="nav-item  ">
-                        <a href="{% url 'children' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:children' %}" class="nav-link nav-toggle">
                             <i class="fa fa-child" style="color:#eeb31b;"></i>
                             <span class="title">Children</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    {% endif %}
+
+                    {% if request.user|has_group:"Teacher" %} 
                     <li class="nav-item">
-                        <a href="{% url 'contacts' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:contacts' %}" class="nav-link nav-toggle">
                             <i class="fa fa-user" style="color:#eeb31b;"></i>
                             <span class="title">Contacts</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    {% endif %}
+
+                    {% if request.user|has_group:"Teacher" %} 
                     <li class="nav-item">
-                        <a href="{% url 'attendances' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:attendances' %}" class="nav-link nav-toggle">
                             <i class="fa fa-list" style="color:#eeb31b;"></i>
                             <span class="title">Attendances</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    {% endif %}
+
                     <li class="nav-item  ">
-                        <a href="{% url 'staff' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:staff' %}" class="nav-link nav-toggle">
                             <i class="fa fa-graduation-cap" style="color:#eeb31b;"></i>
                             <span class="title">Staff</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+
+                    {% if request.user|has_group:"Teacher" %} 
                     <li class="nav-item">
-                        <a href="{% url 'reports' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:reports' %}" class="nav-link nav-toggle">
                             <i class="fa fa-flag" style="color:#eeb31b;"></i>
                             <span class="title">Reports</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    {% endif %}
+
+                    {% comment %}{% if request.user|has_group:"Teacher" %} {% endcomment %}
                     <li class="nav-item  ">
-                        <a href="{% url 'gallery' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:gallery' %}" class="nav-link nav-toggle">
                             <i class="fa fa-picture-o" style="color:#eeb31b;"></i>
                             <span class="title">Gallery</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    {% comment %}{% endif %}{% endcomment %}
+
                     <li class="nav-item">
                         <a href="{% url 'calendar' %}" class="nav-link nav-toggle">
                             <i class="fa fa-calendar" style="color:#eeb31b;"></i>
@@ -520,7 +541,7 @@
                 <div class="page-bar">
                     <ul class="page-breadcrumb header">
                         <li>
-                            <a href="{%url 'index'%}">Home</a>
+                            <a href="{%url 'CRM:index'%}">Home</a>
                             <i class="fa fa-circle"></i>
                         </li>
                         {% block section %}{% endblock%}

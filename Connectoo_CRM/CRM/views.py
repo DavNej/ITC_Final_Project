@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from .models import *
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-# @login_required
-# @user_passes_test(lambda u: u.groups.filter(name='Manager').exists())
+
+@login_required
 def index(request):
     school = KGardens.objects.order_by('name')
     group = Groups.objects.order_by('name')
@@ -17,6 +17,8 @@ def index(request):
     }
     return render(request, 'CRM/index.html', context)
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
 def schools_table(request):
     schools = KGardens.objects.order_by('name')
     context = {
@@ -24,7 +26,8 @@ def schools_table(request):
     }
     return render(request, 'CRM/schools_table.html', context)
 
-
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
 def classes_table(request):
     classes = Groups.objects.order_by('k_garden')
     context = {
@@ -32,7 +35,8 @@ def classes_table(request):
     }
     return render(request, 'CRM/classes_table.html', context)
 
-
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
 def classes_per_school(request, k_garden_id):
     school = KGardens.objects.get(id = k_garden_id)
     classes = Groups.objects.filter(k_garden_id = k_garden_id)
@@ -42,20 +46,31 @@ def classes_per_school(request, k_garden_id):
     }
     return render(request, 'CRM/classes.html', context)
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
 def children(request):
+    # next = request.GET.get('next')
     children = Kids.objects.all()
+    # if next:
+        # return redirect(next)
     return render(request, 'CRM/children.html', {'children': children})
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
 def gallery(request):
     pictures = KidPhotos.objects.order_by('updated_at')
     return render(request, 'CRM/gallery.html', {'pictures': pictures})
 
+
+@login_required
 def gallery_kid(request, kid_id):
     kid_pics = KidPhotos.objects.filter(kid_id = kid_id)
     kid = Kids.objects.get(id = kid_id)
     return render(request, 'CRM/gallery_kid.html', {'kid_pics': kid_pics, 'kid':kid})
 
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def gallery_class(request, group_id):
     kids = Kids.objects.filter(group_id = group_id)
     group = Groups.objects.get(id = group_id)
@@ -76,6 +91,9 @@ def gallery_schools(request, k_garden_id):
     }
     return render(request, 'CRM/gallery_schools.html', context)
 
+
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def children_per_class(request, group_id):
     group = Groups.objects.get(id = group_id)
     children = Kids.objects.filter(group_id = group_id)
@@ -86,6 +104,19 @@ def children_per_class(request, group_id):
     return render(request, 'CRM/children.html', context)
 
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
+def schools(request):
+    schools = KGardens.objects.order_by('name')
+    example = KGardens.objects.get(id=201)
+    context = {
+        'schools':schools,
+        'example':example,
+    }
+    return render(request, 'CRM/schools.html', context)
+
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def reports(request):
     # children = Child.objects.order_by('last_name')
     return render(request, 'CRM/reports.html')#, {'children': children})
@@ -95,12 +126,14 @@ def staff(request):
     # staff = Staff.objects.order_by('first_name')
     return render(request, 'CRM/staff.html')#, {'staff': staff})
 
-
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def attendances(request):
     # staff = Staff.objects.order_by('first_name')
     return render(request, 'CRM/attendances.html')#, {'staff': staff})
 
-
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def contacts(request):
     contacts = Contacts.objects.all()[:30]
     context = {
@@ -108,6 +141,9 @@ def contacts(request):
     }
     return render(request, 'CRM/contacts.html', context)
 
+
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
 def child_profile(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     contacts = Contacts.objects.filter(kid=kid_id)
@@ -117,6 +153,9 @@ def child_profile(request, kid_id):
     }
     return render(request,'CRM/child_profile.html', context)
 
+
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile_health(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     context = {
@@ -124,6 +163,8 @@ def child_profile_health(request, kid_id):
     }
     return render(request, 'CRM/child_profile_health.html', context)
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile_reports(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     attendances = KidPresences.objects.filter(kid_id = kid_id).order_by('-updated_at')
@@ -137,9 +178,9 @@ def child_profile_reports(request, kid_id):
 def add_to_album(request):
     return render(request, 'CRM/add_to_album.html')
 
-
 def staff_table(request):
     return render(request, 'CRM/staff_table.html')
 
 def calendar(request):
     return render(request, 'CRM/calendar.html')
+

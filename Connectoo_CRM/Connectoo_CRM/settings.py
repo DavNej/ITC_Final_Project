@@ -66,10 +66,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django.core.context_processors.debug',
+            # 'django.core.context_processors.i18n',
+            # 'django.core.context_processors.media',
+            # 'django.core.context_processors.static',
+            # 'django.contrib.auth.context_processors.auth',
+            # 'django.contrib.messages.context_processors.messages',
+            # 'common.user_context.user_context'
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'Connectoo_CRM.wsgi.application'
 
@@ -82,7 +90,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'connectoo_CRM',
         'USER': 'root',
+<<<<<<< HEAD
         'PASSWORD': 'caroline5526V',
+=======
+        'PASSWORD': 'dannev',
+>>>>>>> 6f3039e586acd3c8e7d990de10a6170bbd7c8619
         'HOST': '127.0.0.1',
         'PORT': '3306',
         }
@@ -116,7 +128,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'index'
-LOGIN_URL = '/login'
+LOGIN_URL = 'account/login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
