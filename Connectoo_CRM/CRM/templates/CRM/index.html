@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 
 {% load staticfiles %}
+{% load crm_extras %}
 
 {% block title %} Home {% endblock%}
 
@@ -26,9 +27,13 @@
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block content %}
+{% comment %}{% for group in user.groups.all %}{% endcomment %}
 
-{% comment %}{% if request.user.is_authenticated %}{% endcomment %}
+{% comment %}{% if request.user.groups.all.name == 'Manager' %}{% endcomment %}
+{% comment %}{% if request.user is Manager %}{% endcomment %}
 <div class="row">
+{% if request.user|has_group:"Manager" %} 
+{% comment %}{% if user is 'Manager' %}{% endcomment %}
     <div class="col-md-2 col-sm-2 col-xs-6"style="color:#eeb31b;">
         <a href="{% url 'CRM:contacts' %}">
         <div class="color-demo tooltips" data-original-title="See contacts" data-toggle="modal" data-target="#demo_modal_green">
@@ -42,7 +47,8 @@
         </div>
         </a>
     </div>
-    
+    {% endif %}
+
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'CRM:attendances' %}">
         <div class="color-demo tooltips" data-original-title="See attendance" data-toggle="modal" data-target="#demo_modal_green">
@@ -246,7 +252,8 @@
         </div>
     </div>
 </div>
-{% comment %}{% endif %}{% endcomment %}
+
+{% comment %}{% endfor %}{% endcomment %}
 {% endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->

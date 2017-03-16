@@ -66,10 +66,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django.core.context_processors.debug',
+            # 'django.core.context_processors.i18n',
+            # 'django.core.context_processors.media',
+            # 'django.core.context_processors.static',
+            # 'django.contrib.auth.context_processors.auth',
+            # 'django.contrib.messages.context_processors.messages',
+            # 'common.user_context.user_context'
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'Connectoo_CRM.wsgi.application'
 
@@ -82,19 +90,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'connectoo_CRM',
         'USER': 'root',
-<<<<<<< HEAD
         'PASSWORD': 'dannev',
-=======
-        'PASSWORD': 'root',
->>>>>>> 51816bae18d6bff01ce772471a5f66dbefa9c610
         'HOST': '127.0.0.1',
         'PORT': '3306',
         }
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 51816bae18d6bff01ce772471a5f66dbefa9c610
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
