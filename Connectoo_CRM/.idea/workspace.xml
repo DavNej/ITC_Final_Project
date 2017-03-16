@@ -40,8 +40,8 @@
       <file leaf-file-name="add_to_album.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/add_to_album.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="42" column="43" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+            <state relative-caret-position="77">
+              <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gallery.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gallery.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/custom/js/gallery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+            <state relative-caret-position="135">
+              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="27" />
               <folding>
                 <marker date="1489593605000" expanded="true" signature="816:1133" ph="..." />
               </folding>
@@ -79,24 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_to_album.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add_to_album.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/custom/js/add_to_album.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-              <folding>
-                <marker date="1489590071000" expanded="true" signature="123:670" ph="{...}" />
-                <marker date="1489590071000" expanded="true" signature="173:668" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="child_profile_reports.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/child_profile_reports.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1185">
-              <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="60">
+              <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -180,17 +167,17 @@
         <option value="$PROJECT_DIR$/CRM/templates/CRM/staff_table.html" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/child_profile_reports.html" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/child_profile.html" />
-        <option value="$PROJECT_DIR$/Connectoo_CRM/settings.py" />
         <option value="$PROJECT_DIR$/CRM/static/CRM/js/gallery.js" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/gallery.html" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/kid_gallery.html" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/addToAlbum.html" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/add_to_album.html" />
-        <option value="$PROJECT_DIR$/assets/custom/js/add_to_album.js" />
         <option value="$PROJECT_DIR$/CRM/urls.py" />
         <option value="$PROJECT_DIR$/CRM/views.py" />
         <option value="$PROJECT_DIR$/CRM/templates/CRM/gallery_kid.html" />
         <option value="$PROJECT_DIR$/assets/custom/js/gallery.js" />
+        <option value="$PROJECT_DIR$/Connectoo_CRM/settings.py" />
+        <option value="$PROJECT_DIR$/assets/custom/js/add_to_album.js" />
       </list>
     </option>
   </component>
@@ -972,14 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Connectoo_CRM/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CRM/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -1022,25 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/add_to_album.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="42" column="43" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/custom/js/add_to_album.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding>
-            <marker date="1489590071000" expanded="true" signature="123:670" ph="{...}" />
-            <marker date="1489590071000" expanded="true" signature="173:668" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/kid_gallery.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -1075,13 +1035,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Connectoo_CRM/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/custom/js/gallery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        <state relative-caret-position="135">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="27" />
           <folding>
             <marker date="1489593605000" expanded="true" signature="816:1133" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CRM/templates/CRM/add_to_album.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/custom/js/add_to_album.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
