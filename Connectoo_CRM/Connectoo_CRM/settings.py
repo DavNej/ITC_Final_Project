@@ -66,7 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'django.core.context_processors.debug',
+            #     'django.core.context_processors.debug',
             # 'django.core.context_processors.i18n',
             # 'django.core.context_processors.media',
             # 'django.core.context_processors.static',
@@ -90,11 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'connectoo_CRM',
         'USER': 'root',
-<<<<<<< HEAD
-        'PASSWORD': 'caroline5526V',
-=======
-        'PASSWORD': 'dannev',
->>>>>>> 6f3039e586acd3c8e7d990de10a6170bbd7c8619
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         }
