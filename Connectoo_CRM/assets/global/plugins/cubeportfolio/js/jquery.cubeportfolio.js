@@ -3381,7 +3381,7 @@ jQuery.fn.cubeportfolio.options = {
             if ($.isFunction(param)) {
                 expression = param.call(t, t.blocks);
 
-                if(expression === undefined) {
+                if (expression === undefined) {
                     throw new Error('When you call cubeportfolio API `filter` method with a param of type function you must return the blocks that will be visible.');
                 }
             } else {

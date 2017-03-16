@@ -3,57 +3,6 @@ from django.template import loader
 from .models import *
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
-# from django import template
-# from django.template import resolve_variable
-
-# register = template.Library()
-
-# @register.tag()
-# def ifusergroup(parser, token):
-#     """ Check to see if the currently logged in user belongs to a specific
-#     group. Requires the Django authentication contrib app and middleware.
-#     Usage: {% ifusergroup Admins %} ... {% endifusergroup %}
-#     """
-#     try:
-#         tag, group = token.split_contents()
-#     except ValueError:
-#         raise template.TemplateSyntaxError("Tag 'ifusergroup' requires 1 argument.")
-#     nodelist = parser.parse(('endifusergroup',))
-#     parser.delete_first_token()
-#     return GroupCheckNode(group, nodelist)
-
-
-# class GroupCheckNode(template.Node):
-#     def __init__(self, group, nodelist):
-#         self.group = group
-#         self.nodelist = nodelist
-#     def render(self, context):
-#         user = resolve_variable('user', context)
-#         if not user.is_authenticated:
-#             return ''
-#         try:
-#             group = Group.objects.get(name=self.group)
-#         except Group.DoesNotExist:
-#             return ''
-#         if group in user.groups.all():
-#             return self.nodelist.render(context)
-#         return ''
-# from django import template 
-# from django.contrib.auth.models import Group register = template.Library() 
-
-# @register.filter(name='has_group')
-# def has_group(user, group_name): 
-#     group = Group.objects.get(name=group_name) 
-#     return True if group in user.groups.all() else False
-
-# from django import template 
-# from django.contrib.auth.models import Group 
-
-# register = template.Library() 
-# @register.filter(name='has_group') 
-# def has_group(user, group_name): 
-#     group = Group.objects.get(name=group_name) 
-#     return True if group in user.groups.all() else False 
 
 
 @login_required
@@ -114,31 +63,23 @@ def gallery(request):
 
 
 @login_required
-# @user_passes_test(lambda u: u.groups.filter(name='Parent').exists(), login_url='/')
-def gallery_per_kid(request):
-    kid_pics = KidPhotos.objects.filter(kid_id = 685)
-    kid = Kids.objects.get(id = 685)
-    return render(request, 'CRM/kid_gallery.html', {'kid_pics': kid_pics, 'kid':kid})
-
-@login_required
-@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
-def gallery_per_class(request):
-    class_name = Groups.objects.get(id = 361)
-    pics = KidPhotos.objects.all()
-    return render(request, 'CRM/class_gallery.html', {'class': class_name, 'pics': pics})
-
-
 def gallery_kid(request, kid_id):
     kid_pics = KidPhotos.objects.filter(kid_id = kid_id)
     kid = Kids.objects.get(id = kid_id)
     return render(request, 'CRM/gallery_kid.html', {'kid_pics': kid_pics, 'kid':kid})
 
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def gallery_class(request, group_id):
-    kids = Kids.objects.filter(group_id=group_id)
-    # class_name = Groups.objects.get(id = 361)
-    # pics = KidPhotos.objects.all()
-    return render(request, 'CRM/gallery_class.html', {'kids': kids})#, {'class': class_name, 'pics': pics})
+    kids = Kids.objects.filter(group_id = group_id)
+    group = Groups.objects.get(id = group_id)
+    context = {
+        'kids': kids,
+        'group': group
+        }
+    return render(request, 'CRM/gallery_class.html', context)
+
 
 def gallery_schools(request, k_garden_id):
     groups = Groups.objects.filter(k_garden = k_garden_id)
@@ -212,26 +153,9 @@ def child_profile(request, kid_id):
     }
     return render(request,'CRM/child_profile.html', context)
 
-def staff_table(request):
-    return render(request, 'CRM/staff_table.html')
-
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
-def child_profile_contact(request):
-    return render(request, 'CRM/child_profile_contact.html')
-
-@login_required
-@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
-def child_profile_medical(request):
-    return render(request, 'CRM/child_profile_medical.html')
-
-@login_required
-@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
-def child_profile_reports(request):
-    return render(request, 'CRM/child_profile_reports.html')
-
-
 def child_profile_health(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     context = {
@@ -239,13 +163,21 @@ def child_profile_health(request, kid_id):
     }
     return render(request, 'CRM/child_profile_health.html', context)
 
-
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile_reports(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
-    return render(request, 'CRM/child_profile_reports.html', {'kid': kid})
+    attendances = KidPresences.objects.filter(kid_id = kid_id).order_by('-updated_at')
+    context = {
+        'kid': kid,
+        'attendances': attendances,
+    }
+    return render(request, 'CRM/child_profile_reports.html', context)
 
 
 def add_to_album(request):
     return render(request, 'CRM/add_to_album.html')
 
+def staff_table(request):
+    return render(request, 'CRM/staff_table.html')
 
