@@ -27,13 +27,9 @@
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block content %}
-{% comment %}{% for group in user.groups.all %}{% endcomment %}
 
-{% comment %}{% if request.user.groups.all.name == 'Manager' %}{% endcomment %}
-{% comment %}{% if request.user is Manager %}{% endcomment %}
 <div class="row">
-{% if request.user|has_group:"Manager" %} 
-{% comment %}{% if user is 'Manager' %}{% endcomment %}
+{% if request.user|has_group:"Teacher" %} 
     <div class="col-md-2 col-sm-2 col-xs-6"style="color:#eeb31b;">
         <a href="{% url 'CRM:contacts' %}">
         <div class="color-demo tooltips" data-original-title="See contacts" data-toggle="modal" data-target="#demo_modal_green">
@@ -47,8 +43,9 @@
         </div>
         </a>
     </div>
-    {% endif %}
+ {% endif %}
 
+{% if request.user|has_group:"Teacher" %} 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'CRM:attendances' %}">
         <div class="color-demo tooltips" data-original-title="See attendance" data-toggle="modal" data-target="#demo_modal_green">
@@ -62,7 +59,9 @@
         </div>
         </a>
     </div>
+{% endif %}
 
+{% if request.user|has_group:"Teacher" %} 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'CRM:classes_table' %}">
         <div class="color-demo tooltips" data-original-title="See classes" data-toggle="modal" data-target="#demo_modal_green">
@@ -76,7 +75,9 @@
         </div>
         </a>
     </div>
+{% endif %}
 
+{% if request.user|has_group:"Teacher" %} 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'CRM:children' %}">
         <div class="color-demo tooltips" data-original-title="See children" data-toggle="modal" data-target="#demo_modal_green">
@@ -90,6 +91,7 @@
         </div>
         </a>
     </div>
+{% endif %}
 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
         <a href="{% url 'CRM:staff' %}">
@@ -253,7 +255,6 @@
     </div>
 </div>
 
-{% comment %}{% endfor %}{% endcomment %}
 {% endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
