@@ -29,7 +29,17 @@
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block section %}
-<a href="{% url 'child_profile' kid.id %}">Child Profile</a>
+    <li>
+        <a href="{%url 'classes_per_school' kid.group.k_garden.id %}">School</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="{%url 'children_per_class' kid.group.id %}">Class</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="{% url 'child_profile' kid.id %}">Child Profile</a>
+    </li>
 {% endblock%}
 
 {% block content %}

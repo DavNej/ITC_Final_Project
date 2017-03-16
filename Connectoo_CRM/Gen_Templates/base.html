@@ -523,14 +523,13 @@
                             <a href="{%url 'index'%}">Home</a>
                             <i class="fa fa-circle"></i>
                         </li>
-                        <li>
-                            <span>{% block section %}{% endblock%}</span>
-                        </li>
+                        {% block section %}{% endblock%}
                     </ul>
                 </div>
                 <!-- END PAGE BAR -->
                 <!-- END PAGE HEADER-->
-
+                {% block info %}
+                {% endblock%}
                 <!-- BEGIN PAGE TITLE-->
                 <h3 class="page-title">
                     {% block page-title %}

@@ -27,7 +27,10 @@
 <!-- ********************** END CSS LINKS ********************** -->
 
 {% block section %}
-Attendance
+    <li>
+        <a href="{%url 'attendances' %}">Attendance</a>
+        {% comment %}<i class="fa fa-circle"></i>{% endcomment %}
+    </li>
 {% endblock%}
 
 {% block page-title %}
