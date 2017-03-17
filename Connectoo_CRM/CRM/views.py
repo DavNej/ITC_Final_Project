@@ -105,7 +105,6 @@ def school_pictures(request, k_garden_id):
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
->>>>>>> d28c65f318f956130d5a2462c482522b800ef8bb
 def children_per_class(request, group_id):
     group = Groups.objects.get(id = group_id)
     children = Kids.objects.filter(group_id = group_id)
