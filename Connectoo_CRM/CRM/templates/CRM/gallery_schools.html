@@ -2,16 +2,16 @@
 
 {% block section %}
     <li>
-        <a href="{%url 'classes_per_school' school.id %}">School</a>
+        <a href="{%url 'classes_per_school' school.id %}">{{school.name}}</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="#">Gallery</a>
+        <a href="#"> Kids Gallery </a>
     </li>
 {% endblock%}
 
 {% block page-title %}
-Photos of {{school.name}}
+Photos of {{school.name}} <small> Here you can choose and save your favorite ones</small>
 {% endblock%}
 
 {% block content %}

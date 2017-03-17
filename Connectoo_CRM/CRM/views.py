@@ -76,6 +76,16 @@ def gallery_schools(request, k_garden_id):
     }
     return render(request, 'CRM/gallery_schools.html', context)
 
+def school_pictures(request, k_garden_id):
+    school = KGardens.objects.get(id=k_garden_id)
+    pictures = Pictures.objects.filter(k_garden_id=k_garden_id)
+    context = {
+        'school': school,
+        'pictures' : pictures,
+
+    }
+    return render(request, 'CRM/school_pictures.html', context)
+
 def children_per_class(request, group_id):
     group = Groups.objects.get(id = group_id)
     children = Kids.objects.filter(group_id = group_id)
