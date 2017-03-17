@@ -25,7 +25,7 @@ Children
 
 {% block section %}
     <li>
-        <a href="{%url 'classes_per_school' group.k_garden.id %}">School</a>
+        <a href="{%url 'CRM:classes_per_school' group.k_garden.id %}">School</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
@@ -67,7 +67,7 @@ Children of {{ group.name }} in {{ group.k_garden.name }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="btn default btn-outline" href="{% url 'gallery_kid' c.id %}" title="go to photos">
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' c.id %}" title="go to photos">
                                                     <i class="icon-camera"></i>
                                                 </a>
                                             </li>
