@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from .models import *
-from django.contrib.auth.models import *
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 
-# @login_required
+@login_required
 def index(request):
     school = KGardens.objects.order_by('name')
     group = Groups.objects.order_by('name')
