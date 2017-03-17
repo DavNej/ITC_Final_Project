@@ -29,7 +29,7 @@
 
 {% block section %}
     <li>
-        <a href="{%url 'classes_per_school' school.id %}">School</a>
+        <a href="{% url 'CRM:classes_per_school' school.id %}">School</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
@@ -39,8 +39,12 @@
 
 {% block info %}
 <h1>{{school.name}}
+<<<<<<< HEAD
     <a style="float: right" class="btn btn-primary" href="{% url 'gallery_schools' school.id %}" role="button"><i class="icon-camera"></i> Kids Gallery</a>
 <a style="float: right" class="btn btn-primary" href="{% url 'school_pictures' school.id %}" role="button"><i class="icon-camera"></i> School Pictures</a>
+=======
+<a style="float: right" class="btn btn-primary" href="{% url 'CRM:gallery_schools' school.id %}" role="button"><i class="icon-camera"></i> School Gallery</a>
+>>>>>>> d28c65f318f956130d5a2462c482522b800ef8bb
 </h1>
 <h5 style="padding-left: 20px; padding-top: 10px;"><i class="icon-home"></i> {{school.street}}</h5>
 <h5 style="padding-left: 20px"><i class="fa fa-phone"></i> {{school.phone}}</h5>
@@ -58,7 +62,7 @@ Classes
         <div class="row">
         {% endif %}
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="{% url 'children_per_class' c.id %}">
+                <a href="{% url 'CRM:children_per_class' c.id %}">
                 <div class="portlet light portlet-fit bordered">
                     <div style="margin: 0" class="portlet-title">
                             <i class=" icon-layers font-green"></i>

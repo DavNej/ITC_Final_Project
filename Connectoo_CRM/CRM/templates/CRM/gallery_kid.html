@@ -2,11 +2,11 @@
 
 {% block section %}
     <li>
-        <a href="{%url 'classes_per_school' kid.group.k_garden.id %}">School</a>
+        <a href="{% url 'CRM:classes_per_school' kid.group.k_garden.id %}">School</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{%url 'children_per_class' kid.group.id %}">Class</a>
+        <a href="{% url 'CRM:children_per_class' kid.group.id %}">Class</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>

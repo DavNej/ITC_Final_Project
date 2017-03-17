@@ -2,7 +2,11 @@
 
 {% block section %}
     <li>
+<<<<<<< HEAD
         <a href="{%url 'classes_per_school' school.id %}">{{school.name}}</a>
+=======
+        <a href="{% url 'CRM:classes_per_school' school.id %}">School</a>
+>>>>>>> d28c65f318f956130d5a2462c482522b800ef8bb
         <i class="fa fa-circle"></i>
     </li>
     <li>
@@ -15,13 +19,14 @@ Photos of {{school.name}} <small> Here you can choose and save your favorite one
 {% endblock%}
 
 {% block content %}
+
     <div id="js-grid-lightbox-gallery" class="cbp">
         
         {% for group in groups %}
             {% for kid in group.kids_set.all %}
                 {% for p in kid.kidphotos_set.all %}
                 <div class="cbp-item web-design graphic print motion">
-                    <a href="#" class="cbp-caption cbp-singlePageInline" data-title="World Clock Widget<br>by Paul Flavius Nechita" rel="nofollow">
+                    <a href="#" class="cbp-caption">
                         <div class="cbp-caption-defaultWrap">
                             <img src="https://connectoo.co.il/uploads/kid_photos/{{p.id}}/original/data.jpg">
                         </div>
@@ -36,7 +41,8 @@ Photos of {{school.name}} <small> Here you can choose and save your favorite one
                             </div>
                         </div>
                     </a>
-                </div>              
+                </div>
+
                 {% endfor %}
             {% endfor %}
         {% endfor %}

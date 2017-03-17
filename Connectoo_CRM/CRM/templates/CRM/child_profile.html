@@ -1,5 +1,86 @@
 {% extends "child_profile_template.html" %}
 
+
+{% comment %}{% load staticfiles %}
+
+{% block title %}Child Profile{% endblock%}
+
+<!-- ********************** BEGIN CSS LINKS ********************** -->
+{%block PAGE_LEVEL_CSS_PLUGINS%}
+<link href="{% static '/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static '/global/plugins/datatables/datatables.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static '/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+{%block THEME_GLOBAL_STYLES%}
+<link href="{% static '/global/css/components.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
+<link href="{% static '/global/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+{%block PAGE_LEVEL_STYLES%}
+<link href="{% static '/pages/css/profile.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static '/apps/css/ticket.min.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+{%block THEME_LAYOUT_STYLES%}
+<link href="{% static '/layouts/layout/css/layout.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static '/layouts/layout/css/themes/darkblue.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
+<link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+{%block CUSTOM_CSS%}
+<link href="{% static 'custom/css/childrenProfileTemplate.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+<!-- ********************** END CSS LINKS ********************** -->
+
+{% block section %}
+Child Profile
+{% endblock%}
+
+{% block content %}
+ <div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar childProfile">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet childrenProfile">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="https://connectoo.co.il/uploads/profile_pics/{{kid.id}}/square/data.jpg" class="img-responsive" alt=""> </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">{{kid.first_name}}</div>
+                    <div class="profile-usertitle-job">{{kid.bdate}}</div>
+                </div>
+
+                <div class="profile-userbuttons">
+                    <a href="{% url 'CRM:children_per_class' kid.group.id %}" title="Go to class" class="btn btn-circle green btn-sm classNumber">{{kid.group.name}}</a>
+                    <a href="{% url 'CRM:classes_per_school' kid.group.k_garden.id %}" title="Go to school" class="btn btn-circle red btn-sm schoolName">{{kid.group.k_garden.name}}</a>
+                </div>
+
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                         <li class="btn-reports">
+                            <a href="app_ticket.html">
+                                <i class="fa fa-child"></i>Child Profile</a>
+                        </li>
+                        <li class="btn-reports">
+                            <a href="app_ticket.html">
+                                <i class="fa fa-user"></i>Contact</a>
+                        </li>
+                        <li class="btn-reports">
+                            <a href="app_ticket.html">
+                                <i class="fa fa-flag"></i>Reports</a>
+                        </li>
+                         <li class="btn-reports">
+                            <a href="app_ticket.html">
+                                <i class="fa fa-medkit"></i>Medical</a>
+                        </li>
+                         <li class="btn-reports">
+                            <a href="app_ticket.html">
+                                <i class="icon-camera"></i>Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>{% endcomment %}
+
 {% block table %}    
     <div class="portlet-title tabbable-line">
         <div class="caption caption-md">
