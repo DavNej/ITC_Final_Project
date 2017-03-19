@@ -6,8 +6,7 @@ from django.template import Library
 
 register = template.Library()
 
-@register.filter(name='has_group') 
+@register.filter(name='has_group')
 def has_group(user, group_name):
     group =  Group.objects.get(name=group_name) 
     return group in user.groups.all()
-    

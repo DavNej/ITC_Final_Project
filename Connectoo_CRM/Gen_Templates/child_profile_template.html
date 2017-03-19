@@ -30,15 +30,15 @@
 
 {% block section %}
     <li>
-        <a href="{%url 'classes_per_school' kid.group.k_garden.id %}">School</a>
+        <a href="{%url 'CRM:classes_per_school' kid.group.k_garden.id %}">School</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{%url 'children_per_class' kid.group.id %}">Class</a>
+        <a href="{%url 'CRM:children_per_class' kid.group.id %}">Class</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{% url 'child_profile' kid.id %}">Child Profile</a>
+        <a href="{% url 'CRM:child_profile' kid.id %}">Child Profile</a>
     </li>
 {% endblock%}
 
@@ -51,7 +51,7 @@
             <div class="portlet light profile-sidebar-portlet childrenProfile">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <a href="{% url 'child_profile' kid.id %}">
+                    <a href="{% url 'CRM:child_profile' kid.id %}">
                         <img src="https://connectoo.co.il/uploads/profile_pics/{{kid.id}}/square/data.jpg" class="img-responsive" alt=""> </div>
                     </a>
                 <!-- END SIDEBAR USERPIC -->
@@ -62,22 +62,22 @@
                 </div>
 
                 <div class="profile-userbuttons">
-                    <a href="{% url 'children_per_class' kid.group.id %}" title="Go to class" class="btn btn-circle green btn-sm classNumber">{{kid.group.name}}</a>
-                    <a href="{% url 'classes_per_school' kid.group.k_garden.id %}" title="Go to school" class="btn btn-circle red btn-sm schoolName">{{kid.group.k_garden.name}}</a>
+                    <a href="{% url 'CRM:children_per_class' kid.group.id %}" title="Go to class" class="btn btn-circle green btn-sm classNumber">{{kid.group.name}}</a>
+                    <a href="{% url 'CRM:classes_per_school' kid.group.k_garden.id %}" title="Go to school" class="btn btn-circle red btn-sm schoolName">{{kid.group.k_garden.name}}</a>
                 </div>
 
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li class="btn-reports">
-                            <a href="{% url 'child_profile_reports' kid.id %}">
+                            <a href="{% url 'CRM:child_profile_reports' kid.id %}">
                                 <i class="fa fa-flag"></i>Reports</a>
                         </li>
                          <li class="btn-reports">
-                            <a href="{% url 'child_profile_health' kid.id %}">
+                            <a href="{% url 'CRM:child_profile_health' kid.id %}">
                                 <i class="fa fa-medkit"></i>Health</a>
                         </li>
                          <li class="btn-reports">
-                            <a href="{% url 'gallery_kid' kid.id %}">
+                            <a href="{% url 'CRM:gallery_kid' kid.id %}">
                                 <i class="icon-camera"></i>Gallery</a>
                         </li>
                     </ul>

@@ -6,11 +6,11 @@ myAlbum.cardArr= [];
 myAlbum.toCard = function() {
 	// console.log(myAlbum.cardArr);
 	// myAlbum.a = $(this);
-		// myAlbum.image = $(this).closest('a').find('img').attr('src');
-	// console.log("sel image", myAlbum.image);
+		myAlbum.image = $(this).closest('a').find('img').attr('src');
+	console.log("sel image", myAlbum.image);
 
 		console.log('test')
-		// myAlbum.cardArr.push(myAlbum.image);
+		myAlbum.cardArr.push(myAlbum.image);
 		// myAlbum.cardArr.push("test");
 	// console.log("cart", myAlbum.cardArr);
 
