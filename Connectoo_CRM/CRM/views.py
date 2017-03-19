@@ -194,6 +194,8 @@ def staff_table(request):
     return render(request, 'CRM/staff_table.html')
 
 def calendar(request):
-
     return render(request, 'CRM/calendar.html')
+
+def magnet(request, group_id):
+    return render(request, 'CRM/magnet.html')
 
