@@ -65,8 +65,14 @@ def gallery(request):
 @login_required
 def gallery_kid(request, kid_id):
     kid_pics = KidPhotos.objects.filter(kid_id = kid_id)
+    tagged_pics = Tags.objects.filter(kid_id = kid_id)[:20]
     kid = Kids.objects.get(id = kid_id)
-    return render(request, 'CRM/gallery_kid.html', {'kid_pics': kid_pics, 'kid':kid})
+    context = {
+        'kid_pics': kid_pics,
+        'kid':kid,
+        'tagged_pics':tagged_pics
+        }
+    return render(request, 'CRM/gallery_kid.html', context)
 
 
 @login_required
@@ -129,7 +135,9 @@ def staff(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def attendances(request):
-    # staff = Staff.objects.order_by('first_name')
+    # kid
+    attendance = KidPresences.objects.order_by('first_name')
+
     return render(request, 'CRM/attendances.html')#, {'staff': staff})
 
 @login_required
@@ -166,11 +174,15 @@ def child_profile_health(request, kid_id):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile_reports(request, kid_id):
+    reports = Agendas.objects.filter(agendable_id = kid_id)
+    sleeps = Sleeps.objects.filter(kid_id = kid_id).order_by('-updated_at')
     kid = Kids.objects.get(id = kid_id)
-    attendances = KidPresences.objects.filter(kid_id = kid_id).order_by('-updated_at')
+    # attendances = KidPresences.objects.filter(kid_id = kid_id).order_by('-updated_at')
     context = {
         'kid': kid,
         'attendances': attendances,
+        'reports': reports,
+        'sleeps': sleeps,
     }
     return render(request, 'CRM/child_profile_reports.html', context)
 
@@ -182,5 +194,6 @@ def staff_table(request):
     return render(request, 'CRM/staff_table.html')
 
 def calendar(request):
+
     return render(request, 'CRM/calendar.html')
 

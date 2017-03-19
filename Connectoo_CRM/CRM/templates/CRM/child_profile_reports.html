@@ -12,7 +12,7 @@
 </div>
 
 <div class="portlet-body">
-    <div class="table-responsive" style="height: 181px;">
+    <div class="table-responsive" style="max-height: 181px;">
         <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
             <thead>
                 <tr>
@@ -44,6 +44,46 @@
     <div class="portlet-title tabbable-line">
         <div class="caption caption-md">
             <i class="icon-globe theme-font hide"></i>
+            <span class="caption-subject font-blue-madison bold uppercase childInfo">Naps</span>
+        </div>
+    </div>
+</div>
+
+<div class="portlet-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in sleeps %}
+                <tr class="odd gradeX">
+                    <td>{{forloop.counter}}</td>
+                    {% if s.is_awake == 1 %}
+                    <td>Awake</td>
+                    <td>{{s.updated_at|date}}</td>
+                    <td>{{s.updated_at|time}}</td>
+                    {% else %}
+                    <td>Asleep</td>
+                    <td>{{s.updated_at|date}}</td>
+                    <td>{{s.updated_at|time}}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="portlet-body">
+    <div class="portlet-title tabbable-line">
+        <div class="caption caption-md">
+            <i class="icon-globe theme-font hide"></i>
             <span class="caption-subject font-blue-madison bold uppercase childInfo">Missing items</span>
         </div>
     </div>
@@ -63,6 +103,7 @@
             </thead>
             <tbody>
                 <tr class="odd gradeX">
+                    <td>#</td>
                     <td>%Date%</td>
                     <td>%Type%</td>
                     <td>%Qty%</td>
@@ -90,21 +131,15 @@
                     <th>#</th>
                     <th>Date</th>
                     <th>Time</th>
-                    <th>Main Dish</th>
-                    <th>Side Dish</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Dish</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="odd gradeX">
-                    <td>Date.id</td>
-                    <td>%date%</td>
-                    <td>%hour%</td>
-                    <td>salads</td>
-                    <td>fish</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="edit" href="javascript:;">Delete</a></td>
+                    <td>#</td>
+                    <td>% date %</td>
+                    <td>% time %</td>
+                    <td>% bottle %</td>
                 </tr>
             </tbody>
         </table>
@@ -128,62 +163,22 @@
                     <th>#</th>
                     <th>Date</th>
                     <th>Last Changed</th>
-                    <th> Daily Changes</th>
-                    <th>Comments </th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Daily Changes</th>
+                    <th>Comments</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="odd gradeX">
-                    <td>Date.id</td>
-                    <td>%date%</td>
-                    <td>%hour%</td>
-                    <td>3</td>
-                    <td>Green Poop</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="edit" href="javascript:;">Delete</a></td>
+                    <td>#</td>
+                    <td>% date %</td>
+                    <td>% time %</td>
+                    <td>% qty %</td>
+                    <td>% comment %</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 
-<div class="portlet-body">
-    <div class="portlet-title tabbable-line">
-        <div class="caption caption-md">
-            <i class="icon-globe theme-font hide"></i>
-            <span class="caption-subject font-blue-madison bold uppercase childInfo">Naps</span>
-        </div>
-    </div>
-</div>
 
-<div class="portlet-body">
-    <div class="table-responsive">
-        <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Date</th>
-                    <th>Fell asleep </th>
-                    <th> Woke up</th>
-                    <th>Total </th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="odd gradeX">
-                    <td>Date.id</td>
-                    <td>%date%</td>
-                    <td>%hour%</td>
-                        <td>%hour%</td>
-                    <td>total hour</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="edit" href="javascript:;">Delete</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 {%endblock%}
