@@ -35,7 +35,7 @@ Children
 
 {% block page-title %}
 Children of {{ group.name }} in {{ group.k_garden.name }}
-<a style="float: right" class="btn btn-primary" href="{% url 'gallery_class' group.id %}" role="button"><i class="icon-camera"></i> Class Gallery</a>
+<a style="float: right" class="btn btn-primary" href="{% url 'CRM:gallery_class' group.id %}" role="button"><i class="icon-camera"></i> Class Gallery</a>
 {% endblock%}
 
 {% block content %}

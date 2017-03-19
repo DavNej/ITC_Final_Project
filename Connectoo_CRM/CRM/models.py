@@ -7,6 +7,9 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from __future__ import unicode_literals
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Agendas(models.Model):
@@ -793,11 +796,20 @@ class Users(models.Model):
     failed_attempts = models.IntegerField()
     unlock_token = models.CharField(unique=True, max_length=255, blank=True, null=True)
     locked_at = models.DateTimeField(blank=True, null=True)
+    # user = models.OneToOneField(User)
 
     class Meta:
         managed = False
         db_table = 'users'
 
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Users.objects.create(user=instance)
+
+# @receiver(post_save, sender=User)
+# def save_user_profile(sender, instance, **kwargs):
+#     instance.profile.save()
 
 class UsersKids(models.Model):
     user_id = models.IntegerField(blank=True, null=True)
