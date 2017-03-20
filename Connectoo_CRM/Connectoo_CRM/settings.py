@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+# import django
+# django.setup()
+
+# from base import *
+# from django.core.wsgi import get_wsgi_application
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'Connectoo_CRM.settings'
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", Connectoo_CRM.settings.local")
+# application = get_wsgi_application()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))

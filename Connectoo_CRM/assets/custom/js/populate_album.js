@@ -3,30 +3,30 @@ var myAlbum = {};
 myAlbum.albumArr = JSON.parse(localStorage.getItem('imgData'));
 
 myAlbum.populate=function () {
-    var box = $('.cbp-wrapper');
-    box.html('<div class="cbp-item web-design graphic print motion"><a href="#" class="cbp-caption"><div class="cbp-caption-defaultWrap"><img src="http://kingofwallpapers.com/picture/picture-008.jpg"></div><div class="cbp-caption-activeWrap"><div class="cbp-l-caption-alignLeft"><div class="cbp-l-caption-body"><div class="cbp-l-caption-title"></div><div class="cbp-l-caption-desc"></div><button type="button" class="btn btn-circle green btn-sm album">Add to Album</button></div></div></div></a></div>')
+    var box = $('#cn-pageContent');
+    
+    if (!myAlbum.albumArr) {
+            box.append('<h1>No photos added</h1></br><p>Please select photos you want to print</p>')
+            row = $('<div/>', {'class': "row"});
+        }
+        else {
+            var row = $('<div/>', {'class': "row"});
 
-        // var holder = $('<div/>', {'class': "cbp-item web-design graphic print motion"});
-
-        // var content = $('<div/>', {'class': "cbp-item-wrapper"}).appendTo(holder);
-        // $('<a/>', {'class': "cbp-caption", 'href': "#"}).append(        
-        //     $('<div/>', {'class': "cbp-caption-defaultWrap"}).append(
-        //         $('<img/>', {'src': 'http://kingofwallpapers.com/picture/picture-008.jpg'})// myAlbum.albumArr[i]})
-        //     )
-        // ).appendTo(content);
-        
-        // $('<div/>', {'class': "cbp-caption-activeWrap"}).append(
-        //     $('<div/>', {'class': "cbp-caption-alignleft"}).append(
-        //         $('<div/>', {'class': "cbp-l-caption-body"}).html(
-        //             '<div class="cbp-l-caption-title"></div>'
-        //         )
-        //     )
-        // ).appendTo(content)
-
-        // content.appendTo(box)
-};
+            for (var i = 0; i < myAlbum.albumArr.length; i++) {        
+                if (i % 4 == 0 && i != 0) {
+                    box.append(row)
+                    row = $('<div/>', {'class': "row"});
+                }
+                var image = $('<div/>', {'class': "col-md-3 col-lg-3"}).append(
+                                $('<div/>').css({'width':'100%','height':'100%','background-color':'black'}).append(
+                                    $('<img/>', {'src': myAlbum.albumArr[i]}).css({'width': '100%', 'overflow':'hidden'})
+                                )
+                            ).appendTo(row);
+                }
+                box.append(row)
+        }
+    };
 
 $(document).ready(function() {
-    alert('hey');
     myAlbum.populate();
 });
