@@ -18,10 +18,10 @@ urlpatterns = [
     url(r'^gallery_kid/(?P<kid_id>[0-9]+)$', gallery_kid, name='gallery_kid'),
     url(r'^gallery_class/(?P<group_id>[0-9]+)$', gallery_class, name='gallery_class'),
     url(r'^gallery_schools/(?P<k_garden_id>[0-9]+)$', gallery_schools, name='gallery_schools'),
-    url(r'^school_pictures/(?P<k_garden_id>[0-9]+)$', school_pictures, name='school_pictures'),
     url(r'^child_profile/(?P<kid_id>[0-9]+)$',child_profile, name='child_profile'),
     url(r'^add_to_album/$', add_to_album, name='add_to_album'),
     url(r'^child_profile_health/(?P<kid_id>[0-9]+)$', child_profile_health, name='child_profile_health'),
     url(r'^child_profile_reports/(?P<kid_id>[0-9]+)$', child_profile_reports, name='child_profile_reports'),
     url(r'^calendar/$', calendar, name='calendar'),
+    url(r'^magnet/(?P<group_id>[0-9]+)$', magnet, name='magnet'),
 ]

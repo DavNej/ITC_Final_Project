@@ -2,20 +2,16 @@
 
 {% block section %}
     <li>
-<<<<<<< HEAD
-        <a href="{%url 'classes_per_school' school.id %}">{{school.name}}</a>
-=======
         <a href="{% url 'CRM:classes_per_school' school.id %}">School</a>
->>>>>>> d28c65f318f956130d5a2462c482522b800ef8bb
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="#"> Kids Gallery </a>
+        <a href="#">Gallery</a>
     </li>
 {% endblock%}
 
 {% block page-title %}
-Photos of {{school.name}} <small> Here you can choose and save your favorite ones</small>
+Photos of {{school.name}}
 {% endblock%}
 
 {% block content %}

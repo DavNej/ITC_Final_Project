@@ -6,16 +6,14 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from __future__ import unicode_literals
+
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 
 class Agendas(models.Model):
     is_awake = models.IntegerField(blank=True, null=True)
     date = models.DateTimeField(blank=True, null=True)
-    agendable_id = models.IntegerField(blank=True, null=True)
+    agendable = models.ForeignKey('Kids', models.DO_NOTHING, blank=True, null=True)
     agendable_type = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(blank=True, null=True)
     updated_at = models.DateTimeField(blank=True, null=True)
@@ -29,10 +27,8 @@ class Agendas(models.Model):
     will_be_absent_until = models.DateField(blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'agendas'
-    
-    def __str__(self):
-        return self.comment
 
 
 class Attachments(models.Model):
@@ -457,7 +453,6 @@ class KGardens(models.Model):
     class Meta:
         managed = False
         db_table = 'k_gardens'
-        ordering = ('name',)
 
 
 class KidLacks(models.Model):
@@ -544,8 +539,6 @@ class Kids(models.Model):
         managed = False
         db_table = 'kids'
 
-    def __str__(self):
-        return self.first_name
 
 class KindPoops(models.Model):
     kid_id = models.IntegerField(blank=True, null=True)
@@ -797,20 +790,11 @@ class Users(models.Model):
     failed_attempts = models.IntegerField()
     unlock_token = models.CharField(unique=True, max_length=255, blank=True, null=True)
     locked_at = models.DateTimeField(blank=True, null=True)
-    # user = models.OneToOneField(User)
 
     class Meta:
         managed = False
         db_table = 'users'
 
-# @receiver(post_save, sender=User)
-# def create_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Users.objects.create(user=instance)
-
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.profile.save()
 
 class UsersKids(models.Model):
     user_id = models.IntegerField(blank=True, null=True)
