@@ -21,13 +21,12 @@
 {% endblock%}
 
 {% block page-title %}
-<h1>{{school.name}}
-{% comment %}<a style="float: right" class="btn btn-primary" href="{% url 'CRM:gallery_schools' school.id %}" role="button"><i class="icon-camera"></i> School Gallery</a>{% endcomment %}
-</h1>
+<h3 style="height: 35px; position: relative">
+    My Album
+    <a style="position: absolute; right: 0" class="btn btn-primary" href="#" role="button">Send to print</a>
+</h3>
 {% endblock%}
 
 {% block content %}
     
-    <div id="js-grid-lightbox-gallery" class="cbp"></div>
-
 {% endblock%}

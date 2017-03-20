@@ -35,8 +35,8 @@ Children
 
 {% block page-title %}
 Children of {{ group.name }} in {{ group.k_garden.name }}
-<a style="float: right; margin-left:10px" class="btn btn-primary" href="{% url 'CRM:gallery_class' group.id %}" role="button">Create magnet</a>
-<a style="float: right" class="btn btn-primary" href="{% url 'CRM:magnet' group.id %}" role="button"><i class="icon-camera"></i> Class Gallery</a>
+<a style="float: right; margin-left:10px" class="btn btn-primary" href="{% url 'CRM:magnet' group.id %}" role="button">Create magnet</a>
+<a style="float: right" class="btn btn-primary" href="{% url 'CRM:gallery_class' group.id %}" role="button"><i class="icon-camera"></i> Class Gallery</a>
 {% endblock%}
 
 {% block content %}
