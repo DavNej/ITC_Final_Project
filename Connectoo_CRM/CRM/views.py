@@ -7,8 +7,6 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 @login_required
 def index(request):
-    # school = KGardens.objects.order_by('name')
-    # school = KGardens.objects.get(name='גן פשושים')
     school = KGardens.objects.get(id=201)
     group = Groups.objects.order_by('name')
     children = Kids.objects.order_by('last_name')
@@ -22,7 +20,6 @@ def index(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
 def schools_table(request):
-    # schools = KGardens.objects.order_by('name')
     schools = KGardens.objects.get(id=201)
     context = {
         'schools':schools
@@ -94,12 +91,11 @@ def gallery_class(request, group_id):
         }
     return render(request, 'CRM/gallery_class.html', context)
 
-
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def gallery_schools(request, k_garden_id):
-    # groups = Groups.objects.filter(k_garden = k_garden_id)
-    # school = KGardens.objects.get(id = k_garden_id)
     groups = Groups.objects.filter(k_garden = 201)
-    school = KGardens.objects.get(id = 201)
+    school = KGardens.objects.get(id = k_garden_id)
     # kids = Kids.objects.filter(group_id = group.id)
     context = {
         'groups': groups,
@@ -145,17 +141,21 @@ def staff(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def attendances(request):
-    # kid
     attendance = KidPresences.objects.order_by('first_name')
-
     return render(request, 'CRM/attendances.html')#, {'staff': staff})
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
-def contacts(request):
-    contacts = Contacts.objects.all()[:30]
+def contacts(request, k_garden_id):
+    # contacts = Contacts.objects.all()[:30]
+    school = KGardens.objects.get(id = k_garden_id)
+    classes = Groups.objects.filter(k_garden_id = k_garden_id)
+    # context = {
+    #     'contacts': contacts,
+    # }
     context = {
-        'contacts': contacts,
+        'school': school,
+        'group':classes,
     }
     return render(request, 'CRM/contacts.html', context)
 

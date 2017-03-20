@@ -22,10 +22,10 @@ Children
 <link href="{% static 'custom/css/children.css'%}" rel="stylesheet" type="text/css" />
 {%endblock%}
 <!-- ********************** END CSS LINKS ********************** -->
-{%comment%}
+
 {% block section %}
     <li>
-        <a href="{%url 'CRM:classes_per_school' group.k_garden.id %}">School</a>
+        <a href="{%url 'CRM:classes_per_school' 201 %}">School</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
@@ -37,7 +37,7 @@ Children
 Children of {{ group.name }} in {{ group.k_garden.name }}
 <a style="float: right" class="btn btn-primary" href="{% url 'CRM:gallery_class' group.id %}" role="button"><i class="icon-camera"></i> Class Gallery</a>
 {% endblock%}
-{% endcomment %}
+
 
 {% block content %}
 <!-- BEGIN : USER CARDS -->
