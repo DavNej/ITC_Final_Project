@@ -153,8 +153,10 @@ def attendances(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def contacts(request):
+    schools = KGardens.objects.filter(id = 201)
     contacts = Contacts.objects.all()[:30]
     context = {
+        'schools':schools,
         'contacts': contacts,
     }
     return render(request, 'CRM/contacts.html', context)
