@@ -63,7 +63,7 @@
 
 {% if request.user|has_group:"Teacher" %} 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
-        <a href="{% url 'CRM:classes_table' %}">
+        <a href="{% url 'CRM:classes_per_school' 201 %}">
         <div class="color-demo tooltips" data-original-title="See classes" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                 <i class="fa fa-users" style="color:#eeb31b; font-size:250%;"></i>
@@ -79,7 +79,7 @@
 
 {% if request.user|has_group:"Teacher" %} 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
-        <a href="{% url 'CRM:children' %}">
+        <a href="{% url 'CRM:children_per_school' 201 %}">
         <div class="color-demo tooltips" data-original-title="See children" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                 <i class="fa fa-child" style="color:#eeb31b; font-size:250%;"></i>

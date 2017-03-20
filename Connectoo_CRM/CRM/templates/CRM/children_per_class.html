@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+Children
+{% endblock%}
+
+<!-- ********************** BEGIN CSS LINKS ********************** -->
+{%block THEME_GLOBAL_STYLES%}
+<link href="{% static '/global/css/components.min.css'%}" rel="stylesheet" id="style_components" type="text/css" />
+<link href="{% static '/global/css/plugins.min.css'%}" rel="stylesheet" type="text/css" />
+{%endblock%}
+
+{%block THEME_LAYOUT_STYLES%}
+<link href="{% static '/layouts/layout/css/layout.min.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static '/layouts/layout/css/themes/darkblue.min.css'%}" rel="stylesheet" type="text/css" id="style_color" />
+<link href="{% static '/layouts/layout/css/custom.min.css'%}" rel="stylesheet" type="text/css" />
+{%endblock%}
+
+{%block CUSTOM_CSS%}
+<link href="{% static 'custom/css/children.css'%}" rel="stylesheet" type="text/css" />
+{%endblock%}
+<!-- ********************** END CSS LINKS ********************** -->
+{%comment%}
+{% block section %}
+    <li>
+        <a href="{%url 'CRM:classes_per_school' group.k_garden.id %}">School</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Class</a>
+    </li>
+{% endblock%}
+
+{% block page-title %}
+Children of {{ group.name }} in {{ group.k_garden.name }}
+<a style="float: right" class="btn btn-primary" href="{% url 'CRM:gallery_class' group.id %}" role="button"><i class="icon-camera"></i> Class Gallery</a>
+{% endblock%}
+{% endcomment %}
+
+{% block content %}
+<!-- BEGIN : USER CARDS -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-layers font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">{{group.name}}</span>
+                </div>
+            </div>
+            <!-- Display children -->
+            <div class="portlet-body">
+                <div class="mt-element-card mt-element-overlay">
+                    <div class="row">
+                        {% if children %}
+                        {% comment%}{% for children in all_children %}{% endcomment %}
+                        {% for c in children %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="https://connectoo.co.il/uploads/profile_pics/{{c.id}}/square/data.jpg">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' c.id %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' c.id %}" title="go to photos">
+                                                    <i class="icon-camera"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">{{c.first_name}}</h3>
+                                    <p class="mt-card-desc font-grey-mint">{{c.bdate}}</p>
+                                    <p class="mt-card-desc font-grey-mint">{{c.school}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        {% else %}
+                        <h3 style="padding-left: 30px;">Nothing to show...</h3>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END : USER CARDS -->
+{%endblock%}
+
+
+
+<!-- ********************** BEGIN JS LINKS ********************** -->
+{%block THEME_GLOBAL_SCRIPTS%}
+<script src="{% static '/global/scripts/app.min.js' %}" type="text/javascript"></script>
+{%endblock%}
+
+{%block THEME_LAYOUT_SCRIPTS%}
+<script src="{% static '/layouts/layout/scripts/layout.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
+{%endblock%}
+<!-- ********************** END JS LINKS ********************** -->

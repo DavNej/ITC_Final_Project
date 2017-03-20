@@ -146,7 +146,7 @@
                     {% endif %}
                     
                     <li class="nav-item">
-                        <a href="{% url 'CRM:classes_table' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:classes_per_school' 201 %}" class="nav-link nav-toggle">
                             <i class="fa fa-users" style="color:#eeb31b;"></i>
                             <span class="title">Classes</span>
                             <span class="arrow"></span>
@@ -155,7 +155,7 @@
 
                     {% if request.user|has_group:"Manager" %} 
                     <li class="nav-item  ">
-                        <a href="{% url 'CRM:children' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:children_per_school' 201 %}" class="nav-link nav-toggle">
                             <i class="fa fa-child" style="color:#eeb31b;"></i>
                             <span class="title">Children</span>
                             <span class="arrow"></span>
