@@ -128,9 +128,19 @@ def reports(request):
     return render(request, 'CRM/reports.html')#, {'children': children})
 
 
+@login_required
+@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
 def staff(request):
-    # staff = Staff.objects.order_by('first_name')
-    return render(request, 'CRM/staff.html')#, {'staff': staff})
+    # staffs = Users.objects.filter(k_garden_id = 201).filter(profile = 1)
+    staffs = Users.objects.filter(k_garden_id = 201).filter(profile = 1)
+    school = KGardens.objects.get(id = 201)
+    context = {
+        'staffs':staffs,
+        'school':school,
+    }
+    return render(request, 'CRM/staff.html', context)
+
+
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
@@ -198,4 +208,7 @@ def calendar(request):
 
 def magnet(request, group_id):
     return render(request, 'CRM/magnet.html')
+
+def album(request):
+    return render(request, 'CRM/my_album.html')
 

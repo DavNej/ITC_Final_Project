@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^child_profile_reports/(?P<kid_id>[0-9]+)$', child_profile_reports, name='child_profile_reports'),
     url(r'^calendar/$', calendar, name='calendar'),
     url(r'^magnet/(?P<group_id>[0-9]+)$', magnet, name='magnet'),
+    url(r'^album/$', album, name='album'),
 ]

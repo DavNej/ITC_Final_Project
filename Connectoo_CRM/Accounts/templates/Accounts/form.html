@@ -1,81 +1,422 @@
-{% extends "base.html" %}
-
 {% load staticfiles %}
+{% load crm_extras %}
+<!DOCTYPE html>
 
-{% block title %} Form {% endblock%}
+<html lang="en">
 
-<!-- ********************** BEGIN CSS LINKS ********************** -->
-{%block PAGE_LEVEL_CSS_PLUGINS%}
-{%endblock%}
+    <head>
+        <meta charset="utf-8" />
+        <title>Metronic | User Login 4</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{% static '/global/plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static '/global/plugins/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static '/global/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static '/global/plugins/uniform/css/uniform.default.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static '/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+    {%block PAGE_LEVEL_CSS_PLUGINS%}{%endblock%}
+    <!-- END PAGE LEVEL PLUGINS -->
 
-{%block THEME_GLOBAL_STYLES%}
-{%endblock%}
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    {%block THEME_GLOBAL_STYLES%}{%endblock%}
+    <!-- END THEME GLOBAL STYLES -->
 
-{%block PAGE_LEVEL_STYLES%}
-{%endblock%}
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    {%block PAGE_LEVEL_STYLES%}{%endblock%}
+    <!-- END PAGE LEVEL STYLES -->
 
-{%block THEME_LAYOUT_STYLES%}
-<link href="{% static '/layouts/layout/css/layout.min.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static '/layouts/layout/css/themes/darkblue.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
-<link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
-{%endblock%}
-<!-- ********************** END CSS LINKS ********************** -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    {%block THEME_LAYOUT_STYLES%}{%endblock%}
+    <!-- END THEME LAYOUT STYLES -->
 
+    {%block CUSTOM_CSS%}{%endblock%}
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="{% static '/global/plugins/select2/css/select2.min.css'%}" rel="stylesheet" type="text/css" />
+        <link href="{% static '/global/plugins/select2/css/select2-bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="{% static '/global/css/components.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{% static '/global/css/plugins.min.css'%}" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link href="{% static '/pages/css/login-4.min.css'%}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <!-- END THEME LAYOUT STYLES -->{% load staticfiles %}
+{% load crm_extras %}
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <!-- END HEAD -->
 
-{% block section %}
-Form
-{% endblock%}
-
-{% block page-title %}
-{{ title }}
-{% endblock%}
-
-{% block content %}
-
-<form method="POST" action="" class="form-horizontal" enctype="multipart/form-data">{% csrf_token %}
-    <div class="form-body">
-
-        <div class="form-group">
-            <label class="col-md-3 control-label">Username</label>
-                <div class="col-md-4">
-                    <input type="text" class="form-control input-circle" placeholder="Enter username">
+    <body class=" login">
+        <!-- BEGIN LOGO -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="{% static '/pages/img/logo-big.png'%}" alt="" /> </a>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN LOGIN -->
+        <div class="content">
+            <!-- BEGIN LOGIN FORM -->
+            <form method="POST" action="" class="form-horizontal" enctype="multipart/form-data">{% csrf_token %}     <div class="form-body"> 
+                <h3 class="form-title">Login to your account</h3>
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <span> Enter any username and password. </span>
+                </div>
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Password</label>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
+                </div>
+                <div class="form-actions">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember" value="1" /> Remember me </label>
+                    <button type="submit" class="btn green pull-right"> Login </button>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-md-3 control-label">Password</label>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <input type="password" class="form-control input-circle-left" placeholder="Password">
-                        <span class="input-group-addon input-circle-right">
-                            <i class="fa fa-user"></i>
-                        </span>
-                    </div>
+            </form>
+            <!-- END LOGIN FORM -->
+            <!-- BEGIN FORGOT PASSWORD FORM -->
+            <form class="forget-form" action="index.html" method="post">
+                <h3>Forget Password ?</h3>
+                <p> Enter your e-mail address below to reset your password. </p>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
                 </div>
-            </div>
-        {{ form }}  
-    </div>
-    <button type="submit" class="btn btn-circle green">{{ title }}</button>
-{% comment %}<input type="submit" value="{{ title }}">{% endcomment %}
-</form>
+                <div class="form-actions">
+                    <button type="button" id="back-btn" class="btn red btn-outline">Back </button>
+                    <button type="submit" class="btn green pull-right"> Submit </button>
+                </div>
+            </form>
+            <!-- END FORGOT PASSWORD FORM -->
+        </div>
+
+       <div>
+       </div>
+        <!-- END COPYRIGHT -->
+        <!--[if lt IE 9]>
+<script src="../assets/global/plugins/respond.min.js"></script>
+<script src="../assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="{% static '/global/plugins/jquery.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/bootstrap/js/bootstrap.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/js.cookie.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/jquery.blockui.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/uniform/jquery.uniform.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js'%}" type="text/javascript"></script>
 
 
-{% endblock%}
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    {%block PAGE_LEVEL_JS_PLUGINS%}{%endblock%}
+    <!-- END PAGE LEVEL PLUGINS -->
 
-<!-- ********************** BEGIN JS LINKS ********************** -->
-{%block PAGE_LEVEL_JS_PLUGINS%}
-{%endblock%}
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    {%block THEME_GLOBAL_SCRIPTS%}{%endblock%}
+    <!-- END THEME GLOBAL SCRIPTS -->
 
-{%block THEME_GLOBAL_SCRIPTS%}
-<script src="{% static '/global/scripts/app.min.js' %}" type="text/javascript"></script>
-{%endblock%}
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    {%block PAGE_LEVEL_SCRIPTS%}{%endblock%}
+    <!-- END PAGE LEVEL SCRIPTS -->
 
-{%block PAGE_LEVEL_SCRIPTS%}
-<script src="{% static '/pages/scripts/form-samples.min.js' %}" type="text/javascript"></script>
-{%endblock%}
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    {%block THEME_LAYOUT_SCRIPTS%}{%endblock%}
+    <!-- END THEME LAYOUT SCRIPTS -->
 
-{%block THEME_LAYOUT_SCRIPTS%}
-<script src="{% static '/layouts/layout/scripts/layout.min.js' %}" type="text/javascript"></script>
-<script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
-<script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
-{%endblock%}
-<!-- ********************** END JS LINKS ********************** -->
+    <!-- BEGIN CUSTOM SCRIPTS -->
+    {%block CUSTOM_JAVASCRIPT%}{%endblock%}
+    <!-- END CUSTOM SCRIPTS -->
+        <script src="{% static '/global/plugins/jquery-validation/js/jquery.validate.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/jquery-validation/js/additional-methods.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/select2/js/select2.full.min.js'%}" type="text/javascript"></script>
+        <script src="{% static '/global/plugins/backstretch/jquery.backstretch.min.js'%}" type="text/javascript"></script>
+
+        <script src="{% static '/global/scripts/app.min.js'%}" type="text/javascript"></script>
+
+        <script src="{% static '/pages/scripts/login-4.min.js'%}" type="text/javascript"></script>
+    <script>
+
+	var handleLogin = function() {
+		$('.login-form').validate({
+	            errorElement: 'span', //default input error message container
+	            errorClass: 'help-block', // default input error message class
+	            focusInvalid: false, // do not focus the last invalid input
+	            rules: {
+	                username: {
+	                    required: true
+	                },
+	                password: {
+	                    required: true
+	                },
+	                remember: {
+	                    required: false
+	                }
+	            },
+
+	            messages: {
+	                username: {
+	                    required: "Username is required."
+	                },
+	                password: {
+	                    required: "Password is required."
+	                }
+	            },
+
+	            invalidHandler: function (event, validator) { //display error alert on form submit
+	                $('.alert-danger', $('.login-form')).show();
+	            },
+
+	            highlight: function (element) { // hightlight error inputs
+	                $(element)
+	                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+	            },
+
+	            success: function (label) {
+	                label.closest('.form-group').removeClass('has-error');
+	                label.remove();
+	            },
+
+	            errorPlacement: function (error, element) {
+	                error.insertAfter(element.closest('.input-icon'));
+	            },
+
+	            submitHandler: function (form) {
+	                form.submit();
+	            }
+	        });
+
+	        $('.login-form input').keypress(function (e) {
+	            if (e.which == 13) {
+	                if ($('.login-form').validate().form()) {
+	                    $('.login-form').submit();
+	                }
+	                return false;
+	            }
+	        });
+	}
+
+	var handleForgetPassword = function () {
+		$('.forget-form').validate({
+	            errorElement: 'span', //default input error message container
+	            errorClass: 'help-block', // default input error message class
+	            focusInvalid: false, // do not focus the last invalid input
+	            ignore: "",
+	            rules: {
+	                email: {
+	                    required: true,
+	                    email: true
+	                }
+	            },
+
+	            messages: {
+	                email: {
+	                    required: "Email is required."
+	                }
+	            },
+
+	            invalidHandler: function (event, validator) { //display error alert on form submit
+
+	            },
+
+	            highlight: function (element) { // hightlight error inputs
+	                $(element)
+	                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+	            },
+
+	            success: function (label) {
+	                label.closest('.form-group').removeClass('has-error');
+	                label.remove();
+	            },
+
+	            errorPlacement: function (error, element) {
+	                error.insertAfter(element.closest('.input-icon'));
+	            },
+
+	            submitHandler: function (form) {
+	                form.submit();
+	            }
+	        });
+
+	        $('.forget-form input').keypress(function (e) {
+	            if (e.which == 13) {
+	                if ($('.forget-form').validate().form()) {
+	                    $('.forget-form').submit();
+	                }
+	                return false;
+	            }
+	        });
+
+	        jQuery('#forget-password').click(function () {
+	            jQuery('.login-form').hide();
+	            jQuery('.forget-form').show();
+	        });
+
+	        jQuery('#back-btn').click(function () {
+	            jQuery('.login-form').show();
+	            jQuery('.forget-form').hide();
+	        });
+
+	}
+
+	var handleRegister = function () {
+
+		        function format(state) {
+            if (!state.id) { return state.text; }
+            var $state = $(
+             '<span><img src="../assets/global/img/flags/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
+            );
+
+            return $state;
+        }
+
+        if (jQuery().select2 && $('#country_list').size() > 0) {
+            $("#country_list").select2({
+	            placeholder: '<i class="fa fa-map-marker"></i>&nbsp;Select a Country',
+	            templateResult: format,
+                templateSelection: format,
+                width: 'auto',
+	            escapeMarkup: function(m) {
+	                return m;
+	            }
+	        });
+
+
+	        $('#country_list').change(function() {
+	            $('.register-form').validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
+	        });
+    	}
+
+
+         $('.register-form').validate({
+	            errorElement: 'span', //default input error message container
+	            errorClass: 'help-block', // default input error message class
+	            focusInvalid: false, // do not focus the last invalid input
+	            ignore: "",
+	            rules: {
+
+	                fullname: {
+	                    required: true
+	                },
+	                email: {
+	                    required: true,
+	                    email: true
+	                },
+	                address: {
+	                    required: true
+	                },
+	                city: {
+	                    required: true
+	                },
+	                country: {
+	                    required: true
+	                },
+
+	                username: {
+	                    required: true
+	                },
+	                password: {
+	                    required: true
+	                },
+	                rpassword: {
+	                    equalTo: "#register_password"
+	                },
+
+	                tnc: {
+	                    required: true
+	                }
+	            },
+
+	            messages: { // custom messages for radio buttons and checkboxes
+	                tnc: {
+	                    required: "Please accept TNC first."
+	                }
+	            },
+
+	            invalidHandler: function (event, validator) { //display error alert on form submit
+
+	            },
+
+	            highlight: function (element) { // hightlight error inputs
+	                $(element)
+	                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+	            },
+
+	            success: function (label) {
+	                label.closest('.form-group').removeClass('has-error');
+	                label.remove();
+	            },
+
+	            errorPlacement: function (error, element) {
+	                if (element.attr("name") == "tnc") { // insert checkbox errors after the container
+	                    error.insertAfter($('#register_tnc_error'));
+	                } else if (element.closest('.input-icon').size() === 1) {
+	                    error.insertAfter(element.closest('.input-icon'));
+	                } else {
+	                	error.insertAfter(element);
+	                }
+	            },
+
+	            submitHandler: function (form) {
+	                form.submit();
+	            }
+	        });
+
+			$('.register-form input').keypress(function (e) {
+	            if (e.which == 13) {
+	                if ($('.register-form').validate().form()) {
+	                    $('.register-form').submit();
+	                }
+	                return false;
+	            }
+	        });
+
+	        jQuery('#register-btn').click(function () {
+	            jQuery('.login-form').hide();
+	            jQuery('.register-form').show();
+	        });
+
+	        jQuery('#register-back-btn').click(function () {
+	            jQuery('.login-form').show();
+	            jQuery('.register-form').hide();
+	        });
+	}
+
+            handleLogin();
+            handleForgetPassword();
+            handleRegister();
+
+            // init background slide images
+		    $.backstretch([
+		        "{% static '/pages/media/bg/1.jpg'%}",
+		        "{% static '/pages/media/bg/2.jpg'%}",
+		        "{% static '/pages/media/bg/3.jpg'%}",
+		        "{% static '/pages/media/bg/4.jpg'%}"
+		        ], {
+		          fade: 1000,
+		          duration: 8000
+		    	}
+        	);
+
+    </script>
+
+    </body>
+
+</html>

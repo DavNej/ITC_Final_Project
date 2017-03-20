@@ -35,7 +35,6 @@ Photos of <a href="{% url 'CRM:child_profile' kid.id %}">{{kid.first_name}} </a>
                             <div class="cbp-l-caption-body">
                                 <div class="cbp-l-caption-title">{{ p.event }}</div>
                                 <div class="cbp-l-caption-desc">{{ p.date.date }}</div>
-                                <button class="btn sbold green add card"> Add to card </button>
                                 <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
                             </div>
                         </div>
@@ -61,10 +60,7 @@ Photos of <a href="{% url 'CRM:child_profile' kid.id %}">{{kid.first_name}} </a>
                     </div>
                 </a>
             </div>
-        {% endfor %}
-
-
-        
+        {% endfor %}        
     </div>
         
         {% comment %}{% else %}
