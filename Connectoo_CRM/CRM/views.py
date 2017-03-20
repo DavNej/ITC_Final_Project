@@ -199,3 +199,6 @@ def calendar(request):
 def magnet(request, group_id):
     return render(request, 'CRM/magnet.html')
 
+def album(request):
+    return render(request, 'CRM/my_album.html')
+
