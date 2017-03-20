@@ -49,16 +49,16 @@ Schools
             </tr>
         </thead>
         <tbody>
-            {% for s in schools %}
+            {% comment %}{% for s in schools %}{% endcomment %}
             <tr class="odd gradeX">
                 <td>{{forloop.counter}}</td>
-                <td><a href="{% url 'CRM:classes_per_school' s.id %}">{{s.name}}</a></td>
+                <td><a href="{% url 'CRM:classes_per_school' 201 %}">{{s.name}}</a></td>
                 <td>{{s.street}}</td>
                 <td class="center">{{s.city}}</td>
                 <td>{{s.country_code}}</td>
                 <td>{{s.phone}}</td>
             </tr>
-            {% endfor %}
+            {% comment %}{% endfor %}{% endcomment %}
         </tbody>
     </table>
 

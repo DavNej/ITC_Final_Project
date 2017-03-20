@@ -5,12 +5,32 @@
 #   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+
+# import django
+# django.setup()
+# import os
+# import sys
+
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+# from django.contrib.auth.models import AbstractUser
+# from django.contrib.auth.models import AnonymousUser
+# from django.contrib.auth import get_user_model as user_model
+# User = user_model()
 
+# from django.conf import settings
+# try:
+#     from django.contrib.auth import get_user_model
+#     User = settings.AUTH_USER_MODEL
+# except ImportError:
+#     from django.contrib.auth.models import User
+
+
+# class User(AbstractUser):
+#     pass
 
 class Agendas(models.Model):
     is_awake = models.IntegerField(blank=True, null=True)
@@ -797,7 +817,16 @@ class Users(models.Model):
     failed_attempts = models.IntegerField()
     unlock_token = models.CharField(unique=True, max_length=255, blank=True, null=True)
     locked_at = models.DateTimeField(blank=True, null=True)
-    # user = models.OneToOneField(User)
+    # user = models.ForeignKey(User, related_name='users', on_delete=models.CASCADE)
+    # user = models.ForeignKey(AUTH_USER_MODEL)
+    # REQUIRED_FIELDS = ('user',)
+    # USERNAME_FIELD = 'id'
+    # is_anonymous = False
+    # is_authenticated = True
+
+
+    def __str__(self):
+        return self.email
 
     class Meta:
         managed = False

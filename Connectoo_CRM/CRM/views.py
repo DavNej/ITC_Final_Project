@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 @login_required
 def index(request):
-    school = KGardens.objects.order_by('name')
+    # school = KGardens.objects.order_by('name')
+    # school = KGardens.objects.get(name='גן פשושים')
+    school = KGardens.objects.get(id=201)
     group = Groups.objects.order_by('name')
     children = Kids.objects.order_by('last_name')
     context = {
@@ -20,7 +22,8 @@ def index(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
 def schools_table(request):
-    schools = KGardens.objects.order_by('name')
+    # schools = KGardens.objects.order_by('name')
+    schools = KGardens.objects.get(id=201)
     context = {
         'schools':schools
     }
@@ -29,14 +32,17 @@ def schools_table(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
 def classes_table(request):
-    classes = Groups.objects.order_by('k_garden')
+    # classes = Groups.objects.order_by('k_garden')
+    school = KGardens.objects.get(id = 201)
+    classes = Groups.objects.filter(k_garden_id = 201)
     context = {
+        'school':school,
         'classes':classes
     }
     return render(request, 'CRM/classes_table.html', context)
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
 def classes_per_school(request, k_garden_id):
     school = KGardens.objects.get(id = k_garden_id)
     classes = Groups.objects.filter(k_garden_id = k_garden_id)
@@ -48,12 +54,14 @@ def classes_per_school(request, k_garden_id):
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
-def children(request):
-    # next = request.GET.get('next')
-    children = Kids.objects.all()
-    # if next:
-        # return redirect(next)
-    return render(request, 'CRM/children.html', {'children': children})
+def children_per_school(request, k_garden_id):
+    school = KGardens.objects.get(id = k_garden_id)
+    classes = Groups.objects.filter(k_garden_id = k_garden_id)
+    context = {
+        'school': school,
+        'group':classes,
+    }
+    return render(request, 'CRM/children_per_school.html', context)
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
@@ -88,8 +96,10 @@ def gallery_class(request, group_id):
 
 
 def gallery_schools(request, k_garden_id):
-    groups = Groups.objects.filter(k_garden = k_garden_id)
-    school = KGardens.objects.get(id = k_garden_id)
+    # groups = Groups.objects.filter(k_garden = k_garden_id)
+    # school = KGardens.objects.get(id = k_garden_id)
+    groups = Groups.objects.filter(k_garden = 201)
+    school = KGardens.objects.get(id = 201)
     # kids = Kids.objects.filter(group_id = group.id)
     context = {
         'groups': groups,
@@ -107,7 +117,7 @@ def children_per_class(request, group_id):
         'group': group,
         'children': children,
     }
-    return render(request, 'CRM/children.html', context)
+    return render(request, 'CRM/children_per_class.html', context)
 
 
 @login_required
@@ -161,7 +171,7 @@ def contacts(request):
 
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
+@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     contacts = Contacts.objects.filter(kid=kid_id)
