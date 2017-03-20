@@ -7,6 +7,11 @@
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 
+{%block PAGE_LEVEL_CSS_PLUGINS%}
+    <link href="{% static '/global/plugins/cubeportfolio/css/cubeportfolio.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/global/plugins/fullcalendar/fullcalendar.min.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
+
 {%block THEME_GLOBAL_STYLES%}
         <link href="{% static '/global/css/components.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
         <link href="{% static '/global/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
@@ -18,9 +23,12 @@
         <link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
 {%endblock%}
 
+{%block PAGE_LEVEL_STYLES%}
+    <link href="{% static '/pages/css/portfolio.min.css' %}" rel="stylesheet" type="text/css" />
+{%endblock%}
 
 {% block CUSTOM_CSS %}
-<link href="{% static 'custom/css/index.css'%}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'custom/css/index.css'%}" rel="stylesheet" type="text/css" />
 {% endblock%}
 
 
@@ -28,10 +36,11 @@
 
 {% block content %}
 
+{% comment %}
 <div class="row">
 {% if request.user|has_group:"Teacher" %} 
     <div class="col-md-2 col-sm-2 col-xs-6"style="color:#eeb31b;">
-        <a href="{% url 'CRM:contacts' %}">
+        <a href="{% url 'CRM:contacts' 201 %}">
         <div class="color-demo tooltips" data-original-title="See contacts" data-target="#demo_modal_green">
             <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                 <i class="fa fa-user" style="color:#eeb31b; font-size:250%;"></i>
@@ -108,7 +117,7 @@
     </div>
 
     <div class="col-md-2 col-sm-2 col-xs-6" style="color:#eeb31b;">
-        <a href="{% url 'CRM:gallery' %}">
+        <a href="{% url 'CRM:gallery_schools' 201 %}">
             <div class="color-demo tooltips" data-original-title="See gallery" data-target="#demo_modal_green">
                 <div class="color-view bg-green bg-font-green bold uppercase" style="background-color:#11823c!important;">
                     <i class="fa fa-picture-o" style="color:#eeb31b; font-size:250%;"></i>
@@ -121,10 +130,11 @@
         </a>
     </div>
 </div>
+{% endcomment %}
 
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat blue">
+        <div class="dashboard-stat blue" style="background-color:maroon;">
             <div class="visual">
                 <i class="fa fa-comments"></i>
             </div>
@@ -134,14 +144,14 @@
                 </div>
                 <div class="desc">Attendances</div>
             </div>
-            <a class="more" href="javascript:;"> View more
+            <a class="more" href="javascript:;" style="background-color:maroon;"> View more
                 <i class="m-icon-swapright m-icon-white"></i>
             </a>                                
         </div>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat red">
+        <div class="dashboard-stat red" style="background-color:#eeb31b;">
             <div class="visual">
                 <i class="fa fa-bar-chart-o"></i>
             </div>
@@ -150,14 +160,14 @@
                     <span data-counter="counterup" data-value="125">0</span></div>
                 <div class="desc">Messages sent</div>
             </div>
-            <a class="more" href="javascript:;"> View more
+            <a class="more" href="javascript:;" style="background-color:#eeb31b;"> View more
                 <i class="m-icon-swapright m-icon-white"></i>
             </a>
         </div>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat green">
+        <div class="dashboard-stat blue">
             <div class="visual">
                 <i class="fa fa-shopping-cart"></i>
             </div>
@@ -167,14 +177,14 @@
                 </div>
                 <div class="desc">Pictures added</div>
             </div>
-            <a class="more" href="javascript:;"> View more
+            <a class="more" href="{% url 'CRM:gallery_schools' 201 %}"> View more
                 <i class="m-icon-swapright m-icon-white"></i>
             </a>                                
         </div>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="dashboard-stat purple">
+        <div class="dashboard-stat purple" style="background-color:#11823c;">
             <div class="visual">
                 <i class="fa fa-globe"></i>
             </div>
@@ -183,13 +193,14 @@
                     <span data-counter="counterup" data-value="12">0</span></div>
                 <div class="desc">New reports</div>
             </div>
-            <a class="more" href="javascript:;"> View more
+            <a class="more" href="javascript:;" style="background-color:#11823c;"> View more
                 <i class="m-icon-swapright m-icon-white"></i>
             </a>                                
         </div>
     </div>
 </div>
 
+{% comment %}
 <div class="col-md-12">
     <div class="portlet light portlet-fit bordered">
         <div class="portlet-title">
@@ -255,6 +266,11 @@
     </div>
 </div>
 
+ <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=r74rhjnseqia621cvig8knn0ko%40group.calendar.google.com&amp;color=%236B3304&amp;src=en.jewish%23holiday%40group.v.calendar.google.com&amp;color=%2329527A&amp;ctz=Asia%2FJerusalem" style="border-width:0" width="900" height="600" frameborder="0" scrolling="no"></iframe>
+{% endcomment %}
+
+<div id="calendar" class="has-toolbar"> </div>
+
 {% endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
@@ -263,6 +279,12 @@
 <script src="{% static '/global/plugins/counterup/jquery.waypoints.min.js' %}" type="text/javascript"></script>
 <script src="{% static '/global/plugins/counterup/jquery.counterup.min.js' %}" type="text/javascript"></script>
 <script src="{% static '/global/plugins/fullcalendar/fullcalendar.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/pages/scripts/portfolio-3.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/moment.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/fullcalendar/fullcalendar.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/global/plugins/jquery-ui/jquery-ui.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/apps/scripts/calendar.min.js' %}" type="text/javascript"></script>
 {%endblock%}
 
 {%block THEME_GLOBAL_SCRIPTS%}

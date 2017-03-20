@@ -135,7 +135,7 @@ def reports(request):
 
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Connectoo').exists(), login_url='/')
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
 def staff(request):
     # staffs = Users.objects.filter(k_garden_id = 201).filter(profile = 1)
     staffs = Users.objects.filter(k_garden_id = 201).filter(profile = 1)
@@ -158,14 +158,12 @@ def attendances(request):
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def contacts(request, k_garden_id):
     # contacts = Contacts.objects.all()[:30]
+
     school = KGardens.objects.get(id = k_garden_id)
     classes = Groups.objects.filter(k_garden_id = k_garden_id)
-    # context = {
-    #     'contacts': contacts,
-    # }
     context = {
         'school': school,
-        'group':classes,
+        'group': classes,
     }
     return render(request, 'CRM/contacts.html', context)
 
