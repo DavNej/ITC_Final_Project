@@ -129,8 +129,9 @@ def reports(request):
 
 
 def staff(request):
-    # staff = Staff.objects.order_by('first_name')
-    return render(request, 'CRM/staff.html')#, {'staff': staff})
+    # staff = Users.objects.all()
+    return render(request, 'CRM/staff.html',) #, {'staff': staff})
+
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
