@@ -217,7 +217,13 @@ def calendar(request):
     return render(request, 'CRM/calendar.html')
 
 def magnet(request, group_id):
-    return render(request, 'CRM/magnet.html')
+    children = Kids.objects.filter(group_id=group_id)
+    # contacts = Contacts.objects.filter(kid_id=kid_id)
+    context = {
+        'children': children,
+        'contacts': contacts,
+    }
+    return render(request, 'CRM/magnet.html',context)
 
 def album(request):
     return render(request, 'CRM/my_album.html')
