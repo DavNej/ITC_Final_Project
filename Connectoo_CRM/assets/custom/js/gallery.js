@@ -1,12 +1,11 @@
 var myAlbum = {};
 
-
 myAlbum.cardArr= [];
 
 myAlbum.toCard = function() {
 	console.log(myAlbum.cardArr);
 	myAlbum.a = $(this);
-		myAlbum.image = $(this).closest('a').find('img').attr('src');
+	myAlbum.image = $(this).closest('a').find('img').attr('src');
 	console.log("sel image", myAlbum.image);
 
 		console.log('test')
@@ -42,16 +41,13 @@ myAlbum.selectToAlbum = function() {
 // 	image.addClass("zoom");
 //     };
 
-myAlbum.orderIt=function(){
-	myAlbum.b=$(this);
-	var image = ($(this).closest('a').find('img').attr('src'));
-	console.log(myAlbum.albumArr);
-	console.log(myAlbum.cardArr);
-};
+// myAlbum.orderIt=function(){
+// 	myAlbum.b=$(this);
+// 	var image = ($(this).closest('a').find('img').attr('src'));
+// 	console.log(myAlbum.albumArr);
+// 	console.log(myAlbum.cardArr);
+// };
 
-// myAlbum.saveProject=function(){
-
-// }
 myAlbum.start=function(){
 	$(".btn.sbold.green.add.card").bind( "click", myAlbum.toCard);
 	$(".btn.btn-circle.green.btn-sm.album").unbind("click").bind( "click", myAlbum.selectToAlbum);

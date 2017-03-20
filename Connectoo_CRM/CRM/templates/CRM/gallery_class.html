@@ -1,35 +1,5 @@
 {% extends "gallery_template.html" %}
 
-{% load staticfiles %}
-
-{% block title %} Class Gallery {% endblock%}
-
-<!-- ********************** BEGIN CSS LINKS ********************** -->
-{%block PAGE_LEVEL_CSS_PLUGINS%}
-<link href="{% static '/global/plugins/cubeportfolio/css/cubeportfolio.css' %}" rel="stylesheet" type="text/css" />
-{%endblock%}
-
-{%block THEME_GLOBAL_STYLES%}
-<link href="{% static '/global/css/components.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
-<link href="{% static '/global/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
-{%endblock%}
-
-{%block PAGE_LEVEL_STYLES%}
-<link href="{% static '/pages/css/portfolio.min.css' %}" rel="stylesheet" type="text/css" />
-{%endblock%}
-
-{%block THEME_LAYOUT_STYLES%}
-<link href="{% static '/layouts/layout/css/layout.min.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static '/layouts/layout/css/themes/darkblue.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
-<link href="{% static '/layouts/layout/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
-{%endblock%}
-
-{%block CUSTOM_CSS%}
-{% comment %}<link href="{% static 'CRM/css/gallery.css %}" rel="stylesheet" type="text/css" />{% endcomment %}
-{%endblock%}
-
-<!-- ********************** END CSS LINKS ********************** -->
-
 {% block section %}
 Class Gallery
 {%endblock%}
@@ -69,7 +39,6 @@ Photos of class {{group.name}} <small></small>
                                 <div class="cbp-l-caption-body">
                                     <div class="cbp-l-caption-title">{{ p.event }}</div>
                                     <div class="cbp-l-caption-desc">{{ p.created_at }}</div>
-                                    <button class="btn sbold green add card"> Add to card </button>
                                     <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
                                 </div>
                             </div>
