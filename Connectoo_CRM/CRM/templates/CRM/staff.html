@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "gallery_template.html" %}
 
 {% load staticfiles %}
 
-{% block title %} Staff {% endblock%}
+{% block title %} Staff of {{school.name}}{% endblock%}
 
 <!-- ********************** BEGIN CSS LINKS ********************** -->
 {%block PAGE_LEVEL_CSS_PLUGINS%}
@@ -30,7 +30,7 @@ Staff
 {% endblock%}
 
 {% block page-title %}
-Staff <small>in {{school.name}}</small>
+Staff of {{school.name}}
 {% endblock%}
 
 
@@ -42,18 +42,17 @@ Staff <small>in {{school.name}}</small>
             <div class="portlet-title">
                 <div class="caption">
                     <i class=" icon-layers font-green"></i>
-                    <span class="caption-subject font-green bold uppercase">{{s.name}}</span>
+                    <span class="caption-subject font-green bold uppercase">{{s.first_name}}</span>
                 </div>
             </div>
             <!-- First Row -->
-            <div class="portlet-body">
                 <div class="mt-element-card mt-element-overlay">
                     <div class="row">
-                       {% for s in staff %}
+                       {% for s in staffs %}
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="mt-card-item">
                                 <div class="mt-card-avatar mt-overlay-1">
-                                    <img src="../../../media/{{ c.image }}">
+                                    <img src="https://connectoo.co.il/uploads/user_picture/{{s.id}}/square/data.jpg">
                                     <div class="mt-overlay">
                                         <ul class="mt-info">
                                             <li>
@@ -68,10 +67,10 @@ Staff <small>in {{school.name}}</small>
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="mt-card-content">
+                                    <div class="mt-card-content">
                                     <h3 class="mt-card-name">{{s.first_name}}</h3>
-                                    <h3 class="mt-card-name">{{s.grade}}</h3>
+                                    <p class="mt-card-desc font-grey-mint">Teacher</p>
+                                </div>
                                 </div>
                             </div>
                         </div>
