@@ -145,10 +145,30 @@
                     </li>
                     {% endif %}
                     
+                    {% if request.user|has_group:"Teacher" %} 
                     <li class="nav-item">
                         <a href="{% url 'CRM:classes_per_school' 201 %}" class="nav-link nav-toggle">
                             <i class="fa fa-users" style="color:#eeb31b;"></i>
                             <span class="title">Classes</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if request.user|has_group:"Parent" %} 
+                    <li class="nav-item">
+                        <a href="{% url 'CRM:child_profile' 2922 %}" class="nav-link nav-toggle">
+                            <i class="fa fa-user" style="color:#eeb31b;"></i>
+                            <span class="title">Child Profile</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a href="{% url 'CRM:children_per_class' 362 %}" class="nav-link nav-toggle">
+                            <i class="fa fa-users" style="color:#eeb31b;"></i>
+                            <span class="title">Class</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
@@ -191,7 +211,7 @@
                         </a>
                     </li>
 
-                    {% if request.user|has_group:"Teacher" %} 
+                    {% if request.user|has_group:"Connectoo" %} 
                     <li class="nav-item">
                         <a href="{% url 'CRM:reports' %}" class="nav-link nav-toggle">
                             <i class="fa fa-flag" style="color:#eeb31b;"></i>
@@ -201,7 +221,7 @@
                     </li>
                     {% endif %}
 
-                    {% comment %}{% if request.user|has_group:"Teacher" %} {% endcomment %}
+                    {% if request.user|has_group:"Teacher" %}
                     <li class="nav-item  ">
                         <a href="{% url 'CRM:gallery_schools' 201 %}" class="nav-link nav-toggle">
                             <i class="fa fa-picture-o" style="color:#eeb31b;"></i>
@@ -209,7 +229,15 @@
                             <span class="arrow"></span>
                         </a>
                     </li>
-                    {% comment %}{% endif %}{% endcomment %}
+                    {% elif request.user|has_group:"Parent" %}
+                    <li class="nav-item  ">
+                        <a href="{% url 'CRM:gallery_kid' 2922 %}" class="nav-link nav-toggle">
+                            <i class="fa fa-picture-o" style="color:#eeb31b;"></i>
+                            <span class="title">Gallery</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    {% endif %}
 
                     <li class="nav-item">
                         <a href="{% url 'CRM:calendar' %}" class="nav-link nav-toggle">
