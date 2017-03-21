@@ -108,9 +108,9 @@ Child Profile
                         <td>Girl</td>
                         {% endif %}
                         <td>{{kid.address}}</td>
-                        {% if kid.status == 1 %}
+                        {% if kid.status == 0 %}
                         <td><span class="label label-sm label-default checkin">Check-in</span></td>
-                        {% elif kid.status == 0 %}
+                        {% elif kid.status == 1 %}
                         <td><span class="label label-sm label-default checkin">Check-out</span></td>
                         {% endif %}
                     </tr>
