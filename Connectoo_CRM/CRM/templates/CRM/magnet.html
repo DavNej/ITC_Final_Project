@@ -23,7 +23,11 @@ Magnet
 {%endblock%}
 <!-- ********************** END CSS LINKS ********************** -->
 
-
+{% block section %}
+    <li>
+        <a href="#">Magnet</a>
+    </li>
+{% endblock%}
 
 {% block content %}
 <!-- BEGIN : USER CARDS -->
@@ -52,10 +56,10 @@ Magnet
                                     <h3 class="mt-card-name">{{c.first_name}}</h3>
                                     <p class="mt-card-desc font-grey-mint">{{c.bdate}}</p>
                                     <p class="mt-card-desc font-grey-mint">{{c.school}}</p>
-                                    {% for contact in c.contacts_set.all %}
+                                    {% with c.contacts_set.all|first as contact %}
                                     <p class="mt-card-desc font-grey-mint">{{contact.contact_title}}</p>
                                     <p class="mt-card-desc font-grey-mint">{{contact.phone}}</p>
-                                    {% endfor%}
+                                    {% endwith%}
                                 </div>
                             </div>
                         </div>
@@ -83,5 +87,6 @@ Magnet
 <script src="{% static '/layouts/layout/scripts/layout.min.js' %}" type="text/javascript"></script>
 <script src="{% static '/layouts/layout/scripts/demo.min.js' %}" type="text/javascript"></script>
 <script src="{% static '/layouts/global/scripts/quick-sidebar.min.js' %}" type="text/javascript"></script>
+<script src="{%static '/custom/js/magnet.js'%}" type="text/javascript"></script>
 {%endblock%}
 <!-- ********************** END JS LINKS ********************** -->

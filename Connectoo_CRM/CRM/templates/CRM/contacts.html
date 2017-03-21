@@ -50,8 +50,11 @@ Contacts <small> {{school.name}}</small>
         </tr>
     </thead>
     <tbody>
-    
-        {% for c in contacts%}
+        
+        {% for g in group %}
+        {% for k in g.kids_set.all %}
+        {% for c in k.contacts_set.all %}
+        
         <tr>
             <td><a href="{% url 'CRM:child_profile' c.kid.id %}"><i class="fa fa-user"></i></a></td>
             <td>{{c.kid.first_name}}</td>
@@ -63,6 +66,8 @@ Contacts <small> {{school.name}}</small>
                 <a href="mailto:{{c.email}}">{{c.email}}</a>
             </td>
         </tr>
+        {%endfor%}
+        {%endfor%}
         {%endfor%}
     </tbody>
 </table>
