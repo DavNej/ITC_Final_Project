@@ -20,6 +20,7 @@ Magnet
 
 {%block CUSTOM_CSS%}
 <link href="{% static 'custom/css/children.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'custom/css/magnet.css'%}" rel="stylesheet" type="text/css" />
 {%endblock%}
 <!-- ********************** END CSS LINKS ********************** -->
 
@@ -36,28 +37,53 @@ Magnet
         <div class="portlet light portlet-fit bordered">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class=" icon-layers font-green"></i>
-                    <span class="caption-subject font-green bold uppercase">{{group.name}}</span>
+                    <div class="portlet-body">
+                        <div class="mt-element-card mt-element-overlay">
+                            <div class="row staff">
+                                {% if staffs %}
+                                {% for s in staffs %}
+                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="mt-card-item">
+                                        <div class="mt-card-avatar mt-overlay-1">
+                                            <img src="https://connectoo.co.il/uploads/user_picture/{{s.id}}/square/data.jpg">
+                                        </div>
+                                        <div class="mt-card-content">
+                                        <h3 class="mt-card-name">{{s.first_name}}</h3>
+                                        <p class="mt-card-desc font-grey-mint">Teacher</p>
+                                        <p class="mt-card-desc font-grey-mint">{{s.phone}}</p>
+                                    </div>
+                                    </div>
+
+                                </div>
+                        {% endfor %}
+                        {% else %}
+                        <h3 style="padding-left: 30px;">Nothing to show...</h3>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
             <!-- Display children -->
             <div class="portlet-body">
                 <div class="mt-element-card mt-element-overlay">
                     <div class="row">
                         {% if children %}
                         {% for c in children %}
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                             <div class="mt-card-item">
                                 <div class="mt-card-avatar mt-overlay-1">
                                     <img src="https://connectoo.co.il/uploads/profile_pics/{{c.id}}/square/data.jpg">
                                 </div>
                                 <div class="mt-card-content">
                                     <h3 class="mt-card-name">{{c.first_name}}</h3>
-                                    <p class="mt-card-desc font-grey-mint">{{c.bdate}}</p>
-                                    <p class="mt-card-desc font-grey-mint">{{c.school}}</p>
                                     {% with c.contacts_set.all|first as contact %}
-                                    <p class="mt-card-desc font-grey-mint">{{contact.contact_title}}</p>
-                                    <p class="mt-card-desc font-grey-mint">{{contact.phone}}</p>
+                                    <p class="mt-card-desc font-grey-mint"> {{contact.contact_title}}</p>
+                                     <p class="mt-card-desc font-grey-mint">{{contact.phone}}</p>
+
                                     {% endwith%}
                                 </div>
                             </div>
