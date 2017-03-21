@@ -133,17 +133,36 @@
                     <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
                     
                         <!-- END RESPONSIVE QUICK SEARCH FORM -->
+                    
                     </li>
                     {% if request.user|has_group:"Connectoo" %} 
                     <li class="nav-item">
                         <a href="{% url 'CRM:schools_table' %}" class="nav-link nav-toggle">
-                            {% comment %}<i class="fa fa-home" aria-hidden="true"></i>{% endcomment %}
                             <i class="fa fa-home" style="color:#eeb31b;"></i>
                             <span class="title">Schools</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
                     {% endif %}
+
+                    {% if request.user|has_group:"Teacher" %} 
+                    <li class="nav-item">
+                        <a href="{% url 'CRM:attendances' %}" class="nav-link nav-toggle">
+                            <i class="fa fa-list" style="color:#eeb31b;"></i>
+                            <span class="title">Attendances</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a href="{% url 'CRM:calendar' %}" class="nav-link nav-toggle">
+                            <i class="fa fa-calendar" style="color:#eeb31b;"></i>
+                            <span class="title">Calendar</span>
+                            <span class="selected"></span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
                     
                     {% if request.user|has_group:"Teacher" %} 
                     <li class="nav-item">
@@ -163,7 +182,6 @@
                             <span class="arrow"></span>
                         </a>
                     </li>
-                    
 
                     <li class="nav-item">
                         <a href="{% url 'CRM:children_per_class' 362 %}" class="nav-link nav-toggle">
@@ -179,26 +197,6 @@
                         <a href="{% url 'CRM:children_per_school' 201 %}" class="nav-link nav-toggle">
                             <i class="fa fa-child" style="color:#eeb31b;"></i>
                             <span class="title">Children</span>
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                    {% endif %}
-
-                    {% if request.user|has_group:"Teacher" %} 
-                    <li class="nav-item">
-                        <a href="{% url 'CRM:contacts' 201 %}" class="nav-link nav-toggle">
-                            <i class="fa fa-user" style="color:#eeb31b;"></i>
-                            <span class="title">Contacts</span>
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                    {% endif %}
-
-                    {% if request.user|has_group:"Teacher" %} 
-                    <li class="nav-item">
-                        <a href="{% url 'CRM:attendances' %}" class="nav-link nav-toggle">
-                            <i class="fa fa-list" style="color:#eeb31b;"></i>
-                            <span class="title">Attendances</span>
                             <span class="arrow"></span>
                         </a>
                     </li>
@@ -222,6 +220,16 @@
                     </li>
                     {% endif %}
 
+                    {% if request.user|has_group:"Teacher" %} 
+                    <li class="nav-item">
+                        <a href="{% url 'CRM:contacts' 201 %}" class="nav-link nav-toggle">
+                            <i class="fa fa-user" style="color:#eeb31b;"></i>
+                            <span class="title">Contacts</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+
                     {% if request.user|has_group:"Teacher" %}
                     <li class="nav-item  ">
                         <a href="{% url 'CRM:gallery_schools' 201 %}" class="nav-link nav-toggle">
@@ -230,6 +238,7 @@
                             <span class="arrow"></span>
                         </a>
                     </li>
+
                     {% elif request.user|has_group:"Parent" %}
                     <li class="nav-item  ">
                         <a href="{% url 'CRM:gallery_kid' 2922 %}" class="nav-link nav-toggle">
@@ -240,18 +249,9 @@
                     </li>
                     {% endif %}
 
-                    <li class="nav-item">
-                        <a href="{% url 'CRM:calendar' %}" class="nav-link nav-toggle">
-                            <i class="fa fa-calendar" style="color:#eeb31b;"></i>
-                            <span class="title">Calendar</span>
-                            <span class="selected"></span>
-                            <span class="arrow open"></span>
-                        </a>
-                    </li>
-
                     <li class="nav-item  ">
                         <a href="{% url 'CRM:album' %}" class="nav-link nav-toggle">
-                            <i class="fa fa-picture-o" style="color:#eeb31b;"></i>
+                            <i class="fa fa-book" style="color:#eeb31b;"></i>
                             <span class="title">My album</span>
                             <span class="arrow"></span>
                         </a>
