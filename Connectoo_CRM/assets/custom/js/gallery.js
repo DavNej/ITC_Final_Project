@@ -36,10 +36,6 @@ myAlbum.removeFromAlbum = function() {
 	localStorage.setItem("imgData", JSON.stringify(myAlbum.albumArr));
 };
 
-
-
-
-
 // myAlbum.zoomPicture=function(){
 // 	var image = ($(this).closest('a').find('img').attr('src'));
 // 	$(".zoom").show();
