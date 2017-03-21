@@ -190,15 +190,21 @@ def child_profile_health(request, kid_id):
 @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile_reports(request, kid_id):
-    reports = Agendas.objects.filter(agendable_id = kid_id)
-    sleeps = Sleeps.objects.filter(kid_id = kid_id).order_by('-updated_at')
-    kid = Kids.objects.get(id = kid_id)
-    # attendances = KidPresences.objects.filter(kid_id = kid_id).order_by('-updated_at')
+    kid = Kids.objects.get(id=kid_id)
+    attendances = Agendas.objects.filter(agendable_id = 30).filter(report = 'presence').order_by('-updated_at')
+    reports = Agendas.objects.filter(agendable_id = 30)
+    sleeps = Agendas.objects.filter(agendable_id = 30).filter(report = 'sleep').order_by('-updated_at')
+    lacks = Agendas.objects.filter(agendable_id = 30).filter(report = 'lacks').order_by('-updated_at')
+    food = Agendas.objects.filter(agendable_id = 30).filter(report = 'food').order_by('-updated_at')
+    poops = Agendas.objects.filter(agendable_id=32).filter(report='poops').order_by('-updated_at')
     context = {
         'kid': kid,
         'attendances': attendances,
         'reports': reports,
         'sleeps': sleeps,
+        'lacks':lacks,
+        'food':food,
+        'poops':poops,
     }
     return render(request, 'CRM/child_profile_reports.html', context)
 
