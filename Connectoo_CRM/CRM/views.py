@@ -179,7 +179,7 @@ def child_profile(request, kid_id):
 
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
+# @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile_health(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     context = {
@@ -188,7 +188,7 @@ def child_profile_health(request, kid_id):
     return render(request, 'CRM/child_profile_health.html', context)
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
+# @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile_reports(request, kid_id):
     reports = Agendas.objects.filter(agendable_id = kid_id)
     sleeps = Sleeps.objects.filter(kid_id = kid_id).order_by('-updated_at')
