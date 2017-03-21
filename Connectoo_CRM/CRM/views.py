@@ -217,9 +217,11 @@ def calendar(request):
 def magnet(request, group_id):
     children = Kids.objects.filter(group_id=group_id)
     # contacts = Contacts.objects.filter(kid_id=kid_id)
+    staffs = Users.objects.filter(k_garden_id=201).filter(profile=1)
     context = {
         'children': children,
         'contacts': contacts,
+        'staffs': staffs,
     }
     return render(request, 'CRM/magnet.html',context)
 
