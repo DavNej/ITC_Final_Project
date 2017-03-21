@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from .models import *
+from django.db.models import Q
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -151,8 +152,9 @@ def staff(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def attendances(request):
-    attendance = KidPresences.objects.order_by('first_name')
-    return render(request, 'CRM/attendances.html')#, {'staff': staff})
+    school = KGardens.objects.get(id=201)
+    kids = Kids.objects.filter(Q(group_id=361) | Q(group_id=362) | Q(group_id=1637))
+    return render(request, 'CRM/attendances.html', {'kids': kids, 'school': school})
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')

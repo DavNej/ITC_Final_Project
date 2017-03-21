@@ -21,56 +21,55 @@ Attendances <small>of {{school.name}}</small>
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet light bordered">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                
+                
+
+
+
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="dashboard-stat blue checkin">
                         <div class="visual">
                             <i class="fa fa-comments"></i>
                         </div>
                         <div class="details">
                             <div class="number">
-                                <span data-counter="counterup" data-value="1349">%total_in%</span>
+                                <span data-counter="counterup" data-value="1349">30</span>
                             </div>
                             <div class="desc">Check in</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="dashboard-stat red checkout">
-                        <div class="visual">
-                            <i class="fa fa-bar-chart-o"></i>
-                        </div>
-                        <div class="details">
-                            <div class="number">
-                                <span data-counter="counterup" data-value="125">%total_out%</span>
-                            </div>
-                            <div class="desc">Check out</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="dashboard-stat green late">
-                        <div class="visual">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                        <div class="details">
-                            <div class="number">
-                                <span data-counter="counterup" data-value="35">%total_late%</span></div>
-                            <div class="desc">Late arrival</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="dashboard-stat purple doesnot">
                         <div class="visual">
                             <i class="fa fa-globe"></i>
                         </div>
                         <div class="details">
                             <div class="number">
-                                <span data-counter="counterup" data-value="12">%total_not_in%</span></div>
-                            <div class="desc">Does not arrive</div>
+                                <span data-counter="counterup" data-value="12">3</span></div>
+                            <div class="desc">Absent</div>
                         </div>
                     </div>
                 </div>
+
+
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green ">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup" data-value="35">{{kids.count}}</span></div>
+                            <div class="desc">Total kids</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -81,95 +80,40 @@ Attendances <small>of {{school.name}}</small>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Family Name </th>
-                    <th>First Name </th>
-                    <th>Contact</th>
+                    <th>Name</th>
                     <th>Class</th>
-                    <th>School</th>
+                    <th>Contact</th>
                     <th>Status</th>
-                    <th> Edit </th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- The Schema begin here -->
                 <!-- Person One  -->
+                {% for k in kids%}
                 <tr class="odd gradeX">
-                    <td>%family_name%</td>
-                    <td>%first_name%</td>
+                    <td>{{k.first_name}}</td>
+                    <td class="center">{{k.group.name}}</td>
                     <td>
-                        <a href="mailto:valentineganansia@gmail.com">%family_contact%</a>
+                        {% with k.contacts_set.all|first as c%}
+                        <a href="mailto:some@gmail.com">{{c.email}}</a>
+                        {% endwith %}
                     </td>
-                    <td class="center">%class_number% </td>
-                    <td>%name_school%</td>
                     <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
                         <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
                     </td>
                     <td>
                         <input type="button" class="button check-in">
-                        <input type="button" class="button check-out">
-                        <input type="button" class="button latearrival">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
                         <input type="button" class="button notarrive">
                     </td>
                 </tr>
-                <!-- Person Two -->
-                <tr class="odd gradeX">
-                    <td>%family_name%</td>
-                    <td>%first_name%</td>
-                    <td>
-                        <a href="mailto:valentineganansia@gmail.com">%family_contact%</a>
-                    </td>
-                    <td class="center">%class_number% </td>
-                    <td>%name_school%</td>
-                    <td>
-                        <span class="label label-sm label-success checkout"> Check out </span>
-                    </td>
-                    <td>
-                        <input type="button" class="button check-in">
-                        <input type="button" class="button check-out">
-                        <input type="button" class="button latearrival">
-                        <input type="button" class="button notarrive">
-                    </td>
-                </tr>
-
-                <!-- Person 3 -->
-                <tr class="odd gradeX">
-                    <td>%family_name%</td>
-                    <td>%first_name%</td>
-                    <td>
-                        <a href="mailto:valentineganansia@gmail.com">%family_contact%</a>
-                    </td>
-                    <td class="center">%class_number% </td>
-                    <td>%name_school%</td>
-                    <td>
-                        <span class="label label-sm label-warning late"> Late arrival </span>
-                    </td>
-                    <td>
-                        <input type="button" class="button check-in">
-                        <input type="button" class="button check-out">
-                        <input type="button" class="button latearrival">
-                        <input type="button" class="button notarrive">
-                    </td>
-                </tr>
-
-                <!-- Person 4 -->
-                <tr class="odd gradeX">
-                    <td>%family_name%</td>
-                    <td>%first_name%</td>
-                    <td>
-                        <a href="mailto:valentineganansia@gmail.com">%family_contact%</a>
-                    </td>
-                    <td class="center">%class_number% </td>
-                    <td>%name_school%</td>
-                    <td>
-                        <span class="label label-sm label-not-arrive not"> Does not arrive </span>
-                    </td>
-                    <td>
-                        <input type="button" class="button check-in">
-                        <input type="button" class="button check-out">
-                        <input type="button" class="button latearrival">
-                        <input type="button" class="button notarrive">
-                    </td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
