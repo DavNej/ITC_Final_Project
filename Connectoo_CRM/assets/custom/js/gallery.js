@@ -66,6 +66,6 @@ myAlbum.start=function(){
 
 $(document).ready(function() {
     myAlbum.start();
-	myAlbum.albumArr = JSON.parse(localStorage.getItem('imgData'));
+	myAlbum.albumArr = JSON.parse(localStorage.getItem('imgData')) || [];
 });
 

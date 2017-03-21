@@ -163,7 +163,7 @@
                             <span class="arrow"></span>
                         </a>
                     </li>
-                    {% endif %}
+                    
 
                     <li class="nav-item">
                         <a href="{% url 'CRM:children_per_class' 362 %}" class="nav-link nav-toggle">
@@ -172,6 +172,7 @@
                             <span class="arrow"></span>
                         </a>
                     </li>
+                    {% endif %}
 
                     {% if request.user|has_group:"Manager" %} 
                     <li class="nav-item  ">
