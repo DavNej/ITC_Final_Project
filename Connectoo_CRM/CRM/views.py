@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from .models import *
+from django.db.models import Q
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -105,7 +106,7 @@ def gallery_schools(request, k_garden_id):
 
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
+# @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def children_per_class(request, group_id):
     group = Groups.objects.get(id = group_id)
     children = Kids.objects.filter(group_id = group_id)
@@ -135,7 +136,7 @@ def reports(request):
 
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
+# @user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='/')
 def staff(request):
     # staffs = Users.objects.filter(k_garden_id = 201).filter(profile = 1)
     staffs = Users.objects.filter(k_garden_id = 201).filter(profile = 1)
@@ -146,19 +147,16 @@ def staff(request):
     }
     return render(request, 'CRM/staff.html', context)
 
-
-
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def attendances(request):
-    attendance = KidPresences.objects.order_by('first_name')
-    return render(request, 'CRM/attendances.html')#, {'staff': staff})
+    school = KGardens.objects.get(id=201)
+    kids = Kids.objects.filter(Q(group_id=361) | Q(group_id=362) | Q(group_id=1637))
+    return render(request, 'CRM/attendances.html', {'kids': kids, 'school': school})
 
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def contacts(request, k_garden_id):
-    # contacts = Contacts.objects.all()[:30]
-
     school = KGardens.objects.get(id = k_garden_id)
     classes = Groups.objects.filter(k_garden_id = k_garden_id)
     context = {
@@ -169,7 +167,7 @@ def contacts(request, k_garden_id):
 
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
+# @user_passes_test(lambda u: u.groups.filter(name='Teacher').exists(), login_url='/')
 def child_profile(request, kid_id):
     kid = Kids.objects.get(id = kid_id)
     contacts = Contacts.objects.filter(kid=kid_id)
@@ -217,9 +215,11 @@ def calendar(request):
 def magnet(request, group_id):
     children = Kids.objects.filter(group_id=group_id)
     # contacts = Contacts.objects.filter(kid_id=kid_id)
+    staffs = Users.objects.filter(k_garden_id=201).filter(profile=1)
     context = {
         'children': children,
         'contacts': contacts,
+        'staffs': staffs,
     }
     return render(request, 'CRM/magnet.html',context)
 
