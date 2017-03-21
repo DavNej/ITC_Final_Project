@@ -165,7 +165,7 @@
 
                     {% if request.user|has_group:"Teacher" %} 
                     <li class="nav-item">
-                        <a href="{% url 'CRM:contacts' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:contacts' 201 %}" class="nav-link nav-toggle">
                             <i class="fa fa-user" style="color:#eeb31b;"></i>
                             <span class="title">Contacts</span>
                             <span class="arrow"></span>
@@ -203,7 +203,7 @@
 
                     {% comment %}{% if request.user|has_group:"Teacher" %} {% endcomment %}
                     <li class="nav-item  ">
-                        <a href="{% url 'CRM:gallery' %}" class="nav-link nav-toggle">
+                        <a href="{% url 'CRM:gallery_schools' 201 %}" class="nav-link nav-toggle">
                             <i class="fa fa-picture-o" style="color:#eeb31b;"></i>
                             <span class="title">Gallery</span>
                             <span class="arrow"></span>
