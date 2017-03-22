@@ -27,8 +27,8 @@ Attendances <small>of {{school.name}}</small>
                             <i class="fa fa-comments"></i>
                         </div>
                         <div class="details">
-                            <div class="number">
-                                <span data-counter="counterup" data-value="1349">30</span>
+                            <div class="number checkin">
+                                <span data-counter="counterup"></span>
                             </div>
                             <div class="desc">Check in</div>
                         </div>
@@ -40,14 +40,12 @@ Attendances <small>of {{school.name}}</small>
                             <i class="fa fa-globe"></i>
                         </div>
                         <div class="details">
-                            <div class="number">
-                                <span data-counter="counterup" data-value="12">3</span></div>
+                            <div class="number absent">
+                                <span data-counter="counterup"></span></div>
                             <div class="desc">Absent</div>
                         </div>
                     </div>
                 </div>
-
-
 
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="dashboard-stat green ">
@@ -61,9 +59,6 @@ Attendances <small>of {{school.name}}</small>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -94,14 +89,14 @@ Attendances <small>of {{school.name}}</small>
                         {% endwith %}
                     </td>
                     <td>
-                        {% if k.id == 710 or k.id == 723 or k.id == 1526 %}
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
                         <span class="label label-sm label-not-arrive not">Absent</span>
                         {% else %}
                         <span class="label label-sm label-default checkin"> Check in </span>
                         {% endif%}
                     </td>
                     <td>
-                        <input type="button" class="button check-in">
+                        <input type="button" class="button check-in" style="box-sizing:none;">
                         {% comment %}<input type="button" class="button check-out">{% endcomment %}
                         {% comment %}<input type="button" class="button latearrival">{% endcomment %}
                         <input type="button" class="button notarrive">
@@ -113,5 +108,8 @@ Attendances <small>of {{school.name}}</small>
     </div>
 </div>
 
-        
+{%endblock%}
+
+{%block PAGE_LEVEL_SCRIPTS%}
+<script src="{% static '/custom/js/attendances.js' %}" type="text/javascript"></script>
 {%endblock%}
