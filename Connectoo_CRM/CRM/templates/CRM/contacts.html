@@ -56,7 +56,7 @@ Contacts <small> {{school.name}}</small>
         {% for c in k.contacts_set.all %}
         
         <tr>
-            <td><a href="{% url 'CRM:child_profile' c.kid.id %}"><i class="fa fa-user"></i></a></td>
+            <td><a href="{% url 'CRM:child_profile' c.kid.id %}" title="child profile"><i class="fa fa-user"></i></a></td>
             <td>{{c.kid.first_name}}</td>
             <td>{{c.kid.group.name}}</td>
             <td>{{c.firstname}}</td>
