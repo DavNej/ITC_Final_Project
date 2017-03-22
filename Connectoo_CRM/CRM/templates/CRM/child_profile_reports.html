@@ -28,9 +28,9 @@
                     <td>{{forloop.counter}}</td>
                     <td>{{a.updated_at|date}}</td>
                     <td>{{a.updated_at|time}}</td>
-                    {% if a.action_type == 1 %}
+                    {% if a.active == 1 %}
                     <td>Check-in</td>
-                    {% elif a.action_type == 0 %}
+                    {% else %}
                     <td>Check-out</td>
                     {% endif %}
                 </tr>
@@ -50,7 +50,7 @@
 </div>
 
 <div class="portlet-body">
-    <div class="table-responsive">
+    <div class="table-responsive" style="max-height: 181px;">
         <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
             <thead>
                 <tr>
@@ -80,40 +80,44 @@
     </div>
 </div>
 
-<div class="portlet-body">
-    <div class="portlet-title tabbable-line">
-        <div class="caption caption-md">
-            <i class="icon-globe theme-font hide"></i>
-            <span class="caption-subject font-blue-madison bold uppercase childInfo">Missing items</span>
-        </div>
-    </div>
-</div>
+<!-- MISSING ITEMS TABLE ( FOR L IN LACKS ) -->
+<!--<div class="portlet-body">-->
+    <!--<div class="portlet-title tabbable-line">-->
+        <!--<div class="caption caption-md">-->
+            <!--<i class="icon-globe theme-font hide"></i>-->
+            <!--<span class="caption-subject font-blue-madison bold uppercase childInfo">Missing items</span>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
-<div class="portlet-body">
-    <div class="table-responsive">
-        <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Date</th>
-                    <th>Type</th>
-                    <th>Quantity</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="odd gradeX">
-                    <td>#</td>
-                    <td>%Date%</td>
-                    <td>%Type%</td>
-                    <td>%Qty%</td>
-                    <td>%Notes%</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
+<!--<div class="portlet-body">-->
+    <!--<div class="table-responsive">-->
+        <!--<table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">-->
+            <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>#</th>-->
+                    <!--<th>Date</th>-->
+                    <!--<th>Type</th>-->
+                    <!--<th>Quantity</th>-->
+                    <!--<th>Notes</th>-->
+                <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--{% for l in lacks%}-->
+                <!--<tr class="odd gradeX">-->
+                    <!--<td></td>-->
+                    <!--<td>{{l.date}}</td>-->
+                    <!--<td>{{l.report}}</td>-->
+                    <!--<td>%Qty%</td>-->
+                    <!--<td>%Notes%</td>-->
+                <!--</tr>-->
+            <!--{% endfor %}-->
+            <!--</tbody>-->
+        <!--</table>-->
+    <!--</div>-->
+<!--</div>-->
+<!-- END MISSING ITEMS TABLE -->
+<!--START FOOD TABLE-->
 <div class="portlet-body">
     <div class="portlet-title tabbable-line">
         <div class="caption caption-md">
@@ -124,23 +128,31 @@
 </div>
 
 <div class="portlet-body">
-    <div class="table-responsive">
+     <div class="table-responsive" style="max-height: 181px;">
         <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Status</th>
                     <th>Date</th>
                     <th>Time</th>
-                    <th>Dish</th>
                 </tr>
             </thead>
             <tbody>
+              {% for f in food %}
                 <tr class="odd gradeX">
-                    <td>#</td>
-                    <td>% date %</td>
-                    <td>% time %</td>
-                    <td>% bottle %</td>
+                    <td>{{forloop.counter}}</td>
+                    {% if f.active == 0 %}
+                    <td>ATE</td>
+                    <td>{{f.updated_at|date}}</td>
+                    <td>{{f.updated_at|time}}</td>
+                    {% else %}
+                    <td>Didnt eat yet</td>
+                    <td>{{f.updated_at|date}}</td>
+                    <td>{{f.updated_at|time}}</td>
+                    {% endif %}
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
@@ -156,25 +168,25 @@
 </div>
 
 <div class="portlet-body">
-    <div class="table-responsive">
+    <div class="table-responsive" style="max-height: 181px;">
         <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Date</th>
                     <th>Last Changed</th>
-                    <th>Daily Changes</th>
                     <th>Comments</th>
                 </tr>
             </thead>
             <tbody>
+            {% for po in poops %}
                 <tr class="odd gradeX">
-                    <td>#</td>
-                    <td>% date %</td>
-                    <td>% time %</td>
-                    <td>% qty %</td>
-                    <td>% comment %</td>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{po.updated_at|date}}</td>
+                    <td>{{po.updated_at|time}}</td>
+                    <td>{{po.comment}}</td>
                 </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
