@@ -30,19 +30,40 @@ Magnet
     </li>
 {% endblock%}
 
+{% block page-title %}
+    <h3></h3>
+{% endblock%}
+
 {% block content %}
 <!-- BEGIN : USER CARDS -->
 <div class="row">
     <div class="col-md-12">
-        <div class="portlet light portlet-fit bordered">
-            <div class="portlet-title">
-                <div class="caption">
-                    <div class="portlet-body">
-                        <div class="mt-element-card mt-element-overlay">
-                            <div class="row staff">
+
+
+
+                    {% comment %}<div class="row">
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="https://connectoo.co.il/uploads/profile_pics/{{c.id}}/square/data.jpg">
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">{{c.first_name}}</h3>
+                                    <p class="mt-card-desc font-grey-mint"> {{contact.contact_title}}</p>
+                                     <p class="mt-card-desc font-grey-mint">{{contact.phone}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>{% endcomment %}
+
+
+
+        <div class="portlet-body">
+                <div class="mt-element-card mt-element-overlay">
+                            <div style="padding-left: 0" class="row staff">
                                 {% if staffs %}
-                                {% for s in staffs %}
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                {% with staffs|first as s %}
+                                <div style="padding-left: 0" class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">
                                             <img src="https://connectoo.co.il/uploads/user_picture/{{s.id}}/square/data.jpg">
@@ -55,7 +76,7 @@ Magnet
                                     </div>
 
                                 </div>
-                        {% endfor %}
+                        {% endwith %}
                         {% else %}
                         <h3 style="padding-left: 30px;">Nothing to show...</h3>
                         {% endif %}
@@ -64,9 +85,6 @@ Magnet
             </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
             <!-- Display children -->
             <div class="portlet-body">
                 <div class="mt-element-card mt-element-overlay">
