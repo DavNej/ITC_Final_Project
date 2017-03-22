@@ -50,27 +50,64 @@ Children of <a href="{% url 'CRM:classes_per_school' 201 %}" style="text-decorat
                     <span class="caption-subject font-green bold uppercase">All Children of  {{school.name}}</span>
                 </div>
             </div>
-            <!-- Display children -->
+            <!--&lt;!&ndash; Display children &ndash;&gt;-->
+            <!--<div class="portlet-body">-->
+                <!--<div class="mt-element-card mt-element-overlay">-->
+                    <!--<div class="row">-->
+                        <!---->
+                        <!---->
+                        <!--{% for g in group %}-->
+                        <!--{% for c in g.kids_set.all %}-->
+                        <!--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                            <!--<div class="mt-card-item">-->
+                                <!--<div class="mt-card-avatar mt-overlay-1">-->
+                                    <!--<img src="https://connectoo.co.il/uploads/profile_pics/{{c.id}}/square/data.jpg">-->
+                                    <!--<div class="mt-overlay">-->
+                                        <!--<ul class="mt-info">-->
+                                            <!--<li>-->
+                                                <!--<a class="btn default btn-outline" href="{% url 'CRM:child_profile' c.id %}" title="see Data">-->
+                                                    <!--<i class="fa fa-user"></i>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' c.id %}" title="go to photos">-->
+                                                    <!--<i class="fa fa-picture-o"></i>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="mt-card-content">-->
+                                    <!--<h3 class="mt-card-name">{{c.first_name}}</h3>-->
+                                    <!--<p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{c.bdate}}</p>-->
+                                    <!--<p class="mt-card-desc font-grey-mint">{{c.school}}</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--{% endfor %}-->
+                        <!--{% endfor %}-->
+                        <!---->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
             <div class="portlet-body">
                 <div class="mt-element-card mt-element-overlay">
                     <div class="row">
-                        
-                        
-                        {% for g in group %}
-                        {% for c in g.kids_set.all %}
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="mt-card-item">
                                 <div class="mt-card-avatar mt-overlay-1">
-                                    <img src="https://connectoo.co.il/uploads/profile_pics/{{c.id}}/square/data.jpg">
+                                    <img src="{% static '/media/1.jpg' %}">
                                     <div class="mt-overlay">
                                         <ul class="mt-info">
                                             <li>
-                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' c.id %}" title="see Data">
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
                                                     <i class="fa fa-user"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' c.id %}" title="go to photos">
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
                                                     <i class="fa fa-picture-o"></i>
                                                 </a>
                                             </li>
@@ -78,21 +115,777 @@ Children of <a href="{% url 'CRM:classes_per_school' 201 %}" style="text-decorat
                                     </div>
                                 </div>
                                 <div class="mt-card-content">
-                                    <h3 class="mt-card-name">{{c.first_name}}</h3>
-                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{c.bdate}}</p>
-                                    <p class="mt-card-desc font-grey-mint">{{c.school}}</p>
+                                    <h3 class="mt-card-name">Joseph Amar</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>23/03/2016</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
-                        {% endfor %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/3.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Samuel Jef</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>4/01/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/02.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Romain Ammar</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>26/03/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/11.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Valentine Ganansia</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>26/06/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/8.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Erez Zion</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>11/03/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/03.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Elinor Leafsk</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>12/06/2016</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                   <img src="{% static '/media/4.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Dan Elberg</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>20/06/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/13.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Mickael Mimran</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>21/12/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/20.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Shiran Listgaus</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>1/09/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/12.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Gabrielle Azoulay</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>6/04/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/19.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">David Nejar</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>12/08/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/22.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Daniella Nevies</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>16/05/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/26.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Sapir Cohen</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>18/10/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/21.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Assaf Levi</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>20/11/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/14.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Tali Haffner</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>11/10/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/15.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Rivka Freund</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>15/05/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/31.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Ruben Medina</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>13/05/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/17.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Nathalie Hen</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>17/07/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/25.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Gilad Navot</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>18/01/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/23.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Omer Goldberg</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>4/06/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/18.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Yarden Mizrachi</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>14/10/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/01.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Nevo Nir</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>18/06/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/04.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Sela filo</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>27/11/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/06.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Yulia Glaz</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>21/04/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
                         
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/09.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Itay Cohen</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>24/06/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/1.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Uri Ashraf</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>28/08/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/ITC_Final_Project/Connectoo_CRM/media/1.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Tomer Marx</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>14/02/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/ITC_Final_Project/Connectoo_CRM/media/1.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Idan Babler</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>17/05/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{% static '/media/1.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Tal Aros</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>16/06/2014</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                   <img src="{% static '/media/16.jpg' %}">
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:child_profile' 2922 %}" title="see Data">
+                                                    <i class="fa fa-user"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn default btn-outline" href="{% url 'CRM:gallery_kid' 2922 %}" title="go to photos">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-card-content">
+                                    <h3 class="mt-card-name">Mischa Markov</h3>
+                                    <p class="mt-card-desc font-grey-mint"><i class="fa fa-birthday-cake" aria-hidden="true"></i>10/02/2015</p>
+                                    <p class="mt-card-desc font-grey-mint">גן פשושים</p>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 <!-- END : USER CARDS -->
 {%endblock%}
 
