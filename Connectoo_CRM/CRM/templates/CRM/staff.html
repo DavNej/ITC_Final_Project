@@ -39,50 +39,73 @@ Staff of {{school.name}}
 <div class="portlet-body">
                 <div class="mt-element-card mt-element-overlay">
                     <div class="row">
-                        {% if staffs %}
-                        {% for s in staffs %}
-                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
-                            <div class="mt-card-item">
-                                <div class="mt-card-avatar mt-overlay-1">
-                                    <img src="https://connectoo.co.il/uploads/user_picture/{{s.id}}/square/data.jpg">
-                                </div>
-                                <div class="mt-card-content">
-                                    <h3 class="mt-card-name">{{s.first_name}}</h3>
-                                    <p class="mt-card-desc font-grey-mint">Teacher</p>
-                                      <p class="mt-card-desc font-grey-mint">{{s.phone}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {% else %}
-                        <h3 style="padding-left: 30px;">Nothing to show...</h3>
-                        {% endif %}
+                        
+
+
+
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                <div class="mt-card-item">
+                    <div class="mt-card-avatar mt-overlay-1">
+                        <img src="{% static '/staff/1.jpg' %}">
+                    </div>
+                    <div class="mt-card-content">
+                        <h3 class="mt-card-name">David</h3>
+                        <p class="mt-card-desc font-grey-mint">Manager</p>
+                            <p class="mt-card-desc font-grey-mint">+972 58 876 866</p>
+                    </div>
+                </div>
+            </div>
+      
+
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                <div class="mt-card-item">
+                    <div class="mt-card-avatar mt-overlay-1">
+                        <img src="{% static '/staff/2.jpg' %}">
+                    </div>
+                    <div class="mt-card-content">
+                        <h3 class="mt-card-name">Daniella</h3>
+                        <p class="mt-card-desc font-grey-mint">Teacher</p>
+                            <p class="mt-card-desc font-grey-mint">+972 58 657 096</p>
+                    </div>
+                </div>
+          
+</div>
+
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                <div class="mt-card-item">
+                    <div class="mt-card-avatar mt-overlay-1">
+                        <img src="{% static '/staff/3.jpg' %}">
+                    </div>
+                    <div class="mt-card-content">
+                        <h3 class="mt-card-name">Valentine</h3>
+                        <p class="mt-card-desc font-grey-mint">Teacher</p>
+                            <p class="mt-card-desc font-grey-mint">+972 58 045 246</p>
+                    </div>
+    </div>
+</div>
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                <div class="mt-card-item">
+                    <div class="mt-card-avatar mt-overlay-1">
+                        <img src="{% static 'media/4.jpg' %}">
+                    </div>
+                    <div class="mt-card-content">
+                        <h3 class="mt-card-name">Shiran</h3>
+                        <p class="mt-card-desc font-grey-mint">Teacher</p>
+                            <p class="mt-card-desc font-grey-mint">+972 58 628 019</p>
                     </div>
                 </div>
             </div>
 
-            <!--&lt;!&ndash; First Row &ndash;&gt;-->
-                <!--<div class="mt-element-card mt-element-overlay">-->
-                    <!--<div class="row">-->
-                       <!--{% for s in staffs %}-->
-                        <!--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
-                                <!--<div class="mt-card-avatar mt-overlay-1">-->
-                                    <!--<img src="https://connectoo.co.il/uploads/user_picture/{{s.id}}/square/data.jpg">-->
-                                    <!--<div class="mt-card-content">-->
-                                    <!--<h3 class="mt-card-name">{{s.first_name}}</h3>-->
-                                    <!--<p class="mt-card-desc font-grey-mint">Teacher</p>-->
-                                <!--</div>-->
 
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--{% endfor %}-->
-                    <!--</div>-->
-                <!--</div>-->
-             <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-<!-- END : USER CARDS -->
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
 {%endblock%}
 
 <!-- ********************** BEGIN JS LINKS ********************** -->
