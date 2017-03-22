@@ -54,7 +54,7 @@ Attendances <small>of {{school.name}}</small>
                         </div>
                         <div class="details">
                             <div class="number">
-                                <span data-counter="counterup" data-value="35">{{kids.count}}</span></div>
+                                <span data-counter="counterup" data-value="35">30</span></div>
                             <div class="desc">Total kids</div>
                         </div>
                     </div>
@@ -77,17 +77,10 @@ Attendances <small>of {{school.name}}</small>
                 </tr>
             </thead>
             <tbody>
-                <!-- The Schema begin here -->
-                <!-- Person One  -->
-                {% for k in kids%}
                 <tr class="odd gradeX">
-                    <td>{{k.first_name}}</td>
-                    <td class="center">{{k.group.name}}</td>
-                    <td>
-                        {% with k.contacts_set.all|first as c%}
-                        <a href="mailto:some@gmail.com">{{c.email}}</a>
-                        {% endwith %}
-                    </td>
+                    <td>Elinor leafsk</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">leafskis@gmail.com</a></td>
                     <td>
                         {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
                         <span class="label label-sm label-not-arrive not">Absent</span>
@@ -102,7 +95,556 @@ Attendances <small>of {{school.name}}</small>
                         <input type="button" class="button notarrive">
                     </td>
                 </tr>
-                {% endfor %}
+               <tr class="odd gradeX">
+                    <td>Dan elberg</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">elberg@Yahoo.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Michal mimran</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">mimean@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Shiran listgaus</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">listgaus@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Gariella azoulay</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">gabz2@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>David nejar</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">nej@gmal.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Daniella nevies</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">d34@yahoo.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Sapir cohen</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">cohens@yahoo.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Assaf levi</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">levi@lavi.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Tali haffner</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">heffs@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Rivka freund</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">r124@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Ruben meidna</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">medina@israel.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>nathalie hen</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">henath@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Gilad nevot</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">Nevot@lavi.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Omer goldberg</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">goldi@lyahoo.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Yarden Mizrachi</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">immam@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Sela filo</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">filof@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Yulia glaz</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">glazno@google.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Erez zion</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">mzi29@walla.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Itay cohen</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">linda124@yahoo.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Uri ashraf</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">uria@google.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Idan babler</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">romekB@google.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Tal aros</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">arosfam@yahoo.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Alex markov</td>
+                    <td class="center">בוגרים</td>
+                    <td> <a href="mailto:">markov@google.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Joseph amar</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:amary@gmail.com">amary@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Valentine ganansia</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">ganasia@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Romain ammar</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">am12@gmail.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Samuel jef</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">jef@samsung.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Tomer marx</td>
+                    <td class="center">בוגרים</td>
+                    <td><a href="mailto:">marx@empire.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+               <tr class="odd gradeX">
+                    <td>Nevo nir</td>
+                    <td class="center">בוגרים</td>
+                   <td><a href="mailto:">nirtz@sdotyan.com</a></td>
+                    <td>
+                        {% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}
+                        <span class="label label-sm label-not-arrive not">Absent</span>
+                        {% else %}
+                        <span class="label label-sm label-default checkin"> Check in </span>
+                        {% endif%}
+                    </td>
+                    <td>
+                        <input type="button" class="button check-in" style="box-sizing:none;">
+                        {% comment %}<input type="button" class="button check-out">{% endcomment %}
+                        {% comment %}<input type="button" class="button latearrival">{% endcomment %}
+                        <input type="button" class="button notarrive">
+                    </td>
+                </tr>
+
+
+                <!-- The Schema begin here -->
+                <!-- Person One  -->
+                <!--{% for k in kids%}-->
+                <!--<tr class="odd gradeX">-->
+                    <!--<td>{{k.first_name}}</td>-->
+                    <!--<td class="center">{{k.group.name}}</td>-->
+                    <!--<td>-->
+                        <!--{% with k.contacts_set.all|first as c%}-->
+                        <!--<a href="mailto:some@gmail.com">{{c.email}}</a>-->
+                        <!--{% endwith %}-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--{% if k.id == 710 or k.id == 723 or k.id == 1526 or k.id == 684 %}-->
+                        <!--<span class="label label-sm label-not-arrive not">Absent</span>-->
+                        <!--{% else %}-->
+                        <!--<span class="label label-sm label-default checkin"> Check in </span>-->
+                        <!--{% endif%}-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<input type="button" class="button check-in" style="box-sizing:none;">-->
+                        <!--{% comment %}<input type="button" class="button check-out">{% endcomment %}-->
+                        <!--{% comment %}<input type="button" class="button latearrival">{% endcomment %}-->
+                        <!--<input type="button" class="button notarrive">-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--{% endfor %}-->
             </tbody>
         </table>
     </div>
