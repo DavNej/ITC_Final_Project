@@ -52,6 +52,7 @@
     border: 1px solid black;
     border-radius: 50px !important;
     background: #36c6d3;
+
 }
 .latearrival {
     display:inline-block;
@@ -73,4 +74,9 @@
 }
 .button:hover {
     background: white;
+}
+
+
+.button:focus {
+  outline: none;
 }
