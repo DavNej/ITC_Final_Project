@@ -81,6 +81,7 @@ Child Profile
                 </div>
             </div>{% endcomment %}
 
+{% comment %}
 {% block table %}    
     <div class="portlet-title tabbable-line">
         <div class="caption caption-md">
@@ -156,6 +157,80 @@ Child Profile
         </div>
     </div>
 {% endblock%}
+{% endcomment %}
 
+{% block table %}    
+    <div class="portlet-title tabbable-line">
+        <div class="caption caption-md">
+            <i class="icon-globe theme-font hide"></i>
+            <span class="caption-subject font-blue-madison bold uppercase childInfo">Details</span>
+        </div>
+    </div>
+    
+    <div class="portlet-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
+                <thead>
+                    <tr>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="odd gradeX">
+                        <td>Boy</td>
+                        <td>16 Herzl Street, Tel Aviv, Israel</td>
+                        <td><span class="label label-sm label-default checkin">Check-in</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="portlet-title tabbable-line">
+        <div class="caption caption-md">
+            <i class="icon-globe theme-font hide"></i>
+            <span class="caption-subject font-blue-madison bold uppercase childInfo">Contact Info</span>
+        </div>
+    </div>
+
+    <div class="portlet-body">
+        <div class="table-responsive">
+
+            <table class="table table-bordered" style="white-space: nowrap;overflow: scroll;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone number</th>
+                        <th>Relation</th>
+                        <th>Mail</th>
+                        <th>Adress</th>
+                        <th>city</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd gradeX">
+                        <td>נחום</td>
+                        <td>0587356143</td>
+                        <td>אבא</td>
+                        <td><a href="#">nachum@gmail.com</a></td>
+                        <td class="center">16 Herzl Street</td>
+                        <td>Tel Aviv</td>
+                    </tr>
+                    <tr class="odd gradeX">
+                        <td>חנה</td>
+                        <td>0526882300</td>
+                        <td>אמא</td>
+                        <td><a href="#">chana@gmail.com</a></td>
+                        <td class="center">16 Herzl Street</td>
+                        <td>Tel Aviv</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock%}
 
 
