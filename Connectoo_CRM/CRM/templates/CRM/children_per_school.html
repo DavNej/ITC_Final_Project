@@ -34,7 +34,10 @@ Children
 {% endblock%}
 
 {% block page-title %}
+{% comment %}
 Children of <a href="{% url 'CRM:classes_per_school' 201 %}" style="text-decoration: none;">{{ school.name }}</a>
+{% endcomment %}
+Children of {{ school.name }}
 <a style="float: right" class="btn btn-primary" href="{% url 'CRM:gallery_schools' 201 %}" role="button"><i class="fa fa-picture-o"></i> School Gallery</a>
 {% endblock%}
 

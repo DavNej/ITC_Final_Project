@@ -140,7 +140,11 @@
             </div>
             <div class="details">
                 <div class="number">
-                    <span data-counter="counterup" data-value="29">0</span>
+                    {% if request.user|has_group:"Manager" %} 
+                    <span data-counter="counterup" data-value="27">0</span>
+                    {% elif request.user|has_group:"Parent" %}
+                    <span data-counter="counterup" data-value="28">0</span>
+                    {% endif %}
                 </div>
                 <div class="desc">Attendances</div>
             </div>
