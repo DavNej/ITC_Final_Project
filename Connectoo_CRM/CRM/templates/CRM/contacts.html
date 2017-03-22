@@ -50,25 +50,336 @@ Contacts <small> {{school.name}}</small>
         </tr>
     </thead>
     <tbody>
-        
-        {% for g in group %}
-        {% for k in g.kids_set.all %}
-        {% for c in k.contacts_set.all %}
-        
-        <tr>
-            <td><a href="{% url 'CRM:child_profile' c.kid.id %}"><i class="fa fa-user"></i></a></td>
-            <td>{{c.kid.first_name}}</td>
-            <td>{{c.kid.group.name}}</td>
-            <td>{{c.firstname}}</td>
-            <td>{{c.contact_title}}</td>
-            <td>{{c.phone}}</td>
+           <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Elinor leafsk</td>
+            <td>בוגרים</td>
+            <td>Yellena leafsk</td>
+            <td>Mother</td>
+            <td>0549009101</td>
             <td>
-                <a href="mailto:{{c.email}}">{{c.email}}</a>
+                <a href="mailto:">leafskis@gmail.com</a>
             </td>
         </tr>
-        {%endfor%}
-        {%endfor%}
-        {%endfor%}
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Dan elberg</td>
+            <td>בוגרים</td>
+            <td>Yaniv elberg</td>
+            <td>Father</td>
+            <td>0544209801</td>
+            <td>
+                <a href="mailto:">elberg@Yahoo.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Michael mimran</td>
+            <td>בוגרים</td>
+            <td>ella mimran</td>
+            <td>Mother</td>
+            <td>0503402301</td>
+            <td>
+                <a href="mailto:">mimean@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Shiran listgaus</td>
+            <td>בוגרים</td>
+            <td>Isak listgaus</td>
+            <td>Father</td>
+            <td>0544444111</td>
+            <td>
+                <a href="mailto:">listgaus@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Gabirelle azoulay</td>
+            <td>בוגרים</td>
+            <td>Jean-Claud azoulay</td>
+            <td>Father</td>
+            <td>0543203201</td>
+            <td>
+                <a href="mailto:">gabz2@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>David nejar</td>
+            <td>בוגרים</td>
+            <td>corin nejar</td>
+            <td>Mother</td>
+            <td>0545523031</td>
+            <td>
+                <a href="mailto:">nej@gmal.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Deniella Nevies</td>
+            <td>בוגרים</td>
+            <td>Mark nevies</td>
+            <td>Father</td>
+            <td>0524003001</td>
+            <td>
+                <a href="mailto:">d34@yahoo.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Sapir cohen</td>
+            <td>בוגרים</td>
+            <td>Eli cohen</td>
+            <td>Father</td>
+            <td>0524040201</td>
+            <td>
+                <a href="mailto:">cohens@yahoo.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Assaf levi</td>
+            <td>בוגרים</td>
+            <td>leah levi</td>
+            <td>Mother</td>
+            <td>0502252255</td>
+            <td>
+                <a href="mailto:">levi@lavi.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Tali haffner</td>
+            <td>בוגרים</td>
+            <td>Sam Haffner</td>
+            <td>Father</td>
+            <td>0552309801</td>
+            <td>
+                <a href="mailto:">heffs@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Rivka freund</td>
+            <td>בוגרים</td>
+            <td>Mattias freund</td>
+            <td>Father</td>
+            <td>0524444221</td>
+            <td>
+                <a href="mailto:">r124@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Ruben medina</td>
+            <td>בוגרים</td>
+            <td>Moshe medina</td>
+            <td>Father</td>
+            <td>0504302301</td>
+            <td>
+                <a href="mailto:">medina@israel.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Nathalie hen</td>
+            <td>בוגרים</td>
+            <td>Jen Hen</td>
+            <td>Mother</td>
+            <td>0504344303</td>
+            <td>
+                <a href="mailto:">henath@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Gilad Nevot</td>
+            <td>בוגרים</td>
+            <td>Shai Nevot</td>
+            <td>Father</td>
+            <td>0535552255</td>
+            <td>
+                <a href="mailto:">Nevot@lavi.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Omer goldberg</td>
+            <td>בוגרים</td>
+            <td>Dan goldberg</td>
+            <td>Father</td>
+            <td>0505000210</td>
+            <td>
+                <a href="mailto:">goldi@lyahoo.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Yarden Mizrachi</td>
+            <td>בוגרים</td>
+            <td>Imma Mizrachi</td>
+            <td>Mother</td>
+            <td>0522222400</td>
+            <td>
+                <a href="mailto:">immam@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Sela filo</td>
+            <td>בוגרים</td>
+            <td>Feller filo</td>
+            <td>Father</td>
+            <td>0544420303</td>
+            <td>
+                <a href="mailto:">filof@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Yulia Glaz</td>
+            <td>בוגרים</td>
+            <td>Lena glaz</td>
+            <td>Mother</td>
+            <td>0545888221</td>
+            <td>
+                <a href="mailto:">glazno@google.com</a>
+            </td>
+        </tr>
+              <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Erez zion</td>
+            <td>בוגרים</td>
+            <td>Yoel zion</td>
+            <td>Father</td>
+            <td>0545530205</td>
+            <td>
+                <a href="mailto:">mzi29@walla.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Itay cohen</td>
+            <td>בוגרים</td>
+            <td>lynda cohen</td>
+            <td>Mother</td>
+            <td>05376540225</td>
+            <td>
+                <a href="mailto:">linda124@yahoo.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Uri ashraf</td>
+            <td>בוגרים</td>
+            <td>Eli ashraf</td>
+            <td>Father</td>
+            <td>0529000666</td>
+            <td>
+                <a href="mailto:">uria@google.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Idan babler</td>
+            <td>בוגרים</td>
+            <td>Romek Babler</td>
+            <td>Mother</td>
+            <td>054555312</td>
+            <td>
+                <a href="mailto:">romekB@google.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Tal aros</td>
+            <td>בוגרים</td>
+            <td>Eitan aros</td>
+            <td>Father</td>
+            <td>0524508899</td>
+            <td>
+                <a href="mailto:">arosfam@yahoo.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Mischa markov</td>
+            <td>בוגרים</td>
+            <td>Alex markov</td>
+            <td>Father</td>
+            <td>0544424302</td>
+            <td>
+                <a href="mailto:">markov@google.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Joseph amar</td>
+            <td>בוגרים</td>
+            <td>Yoram amar</td>
+            <td>Father</td>
+            <td>0505552255</td>
+            <td>
+                <a href="mailto:">avi@lavi.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Valentine Ganansia</td>
+            <td>בוגרים</td>
+            <td>Caroline ganansia</td>
+            <td>Mother</td>
+            <td>0544000555</td>
+            <td>
+                <a href="mailto:">ganasia@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Romain ammar</td>
+            <td>בוגרים</td>
+            <td>Lev ammar</td>
+            <td>Father</td>
+            <td>0503002255</td>
+            <td>
+                <a href="mailto:">am12@gmail.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Samuel jef</td>
+            <td>בוגרים</td>
+            <td>David jef</td>
+            <td>Father</td>
+            <td>0525004123</td>
+            <td>
+                <a href="mailto:">jef@samsung.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Tomer Marx</td>
+            <td>בוגרים</td>
+            <td>Eli marx</td>
+            <td>Father</td>
+            <td>0509000000</td>
+            <td>
+                <a href="mailto:">marx@empire.com</a>
+            </td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-user"></i></a></td>
+            <td>Nevo nir</td>
+            <td>בוגרים</td>
+            <td>Tzehela nir</td>
+            <td>Father</td>
+            <td>0525523091</td>
+            <td>
+                <a href="mailto:">nirtz@sdotyan.com</a>
+            </td>
+        </tr>
     </tbody>
 </table>
 {%endblock%}
@@ -93,3 +404,24 @@ Contacts <small> {{school.name}}</small>
 <script src="{% static '/layouts/global/scripts/quick-sidebar.min.js'%}" type="text/javascript"></script>
 {%endblock%}
 <!-- ********************** END JS LINKS ********************** -->
+
+
+        <!--{% for g in group %}-->
+        <!--{% for k in g.kids_set.all %}-->
+        <!--{% for c in k.contacts_set.all %}-->
+
+        <!--<tr>-->
+            <!--<td><a href="{% url 'CRM:child_profile' c.kid.id %}"><i class="fa fa-user"></i></a></td>-->
+            <!--<td>{{c.kid.first_name}}</td>-->
+            <!--<td>{{c.kid.group.name}}</td>-->
+            <!--<td>{{c.firstname}}</td>-->
+            <!--<td>{{c.contact_title}}</td>-->
+            <!--<td>{{c.phone}}</td>-->
+            <!--<td>-->
+                <!--<a href="mailto:{{c.email}}">{{c.email}}</a>-->
+            <!--</td>-->
+        <!--</tr>-->
+
+        <!--{%endfor%}-->
+        <!--{%endfor%}-->
+        <!--{%endfor%}-->

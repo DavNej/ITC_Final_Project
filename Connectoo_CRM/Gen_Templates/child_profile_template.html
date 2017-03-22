@@ -30,15 +30,15 @@
 
 {% block section %}
     <li>
-        <a href="{%url 'CRM:classes_per_school' kid.group.k_garden.id %}">School</a>
+        <a href="{%url 'CRM:classes_per_school' 201 %}">School</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{%url 'CRM:children_per_class' kid.group.id %}">Class</a>
+        <a href="{%url 'CRM:children_per_class' 361 %}">Class</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
-        <a href="{% url 'CRM:child_profile' kid.id %}">Child Profile</a>
+        <a href="{% url 'CRM:child_profile' 2922 %}">Child Profile</a>
     </li>
 {% endblock%}
 
@@ -51,33 +51,33 @@
             <div class="portlet light profile-sidebar-portlet childrenProfile">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <a href="{% url 'CRM:child_profile' kid.id %}">
-                        <img src="https://connectoo.co.il/uploads/profile_pics/{{kid.id}}/square/data.jpg" class="img-responsive" alt=""> </div>
+                    <a href="{% url 'CRM:child_profile' 2922 %}">
+                        <img src="https://connectoo.co.il/uploads/profile_pics/{{2922}}/square/data.jpg" class="img-responsive" alt=""> </div>
                     </a>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
-                    <div class="profile-usertitle-name">{{kid.first_name}}</div>
-                    <div class="profile-usertitle-job"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{kid.bdate}}</div>
+                    <div class="profile-usertitle-name"> ארז ציון</div>
+                    <div class="profile-usertitle-job"><i class="fa fa-birthday-cake" aria-hidden="true"></i>OCT. 24, 2014</div>
                 </div>
 
                 <div class="profile-userbuttons">
-                    <a href="{% url 'CRM:children_per_class' kid.group.id %}" title="Go to class" class="btn btn-circle green btn-sm classNumber">{{kid.group.name}}</a>
-                    <a href="{% url 'CRM:classes_per_school' kid.group.k_garden.id %}" title="Go to school" class="btn btn-circle red btn-sm schoolName">{{kid.group.k_garden.name}}</a>
+                    <a href="{% url 'CRM:children_per_class' 361 %}" title="Go to class" class="btn btn-circle green btn-sm classNumber">בוגרים</a>
+                    <a href="{% url 'CRM:classes_per_school' 201 %}" title="Go to school" class="btn btn-circle red btn-sm schoolName">גן פשושים</a>
                 </div>
 
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li class="btn-reports">
-                            <a href="{% url 'CRM:child_profile_reports' kid.id %}">
+                            <a href="{% url 'CRM:child_profile_reports' 2922 %}">
                                 <i class="fa fa-flag"></i>Reports</a>
                         </li>
                          <li class="btn-reports">
-                            <a href="{% url 'CRM:child_profile_health' kid.id %}">
+                            <a href="{% url 'CRM:child_profile_health' 2922 %}">
                                 <i class="fa fa-medkit"></i>Health</a>
                         </li>
                          <li class="btn-reports">
-                            <a href="{% url 'CRM:gallery_kid' kid.id %}">
+                            <a href="{% url 'CRM:gallery_kid' 2922 %}">
                                 <i class="icon-camera"></i>Gallery</a>
                         </li>
                     </ul>

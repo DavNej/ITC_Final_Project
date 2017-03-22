@@ -1,4 +1,5 @@
 {% extends "gallery_template.html" %}
+{% load staticfiles %}
 
 {% block section %}
     <li>
@@ -15,7 +16,7 @@
 {% endblock%}
 
 {% block page-title %}
-Photos of <a href="{% url 'CRM:child_profile' kid.id %}">{{kid.first_name}} </a>
+Photos of &nbsp; <a href="{% url 'CRM:child_profile' kid.id %}">  ארז ציון</a>
 {% endblock%}
 
 {% block content %}
@@ -24,6 +25,7 @@ Photos of <a href="{% url 'CRM:child_profile' kid.id %}">{{kid.first_name}} </a>
     
     <div id="js-grid-lightbox-gallery" class="cbp">
 
+        {% comment %}
         {% for p in kid_pics %}
             <div class="cbp-item web-design graphic print motion">
                 <a href="#" class="cbp-caption">
@@ -61,11 +63,153 @@ Photos of <a href="{% url 'CRM:child_profile' kid.id %}">{{kid.first_name}} </a>
                 </a>
             </div>
         {% endfor %}
+        {% endcomment %}
 
+            <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/1.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/2.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
         
+        <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/3.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/4.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/5.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/6.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/7.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/8.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/9.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    <div class="cbp-item web-design graphic print motion">
+                <a href="#" class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="{% static '/media/child/10.jpg' %}">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignLeft">
+                            <div class="cbp-l-caption-body">
+                                <button type="button" class="btn btn-circle green btn-sm album">Add to Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
     </div>
-        
         {% comment %}{% else %}
             <h3 style="padding-left: 30px;">Nothing to show...</h3>
         {% endif %}{% endcomment %}
